@@ -3,7 +3,59 @@ import React from 'react';
 import MainLayout from '../components/layouts/main-layout';
 
 const HomePage = () => {
-	return <MainLayout>Hallo from home</MainLayout>;
+	return (
+		<MainLayout>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+			<div className="white">Hallo mate</div>
+		</MainLayout>
+	);
 };
 
 export default HomePage;
