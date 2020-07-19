@@ -1,0 +1,27 @@
+{
+	"name": "my-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"test": "jest",
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"export": "next export -o compiled"
+	},
+	"dependencies": {
+		"@zeit/next-css": "^1.0.1",
+		"antd": "^4.0.2",
+		"axios": "^0.19.2",
+		"mobx": "^5.15.4",
+		"mobx-react": "^6.1.8",
+		"next": "9.3.0",
+		"react": "16.13.0",
+		"react-dom": "16.13.0"
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-class-properties": "^7.8.3",
+		"@babel/plugin-proposal-decorators": "^7.8.3",
+		"jest": "^25.1.0"
+	}
+}

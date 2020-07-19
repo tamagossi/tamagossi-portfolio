@@ -1,0 +1,13 @@
+{
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "disableLanguages": ["vue", "yaml"],
+    "jsxBracketSameLine": true,
+    "jsxSingleQuote": false,
+    "packageManager": "yarn",
+    "semi": true,
+    "singleQuote": true,
+    "useTabs": true,
+    "tabWidth": 4,
+    "trailingComma": "es5"
+}
