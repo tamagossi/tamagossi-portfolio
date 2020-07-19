@@ -3,6 +3,7 @@ import App from 'next/app';
 import React from 'react';
 
 import 'antd/dist/antd.css';
+import 'tachyons';
 import './../assets/styles/custom.css';
 
 class MyApp extends App {
