@@ -6,54 +6,6 @@ const HomePage = () => {
 	return (
 		<MainLayout>
 			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
-			<div className="white">Hallo mate</div>
 		</MainLayout>
 	);
 };

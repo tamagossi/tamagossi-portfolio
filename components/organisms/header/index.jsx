@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import TextLoop from 'react-text-loop';
 
 import { Col, Row } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -25,19 +24,11 @@ const Header = () => {
 						{'  '}
 						<span>Pratama</span>
 					</span>
-					{/* <TextLoop springConfig={{ stiffness: 180, damping: 8 }}>
-						<span>
-							<span className="gray">Raka</span>
-							{'  '}
-							<span>Pratama</span>
-						</span>
-						<span>Download CV</span>
-					</TextLoop> */}
 				</Col>
 				<Col className="pointer dn-l" onClick={() => showDrawer()}>
 					<MenuOutlined className="f3" />
 				</Col>
-				<Col className="pointer dn db-l" span="7">
+				<Col className="pointer dn db-l" span="12">
 					<Row gutter={96} justify="end">
 						<HeaderMenu to="resume" label="Resume" />
 						<HeaderMenu to="works" label="Works" />
