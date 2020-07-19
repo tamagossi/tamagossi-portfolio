@@ -17,7 +17,8 @@ const Header = () => {
 			<Row
 				align="middle"
 				className="white pa4 pa5-l w-100 fixed"
-				justify="space-between">
+				justify="space-between"
+				style={{ zIndex: '80' }}>
 				<Col className="f4 fw7 pointer">
 					<span className="f3-l">
 						<span className="gray">Raka</span>
