@@ -13,6 +13,10 @@
 	left: 0;
 }
 
+.home-button {
+	justify-content: center;
+}
+
 .main-background {
 	background: rgb(27, 27, 27);
 	background: linear-gradient(
@@ -25,4 +29,10 @@
 
 .pointer {
 	cursor: pointer;
+}
+
+@media (min-width: 980px) {
+	.home-button {
+		justify-content: flex-start;
+	}
 }

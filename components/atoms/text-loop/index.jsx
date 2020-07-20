@@ -13,8 +13,7 @@ const MyTextLoop = (props) => {
 				}}>
 				<span className="dark-pink">website development</span>
 				<span className="dark-pink">mobile apps development</span>
-				<span className="dark-pink">love neat code</span>
-				<span className="dark-pink">love elegant code</span>
+				<span className="dark-pink">front-end development</span>
 			</TextLoop>
 		</div>
 	);
