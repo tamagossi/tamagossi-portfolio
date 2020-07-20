@@ -28,14 +28,27 @@ const Footer = () => {
 					<Row gutter={12} justify="end">
 						<Col>
 							<SocialMedia href="#">
-								<GithubOutlined />
+								<GithubOutlined
+									style={{ marginRight: '1px' }}
+								/>
 							</SocialMedia>
 							<SocialMedia href="#">
-								<LinkedinFilled />
+								<LinkedinFilled
+									style={{ marginRight: '1px' }}
+								/>
 							</SocialMedia>
 							<SocialMedia href="#">
-								<TwitterOutlined />
+								<TwitterOutlined
+									style={{ marginRight: '1px' }}
+								/>
 							</SocialMedia>
+						</Col>
+
+						<Col span="24">
+							<div className="f5 fw3 light-gray dn db-l mt4 tr">
+								Created with <span className="pink">❤</span>{' '}
+								using Next.js
+							</div>
 						</Col>
 					</Row>
 				</Col>

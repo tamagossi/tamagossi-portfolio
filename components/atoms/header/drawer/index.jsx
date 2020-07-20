@@ -27,7 +27,7 @@ const HeaderDrawer = (props) => {
 				<>
 					<span className="gray">Raka</span>
 					{'  '}
-					<span class="white">Pratama</span>
+					<span className="white">Pratama</span>
 				</>
 			}
 			visible={props.isDrawerVisible}>

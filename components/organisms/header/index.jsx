@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 import { Col, Row } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -20,11 +21,13 @@ const Header = () => {
 				justify="space-between"
 				style={{ zIndex: '80' }}>
 				<Col className="f4 fw7 pointer">
-					<span className="f3-l">
-						<span className="gray">Raka</span>
-						{'  '}
-						<span>Pratama</span>
-					</span>
+					<Link href="/">
+						<div className="f3-l">
+							<span className="gray">Raka</span>
+							{'  '}
+							<span>Pratama</span>
+						</div>
+					</Link>
 				</Col>
 				<Col className="pointer dn-l" onClick={() => showDrawer()}>
 					<MenuOutlined className="f3" />

@@ -13,10 +13,6 @@
 	left: 0;
 }
 
-.home-button {
-	justify-content: center;
-}
-
 .main-background {
 	background: rgb(27, 27, 27);
 	background: linear-gradient(
@@ -27,12 +23,38 @@
 	min-height: 100vh;
 }
 
+.my-bg-dark-gray {
+	background: #181818;
+}
+
+.my-moon-white-border {
+	border-color: #303030;
+}
+
+.main-margin {
+	margin: 0 2rem;
+}
+
 .pointer {
 	cursor: pointer;
 }
 
+.resume-title {
+	font-size: 6rem;
+}
+
 @media (min-width: 980px) {
-	.home-button {
-		justify-content: flex-start;
+	.main-margin {
+		margin: 0 15rem;
+	}
+
+	.resume-title {
+		font-size: 12rem;
+	}
+}
+
+@media (min-width: 1280px) {
+	.main-margin {
+		margin: 0 30rem;
 	}
 }
