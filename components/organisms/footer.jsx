@@ -6,8 +6,8 @@ import {
 	TwitterOutlined,
 } from '@ant-design/icons';
 
-import SocialMedia from '../../atoms/footer/social-media';
-import TextLoop from '../../atoms/text-loop';
+import SocialMedia from '../atoms/footer/social-media';
+import TextLoop from '../atoms/text-loop';
 
 const Footer = () => {
 	return (

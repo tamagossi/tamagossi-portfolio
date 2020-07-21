@@ -1,7 +1,7 @@
 import React from 'react';
 import { Drawer } from 'antd';
 
-import DrawerLink from '../drawer-link/index';
+import DrawerLink from './drawer-link';
 
 const HeaderDrawer = (props) => {
 	return (

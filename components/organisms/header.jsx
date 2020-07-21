@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { Col, Row } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
-import Drawer from '../../atoms/header/drawer';
-import HeaderMenu from '../../atoms/header/menu-link';
+import Drawer from '../atoms/header/drawer';
+import HeaderMenu from '../atoms/header/menu-link';
 
 const Header = () => {
 	const [state, setstate] = useState({ isDrawerVisible: false });
