@@ -1,9 +1,11 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 
+import CodingSkills from '../components/organisms/resume/coding-skills';
 import ExperienceAndEducation from '../components/organisms/resume/experiences-and-education';
 import MainLayout from '../components/layouts/main-layout';
 import Overview from '../components/organisms/resume/overview';
+import ProgrammingSkills from '../components/organisms/resume/programming-languages';
 import Services from '../components/organisms/resume/services';
 
 const Resume = () => {
@@ -36,6 +38,10 @@ const Resume = () => {
 					<ExperienceAndEducation title="Education" />
 				</Col>
 			</Row>
+
+			<ProgrammingSkills />
+
+			<CodingSkills />
 
 			<Row className="pb6"></Row>
 		</MainLayout>

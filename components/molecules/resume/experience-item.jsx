@@ -1,8 +1,6 @@
 import React from 'react';
 
 const ExperienceAndEducationItem = (props) => {
-	console.log(props);
-
 	return (
 		<div className="mt5 pa4 my-bg-dark-gray ba my-moon-white-border">
 			<div className="gray f5 mb0">{props.years}</div>
