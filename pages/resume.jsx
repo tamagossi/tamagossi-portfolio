@@ -1,13 +1,13 @@
 import React from 'react';
-import { Row } from 'antd';
+import { Col, Row } from 'antd';
 
-import Experience from '../components/organisms/resume/experiences';
+import ExperienceAndEducation from '../components/organisms/resume/experiences-and-education';
 import MainLayout from '../components/layouts/main-layout';
 import Overview from '../components/organisms/resume/overview';
 import Services from '../components/organisms/resume/services';
 
 const Resume = () => {
-	if (window) {
+	if (typeof window !== 'undefined') {
 		window.scrollTo(0, document.body.scrollHeight);
 	}
 
@@ -25,7 +25,17 @@ const Resume = () => {
 
 			<Services />
 
-			<Experience />
+			<Row
+				className="main-margin"
+				justify="space-between"
+				style={{ marginTop: '6rem' }}>
+				<Col className="mt5 mt0-l" xs={{ span: 24 }} lg={{ span: 11 }}>
+					<ExperienceAndEducation title="Experience" />
+				</Col>
+				<Col className="mt5 mt0-l" xs={{ span: 24 }} lg={{ span: 11 }}>
+					<ExperienceAndEducation title="Education" />
+				</Col>
+			</Row>
 
 			<Row className="pb6"></Row>
 		</MainLayout>
