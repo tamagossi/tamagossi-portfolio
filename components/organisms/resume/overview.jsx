@@ -27,7 +27,7 @@ const Overview = () => {
 							capable to do development using Python, and Dart
 						</div>
 					</Col>
-					<Col className="mt4" span="24">
+					<Col span="24">
 						<Row
 							className="gray"
 							gutter={16}

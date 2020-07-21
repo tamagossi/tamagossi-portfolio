@@ -5,6 +5,25 @@
 	word-wrap: break-word;
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
 .ant-drawer-close {
 	color: white;
 }
@@ -42,6 +61,10 @@
 
 .resume-title {
 	font-size: 6rem;
+}
+
+.w-48 {
+	width: 48%;
 }
 
 @media (min-width: 980px) {

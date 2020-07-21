@@ -7,11 +7,12 @@ import MainLayout from '../components/layouts/main-layout';
 import Overview from '../components/organisms/resume/overview';
 import ProgrammingSkills from '../components/organisms/resume/programming-languages';
 import Services from '../components/organisms/resume/services';
+import Testimonials from '../components/organisms/resume/testimonials';
 
 const Resume = () => {
-	if (typeof window !== 'undefined') {
-		window.scrollTo(0, document.body.scrollHeight);
-	}
+	// if (typeof window !== 'undefined') {
+	// 	window.scrollTo(0, document.body.scrollHeight);
+	// }
 
 	return (
 		<MainLayout>
@@ -42,6 +43,8 @@ const Resume = () => {
 			<ProgrammingSkills />
 
 			<CodingSkills />
+
+			<Testimonials />
 
 			<Row className="pb6"></Row>
 		</MainLayout>

@@ -5,11 +5,12 @@ import { Col, Progress } from 'antd';
 const CircularBar = (props) => {
 	return (
 		<Col className="mt5" xs={{ span: 8 }} lg={{ span: 6 }}>
-			<div class="tc">
+			<div className="tc">
 				<Progress
 					format={() => (
 						<span className="f3 dark-pink">{props.text}</span>
 					)}
+					id={props.value}
 					percent={props.value}
 					strokeColor={{
 						'0%': '#ff80cc',

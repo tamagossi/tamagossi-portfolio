@@ -5,7 +5,7 @@ import { Col, Progress } from 'antd';
 const LineBar = (props) => {
 	return (
 		<Col className="mt5" xs={{ span: 24 }} lg={{ span: 12 }}>
-			<div class="tc">
+			<div className="tc">
 				<div style={{ width: '90%' }}>
 					<Progress
 						format={() => (
