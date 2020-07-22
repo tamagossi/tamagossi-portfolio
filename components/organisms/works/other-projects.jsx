@@ -42,7 +42,7 @@ const OtherProject = () => {
 
 		for (let i = 0; i < works.length; i = i + 2) {
 			nodes.push(
-				<div>
+				<div key={`key-${i}`}>
 					<WorkItem
 						name={works[i].name}
 						corp={works[i].corp}
