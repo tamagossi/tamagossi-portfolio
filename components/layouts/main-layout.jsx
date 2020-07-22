@@ -13,8 +13,8 @@ const MainLayout = (props) => {
 				backgroundRepeat: 'repeat',
 			}}>
 			<Header />
-			{props.children}
 			<Footer />
+			<div className="pb3">{props.children}</div>
 		</div>
 	);
 };

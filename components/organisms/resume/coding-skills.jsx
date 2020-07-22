@@ -43,7 +43,7 @@ const skills = [
 
 const CodingSkills = () => {
 	return (
-		<div className="main-margin" style={{ marginTop: '6rem' }}>
+		<div style={{ marginTop: '6rem' }}>
 			<Typography.Title>
 				<span className="moon-gray">Frameworks Used</span>
 			</Typography.Title>

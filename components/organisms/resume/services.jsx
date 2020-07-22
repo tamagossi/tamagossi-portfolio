@@ -7,7 +7,7 @@ import ServiceItem from '../../molecules/resume/service-item';
 
 const Services = () => {
 	return (
-		<div className="main-margin" style={{ marginTop: '6rem' }}>
+		<div style={{ marginTop: '6rem' }}>
 			<Typography.Title>
 				<span className="moon-gray">Services</span>
 			</Typography.Title>

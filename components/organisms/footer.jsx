@@ -11,12 +11,11 @@ import TextLoop from '../atoms/text-loop';
 
 const Footer = () => {
 	return (
-		<>
+		<div className="z-1">
 			<Row
 				align="bottom"
 				className="white pa4 pa5-l w-100 fixed fixed-bottom"
-				justify="space-between"
-				style={{ zIndex: '81' }}>
+				justify="space-between">
 				<Col className="f5 fw3 light-gray dn db-l">
 					<div>E: mgf.prauliyatama@gmail.com</div>
 					<div>T: (+62) 8595 137 2394</div>
@@ -53,7 +52,7 @@ const Footer = () => {
 					</Row>
 				</Col>
 			</Row>
-		</>
+		</div>
 	);
 };
 

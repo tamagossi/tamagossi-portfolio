@@ -7,7 +7,7 @@ import OverviewItem from '../../molecules/resume/overview-item';
 const Overview = () => {
 	return (
 		<Row
-			className="my-bg-dark-gray main-margin pa5 ba my-moon-white-border"
+			className="my-bg-dark-gray pa5 ba my-moon-white-border"
 			justify={{ xs: 'center', md: 'start' }}>
 			<Col className="tc tl-l" xs={{ span: 24 }} md={{ span: 6 }}>
 				<Avatar

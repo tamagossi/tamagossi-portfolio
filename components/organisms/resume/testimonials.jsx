@@ -69,7 +69,7 @@ const Testimonials = () => {
 	};
 
 	return (
-		<div className="main-margin" style={{ marginTop: '6rem' }}>
+		<div style={{ marginTop: '6rem' }}>
 			<Row justify="space-between">
 				<Col>
 					<Typography.Title style={{ margin: 0 }}>
