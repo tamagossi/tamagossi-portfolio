@@ -39,7 +39,7 @@ const Overview = () => {
 							/>
 							<OverviewItem
 								label="Email: "
-								content="prauliyatama@gmail.com"
+								content="mgf.prauliyatama@gmail.com"
 							/>
 							<OverviewItem
 								label="Residence: "

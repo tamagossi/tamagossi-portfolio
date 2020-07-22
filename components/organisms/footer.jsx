@@ -26,17 +26,23 @@ const Footer = () => {
 				<Col className="pointer">
 					<Row gutter={12} justify="end">
 						<Col>
-							<SocialMedia href="https://github.com/tamagossi">
+							<SocialMedia
+								href="https://github.com/tamagossi"
+								target="_blank">
 								<GithubOutlined
 									style={{ marginRight: '1px' }}
 								/>
 							</SocialMedia>
-							<SocialMedia href="https://www.linkedin.com/in/prauliyatama/">
+							<SocialMedia
+								href="https://www.linkedin.com/in/prauliyatama/"
+								target="_blank">
 								<LinkedinFilled
 									style={{ marginRight: '1px' }}
 								/>
 							</SocialMedia>
-							<SocialMedia href="https://twitter.com/tamago_ssi">
+							<SocialMedia
+								href="https://twitter.com/tamago_ssi"
+								target="_blank">
 								<TwitterOutlined
 									style={{ marginRight: '1px' }}
 								/>
