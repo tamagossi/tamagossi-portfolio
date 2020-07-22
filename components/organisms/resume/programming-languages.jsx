@@ -25,7 +25,7 @@ const ProgrammingSkills = () => {
 	return (
 		<div style={{ marginTop: '6rem' }}>
 			<Typography.Title>
-				<span className="moon-gray">Frameworks Used</span>
+				<span className="moon-gray">Programming Languages</span>
 			</Typography.Title>
 			<Row
 				className="my-bg-dark-gray ph5 pb5 ba my-moon-white-border"
