@@ -16,7 +16,7 @@ const Resume = () => {
 	// }
 
 	return (
-		<MainLayout>
+		<MainLayout pageTItle="Resume">
 			<Row
 				align="middle"
 				className="white"

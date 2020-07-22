@@ -11,7 +11,7 @@ const HomePage = () => {
 	};
 
 	return (
-		<MainLayout>
+		<MainLayout pageTitle="Home">
 			<Row align="middle" className="white" style={{ height: '100vh' }}>
 				<Col xs={{ span: 24 }} lg={{ span: 12, push: 5 }}>
 					<div className="tc tl-l">
