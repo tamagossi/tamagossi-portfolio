@@ -15,7 +15,7 @@ const MainLayout = (props) => {
 				backgroundRepeat: 'repeat',
 			}}>
 			<Head>
-				<title>{props.pageTitle} | Tamagos</title>
+				<title>{props.pageTitle} | Tamagossi</title>
 				<meta
 					name="viewport"
 					content="initial-scale=1.0, width=device-width"
