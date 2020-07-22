@@ -58,9 +58,9 @@ const Testimonials = () => {
 					<div className="dib" style={{ width: '4%' }}></div>
 					{typeof testimonials[i + 1] !== 'undefined' ? (
 						<TestimonialItem
-							name={testimonials[i].name}
-							role={testimonials[i].role}
-							text={testimonials[i].text}
+							name={testimonials[i + 1].name}
+							role={testimonials[i + 1].role}
+							text={testimonials[i + 1].text}
 						/>
 					) : null}
 				</div>
