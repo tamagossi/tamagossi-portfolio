@@ -56,11 +56,14 @@ const Testimonials = () => {
 						text={testimonials[i].text}
 					/>
 					<div className="dib" style={{ width: '4%' }}></div>
-					<TestimonialItem
-						name={testimonials[i + 1].name}
-						role={testimonials[i + 1].role}
-						text={testimonials[i + 1].text}
-					/>
+					{typeof testimonials[i + 1] !== 'undefined' ? (
+						<TestimonialItem
+							name={testimonials[i + 1].name}
+							corp={testimonials[i + 1].corp}
+							desc={testimonials[i + 1].desc}
+							url={testimonials[i + 1].url}
+						/>
+					) : null}
 				</div>
 			);
 		}

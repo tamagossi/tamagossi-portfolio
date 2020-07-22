@@ -20,23 +20,24 @@ const educations = [
 const experiences = [
 	{
 		years: 'since 04/2020',
-		institution: 'PT. Sampingan Mitra Indonesia',
+		institution: 'Software Engineer - PT. Sampingan Mitra Indonesia',
 		website: 'https://www.sampingan.co.id/',
 		description:
-			'Become Front-End developer to help the team ' +
+			'Help the team ' +
 			'create, enhance, refactor, revamp Sampingan business application',
 	},
 	{
 		years: '07/19 - 03/20',
-		institution: 'PT. Smooets Technology Outsourcing',
+		institution: 'Technical Lead - PT. Smooets Technology Outsourcing',
 		website: 'https://www.linkedin.com/company/smooets/',
 		description:
-			'Become Technical Leader and lead the team ' +
-			'to create robust application to deliver to client',
+			'Lead the team to create robust application ' +
+			'to deliver to client and supervising the team ' +
+			'have better development experience',
 	},
 	{
 		years: '10/18 - 6/19',
-		institution: 'PT. Smooets Technology Outsourcing',
+		institution: 'Front End Developer - PT. Smooets Technology Outsourcing',
 		website: 'https://www.linkedin.com/company/smooets/',
 		description:
 			'Developed plant management system used by one of the ' +
