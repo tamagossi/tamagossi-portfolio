@@ -2,6 +2,8 @@ import React from 'react';
 import { Row, Typography } from 'antd';
 
 import FeaturedWorkItem from '../../molecules/works/featured-work-item';
+import SectionTitle from '../../atoms/section-title';
+import Section from '../../molecules/section';
 
 const featuredWorks = [
 	{
@@ -46,10 +48,7 @@ const featuredWorks = [
 
 const FeaturedWorks = () => {
 	return (
-		<div>
-			<Typography.Title>
-				<span className="moon-gray">Featured Projects</span>
-			</Typography.Title>
+		<Section title="Featured Projects">
 			<Row justify="space-between pt4">
 				{featuredWorks.map((work, index) => (
 					<FeaturedWorkItem
@@ -62,7 +61,7 @@ const FeaturedWorks = () => {
 					/>
 				))}
 			</Row>
-		</div>
+		</Section>
 	);
 };
 

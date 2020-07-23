@@ -11,10 +11,6 @@ import Testimonials from '../components/organisms/resume/testimonials';
 import WorkWithMe from '../components/organisms/work-with-me';
 
 const Resume = () => {
-	// if (typeof window !== 'undefined') {
-	// 	window.scrollTo(0, document.body.scrollHeight);
-	// }
-
 	return (
 		<MainLayout pageTitle="Resume">
 			<Row

@@ -11,7 +11,7 @@ import TextLoop from '../atoms/text-loop';
 
 const Footer = () => {
 	return (
-		<div className="z-1">
+		<div>
 			<Row
 				align="bottom"
 				className="white pa4 pa5-l w-100 fixed fixed-bottom"

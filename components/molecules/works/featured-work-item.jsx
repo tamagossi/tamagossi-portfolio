@@ -4,27 +4,23 @@ import { Button, Col, Typography } from 'antd';
 const FeaturedWorkItem = (props) => {
 	return (
 		<Col
-			className="my-bg-dark-gray ba my-moon-white-border relative mb5 pa5"
+			className="my-bg-dark-gray ba my-moon-white-border mb5 pa4 pa5-m"
 			xs={{ span: 24 }}
 			lg={{ span: 11 }}>
 			<div className="white tc">
 				<img alt="Genflix" src={props.image} width="70%" />
 				<Typography.Title
 					className="white mt4"
-					level={2}
 					style={{ marginBottom: 0 }}>
-					<span className="white">{props.name}</span>
+					<span className="white f3 f1-m">{props.name}</span>
 				</Typography.Title>
-				<Typography.Text
-					className="hot-pink fw5"
-					style={{ fontSize: '1.1rem' }}>
+				<Typography.Text className="hot-pink f3-m fw5">
 					{props.corp}
 				</Typography.Text>
 				<div className="mt4">
 					<Typography.Text
-						className="white"
+						className="white f3-m"
 						style={{
-							fontSize: '1.1rem',
 							textAlign: 'justify',
 							maxHeight: '200px',
 							overflowY: 'auto',

@@ -52,7 +52,7 @@
 }
 
 .main-margin {
-	margin: 0 8rem;
+	margin: 0 3rem;
 }
 
 .pointer {
@@ -60,16 +60,25 @@
 }
 
 .resume-title {
-	font-size: 6rem;
+	font-size: 4rem;
 }
 
 .w-48 {
 	width: 48%;
 }
 
-@media (min-width: 980px) {
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+	.resume-title {
+		font-size: 6rem;
+	}
+}
+
+@media (min-width: 992px) {
 	.main-margin {
-		margin: 0 15rem;
+		margin: 0 7rem;
 	}
 
 	.resume-title {
@@ -77,8 +86,14 @@
 	}
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 1200px) {
 	.main-margin {
-		margin: 0 30rem;
+		margin: 0 11rem;
+	}
+}
+
+@media (min-width: 1600px) {
+	.main-margin {
+		margin: 0 23rem;
 	}
 }
