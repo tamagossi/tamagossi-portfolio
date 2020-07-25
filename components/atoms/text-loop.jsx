@@ -12,7 +12,7 @@ const MyTextLoop = (props) => {
 					damping: 10,
 				}}>
 				<span className="dark-pink">website development</span>
-				<span className="dark-pink">mobile apps development</span>
+				<span className="dark-pink">mobile development</span>
 				<span className="dark-pink">front-end development</span>
 			</TextLoop>
 		</div>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Row, Typography } from 'antd';
+import { Row } from 'antd';
 
 import LineBar from '../../atoms/line-progressbar';
+import Section from '../../molecules/section';
 
 const skills = [
 	{
@@ -23,22 +24,21 @@ const skills = [
 
 const ProgrammingSkills = () => {
 	return (
-		<div style={{ marginTop: '6rem' }}>
-			<Typography.Title>
-				<span className="moon-gray">Programming Languages</span>
-			</Typography.Title>
-			<Row
-				className="my-bg-dark-gray ph5 pb5 ba my-moon-white-border"
-				justify="start">
-				{skills.map((skill, index) => (
-					<LineBar
-						key={`key-${index}`}
-						text={skill.text}
-						title={skill.title}
-						value={skill.value}
-					/>
-				))}
-			</Row>
+		<div className="mt5">
+			<Section title="Programming Language">
+				<Row
+					className="my-bg-dark-gray ph3 ph5-l pb5 mt4 ba my-moon-white-border"
+					justify="start">
+					{skills.map((skill, index) => (
+						<LineBar
+							key={`key-${index}`}
+							text={skill.text}
+							title={skill.title}
+							value={skill.value}
+						/>
+					))}
+				</Row>
+			</Section>
 		</div>
 	);
 };

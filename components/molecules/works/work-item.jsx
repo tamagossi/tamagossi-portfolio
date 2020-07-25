@@ -27,15 +27,17 @@ const WorkItem = (props) => {
 	};
 
 	return (
-		<div className="dib mt5 pa4 my-bg-dark-gray ba my-moon-white-border w-48">
+		<div
+			className="dib mt3 pa4 my-bg-dark-gray ba my-moon-white-border"
+			style={{ ...props.styles }}>
 			<div className="moon-gray f3">{props.name}</div>
 			<div
-				className="hot-pink f5 fw6"
-				style={{ height: '22px', overflowY: 'auto' }}>
+				className="hot-pink mt2 f6 fw6"
+				style={{ height: '25px', overflowY: 'auto' }}>
 				{props.corp}
 			</div>
 			<div
-				className="mt4 moon-gray f4"
+				className="mt4 moon-gray f6 f4-ns"
 				style={{ height: '100px', overflowY: 'auto' }}>
 				{props.desc}
 			</div>

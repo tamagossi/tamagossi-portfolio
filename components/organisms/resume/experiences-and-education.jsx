@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography } from 'antd';
 
 import ExperienceAndEducationItem from '../../molecules/resume/experience-item';
+import Section from '../../molecules/section';
 
 const educations = [
 	{
@@ -50,10 +51,7 @@ const ExperienceAndEducation = (props) => {
 		props.title.toLowerCase() === 'experience' ? experiences : educations;
 
 	return (
-		<div>
-			<Typography.Title level={2}>
-				<span className="moon-gray">{props.title}</span>
-			</Typography.Title>
+		<Section title={props.title}>
 			{items.map((item, index) => (
 				<ExperienceAndEducationItem
 					description={item.description}
@@ -63,7 +61,7 @@ const ExperienceAndEducation = (props) => {
 					website={item.website}
 				/>
 			))}
-		</div>
+		</Section>
 	);
 };
 

@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
-import { Carousel, Col, Row, Typography } from 'antd';
-import { CaretLeftFilled, CaretRightFilled } from '@ant-design/icons';
+import React from 'react';
+import { Carousel } from 'antd';
 
 import WorkItem from '../../molecules/works/work-item';
+import Section from '../../molecules/section';
 
 const works = [
 	{
@@ -32,61 +32,64 @@ const works = [
 ];
 
 const OtherProject = () => {
-	const carouselRef = useRef();
-
-	const next = () => carouselRef.current.next();
-	const prev = () => carouselRef.current.prev();
+	const isSmallScreen =
+		typeof window !== 'undefined' && window.innerWidth <= 720
+			? true
+			: false;
 
 	const renderWorks = () => {
 		const nodes = [];
 
-		for (let i = 0; i < works.length; i = i + 2) {
-			nodes.push(
-				<div key={`key-${i}`}>
-					<WorkItem
-						name={works[i].name}
-						corp={works[i].corp}
-						desc={works[i].desc}
-						url={works[i].url}
-					/>
-					<div className="dib" style={{ width: '4%' }}></div>
-					{typeof works[i + 1] !== 'undefined' ? (
+		if (isSmallScreen) {
+			works.forEach((work, index) => {
+				nodes.push(
+					<div key={`key-${index}`}>
 						<WorkItem
-							name={works[i + 1].name}
-							corp={works[i + 1].corp}
-							desc={works[i + 1].desc}
-							url={works[i + 1].url}
+							name={work.name}
+							corp={work.corp}
+							desc={work.desc}
+							url={work.url}
 						/>
-					) : null}
-				</div>
-			);
+					</div>
+				);
+			});
+		} else {
+			for (let i = 0; i < works.length; i = i + 2) {
+				nodes.push(
+					<div
+						key={`key-${i}`}
+						style={{ display: 'flex', alignItems: 'start' }}>
+						<WorkItem
+							name={works[i].name}
+							corp={works[i].corp}
+							desc={works[i].desc}
+							styles={{ width: '48%' }}
+							url={works[i].url}
+						/>
+						<div className="dib" style={{ width: '4%' }}></div>
+						{typeof works[i + 1] !== 'undefined' ? (
+							<WorkItem
+								name={works[i + 1].name}
+								corp={works[i + 1].corp}
+								desc={works[i + 1].desc}
+								styles={{ width: '48%' }}
+								url={works[i + 1].url}
+							/>
+						) : null}
+					</div>
+				);
+			}
 		}
 
 		return nodes.map((node) => node);
 	};
 
 	return (
-		<div style={{ marginTop: '6rem' }}>
-			<Row justify="space-between">
-				<Col>
-					<Typography.Title style={{ margin: 0 }}>
-						<span className="moon-gray">Works</span>
-					</Typography.Title>
-				</Col>
-				<Col className="dn db-l">
-					<div className="dib" onClick={() => prev()}>
-						<CaretLeftFilled className="f2 white pointer hover-dark-pink" />
-					</div>
-					&nbsp; &nbsp;
-					<div className="dib" onClick={() => next()}>
-						<CaretRightFilled className="f2 white pointer hover-dark-pink" />
-					</div>
-				</Col>
-			</Row>
-			<Carousel autoplay ref={carouselRef} dots={false}>
+		<Section title="Works">
+			<Carousel autoplay dots={false}>
 				{renderWorks()}
 			</Carousel>
-		</div>
+		</Section>
 	);
 };
 

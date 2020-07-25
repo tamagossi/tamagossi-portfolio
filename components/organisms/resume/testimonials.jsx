@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import { Carousel, Col, Row, Typography } from 'antd';
-import { CaretLeftFilled, CaretRightFilled } from '@ant-design/icons';
+import { Carousel } from 'antd';
 
+import Section from '../../molecules/section';
 import TestimonialItem from '../../molecules/resume/testimonial-items';
 
 const testimonials = [
@@ -39,58 +39,60 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-	const carouselRef = useRef();
-
-	const next = () => carouselRef.current.next();
-	const prev = () => carouselRef.current.prev();
+	const isSmallScreen =
+		typeof window !== 'undefined' && window.innerWidth <= 720
+			? true
+			: false;
 
 	const renderTestimonials = () => {
 		const nodes = [];
 
-		for (let i = 0; i < testimonials.length; i = i + 2) {
-			nodes.push(
-				<div>
-					<TestimonialItem
-						name={testimonials[i].name}
-						role={testimonials[i].role}
-						text={testimonials[i].text}
-					/>
-					<div className="dib" style={{ width: '4%' }}></div>
-					{typeof testimonials[i + 1] !== 'undefined' ? (
+		if (isSmallScreen) {
+			testimonials.forEach((testimonial, index) => {
+				nodes.push(
+					<div key={`key-${index}`}>
 						<TestimonialItem
-							name={testimonials[i + 1].name}
-							role={testimonials[i + 1].role}
-							text={testimonials[i + 1].text}
+							name={testimonial.name}
+							role={testimonial.role}
+							text={testimonial.text}
 						/>
-					) : null}
-				</div>
-			);
+					</div>
+				);
+			});
+		} else {
+			for (let i = 0; i < testimonials.length; i = i + 2) {
+				nodes.push(
+					<div>
+						<TestimonialItem
+							name={testimonials[i].name}
+							role={testimonials[i].role}
+							styles={{ width: '48%' }}
+							text={testimonials[i].text}
+						/>
+						<div className="dib" style={{ width: '4%' }}></div>
+						{typeof testimonials[i + 1] !== 'undefined' ? (
+							<TestimonialItem
+								name={testimonials[i + 1].name}
+								role={testimonials[i + 1].role}
+								styles={{ width: '48%' }}
+								text={testimonials[i + 1].text}
+							/>
+						) : null}
+					</div>
+				);
+			}
 		}
 
 		return nodes.map((node) => node);
 	};
 
 	return (
-		<div style={{ marginTop: '6rem' }}>
-			<Row justify="space-between">
-				<Col>
-					<Typography.Title style={{ margin: 0 }}>
-						<span className="moon-gray">Testimonials</span>
-					</Typography.Title>
-				</Col>
-				<Col className="dn db-l">
-					<div className="dib" onClick={() => prev()}>
-						<CaretLeftFilled className="f2 white pointer hover-dark-pink" />
-					</div>
-					&nbsp; &nbsp;
-					<div className="dib" onClick={() => next()}>
-						<CaretRightFilled className="f2 white pointer hover-dark-pink" />
-					</div>
-				</Col>
-			</Row>
-			<Carousel autoplay ref={carouselRef} dots={false}>
-				{renderTestimonials()}
-			</Carousel>
+		<div className="mt5">
+			<Section title="Tetimonials">
+				<Carousel autoplay dots={false}>
+					{renderTestimonials()}
+				</Carousel>
+			</Section>
 		</div>
 	);
 };

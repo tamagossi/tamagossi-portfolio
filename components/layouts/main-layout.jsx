@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 import Header from '../organisms/header';
 import Footer from '../organisms/footer';
@@ -6,6 +7,21 @@ import Footer from '../organisms/footer';
 import Head from 'next/head';
 
 const MainLayout = (props) => {
+	const [headerStyle, setHeaderStyle] = useState({
+		transition: 'all 200ms ease-in',
+	});
+
+	useScrollPosition(({ currPos }) => {
+		const isScrolled = currPos.y <= -200;
+
+		const shouldBeStyle = {
+			background: isScrolled ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0)',
+			transition: `all 200ms ${isScrolled ? 'ease-in' : 'ease-out'}`,
+		};
+
+		setHeaderStyle(shouldBeStyle);
+	});
+
 	return (
 		<div
 			className="main-background"
@@ -26,7 +42,7 @@ const MainLayout = (props) => {
 					key={props.pageTitle}
 				/>
 			</Head>
-			<Header />
+			<Header style={headerStyle} />
 			<Footer />
 			<div className="pb3">{props.children}</div>
 		</div>

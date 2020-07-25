@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { Col, Row } from 'antd';
@@ -7,19 +7,19 @@ import { MenuOutlined } from '@ant-design/icons';
 import Drawer from '../atoms/header/drawer';
 import HeaderMenu from '../atoms/header/menu-link';
 
-const Header = () => {
+const Header = (props) => {
 	const [state, setstate] = useState({ isDrawerVisible: false });
 
 	const closeDrawer = () => setstate({ ...state, isDrawerVisible: false });
 	const showDrawer = () => setstate({ ...state, isDrawerVisible: true });
 
 	return (
-		<>
+		<header>
 			<Row
 				align="middle"
 				className="white pa4 pa5-l w-100 fixed"
 				justify="space-between"
-				style={{ zIndex: '80' }}>
+				style={{ ...props.style, zIndex: '80' }}>
 				<Col className="f4 fw7 pointer">
 					<Link href="/">
 						<div className="f3-l">
@@ -45,7 +45,7 @@ const Header = () => {
 				closeDrawerHandler={closeDrawer}
 				isDrawerVisible={state.isDrawerVisible}
 			/>
-		</>
+		</header>
 	);
 };
 
