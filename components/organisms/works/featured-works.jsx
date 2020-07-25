@@ -1,8 +1,7 @@
 import React from 'react';
-import { Row, Typography } from 'antd';
+import { Row } from 'antd';
 
 import FeaturedWorkItem from '../../molecules/works/featured-work-item';
-import SectionTitle from '../../atoms/section-title';
 import Section from '../../molecules/section';
 
 const featuredWorks = [

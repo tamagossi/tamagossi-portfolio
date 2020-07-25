@@ -4,7 +4,7 @@ import SectionTitle from '../atoms/section-title';
 
 const Section = (props) => {
 	return (
-		<div class="tc tl-ns">
+		<div className="tc tl-ns">
 			<SectionTitle>{props.title}</SectionTitle>
 			{props.children}
 		</div>

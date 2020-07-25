@@ -43,7 +43,7 @@ const HomePage = () => {
 						gutter={24}>
 						<Col>
 							<a
-								class="db w-100 tc tl-ns"
+								className="db w-100 tc tl-ns"
 								href="https://docs.google.com/document/d/1qM2x5Y_MOhtsSOamVNSig4Iv63j1YY2i8rprDwJ55L0/edit?usp=sharing"
 								target="_blank">
 								<Button

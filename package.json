@@ -10,6 +10,7 @@
 		"export": "next export -o compiled"
 	},
 	"dependencies": {
+		"@n8tb1t/use-scroll-position": "^1.0.43",
 		"@zeit/next-css": "^1.0.1",
 		"antd": "^4.0.2",
 		"axios": "^0.19.2",

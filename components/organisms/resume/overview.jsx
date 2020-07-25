@@ -7,7 +7,7 @@ import OverviewItem from '../../molecules/resume/overview-item';
 const Overview = () => {
 	return (
 		<Row
-			className="my-bg-dark-gray pa5 ba my-moon-white-border"
+			className="my-bg-dark-gray pa4 pa5-l ba my-moon-white-border"
 			justify={{ xs: 'center', md: 'start' }}>
 			<Col className="tc tl-l" xs={{ span: 24 }} md={{ span: 6 }}>
 				<Avatar
@@ -19,7 +19,7 @@ const Overview = () => {
 			<Col xs={{ span: 24 }} md={{ span: 18 }}>
 				<Row>
 					<Col span={24}>
-						<div className="gray mt4 mt0-l f4 f3-l fw3 tc tl-l">
+						<div className="gray mt4 mt0-l f5 f3-l fw3 tc tl-l">
 							Software engineer with 3+ years experience in
 							designing, developing, enhancing Javascript
 							applications with various libraries and frameworks

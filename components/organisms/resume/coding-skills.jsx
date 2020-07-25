@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Typography } from 'antd';
 
 import CircularBar from '../../atoms/circular-progressbar';
+import Section from '../../molecules/section';
 
 const skills = [
 	{
@@ -43,22 +44,21 @@ const skills = [
 
 const CodingSkills = () => {
 	return (
-		<div style={{ marginTop: '6rem' }}>
-			<Typography.Title>
-				<span className="moon-gray">Frameworks Used</span>
-			</Typography.Title>
-			<Row
-				className="my-bg-dark-gray ph5 pb5 ba my-moon-white-border"
-				justify="start">
-				{skills.map((skill, index) => (
-					<CircularBar
-						key={`key-${index}`}
-						text={skill.text}
-						title={skill.title}
-						value={skill.value}
-					/>
-				))}
-			</Row>
+		<div className="mt5">
+			<Section title="Frameworks Use">
+				<Row
+					className="my-bg-dark-gray ph4 ph5-l pb5 ba my-moon-white-border"
+					justify="start">
+					{skills.map((skill, index) => (
+						<CircularBar
+							key={`key-${index}`}
+							text={skill.text}
+							title={skill.title}
+							value={skill.value}
+						/>
+					))}
+				</Row>
+			</Section>
 		</div>
 	);
 };

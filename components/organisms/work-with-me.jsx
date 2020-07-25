@@ -14,14 +14,14 @@ const WorkWithMe = () => {
 				<Col span={24}>
 					<Typography.Title className="tc">
 						<span
-							className="moon-gray"
+							className="moon-gray my-bg-dark-gray"
 							style={{ fontSize: titleSize }}>
 							Work With Me
 						</span>
 					</Typography.Title>
 				</Col>
 				<Col span={24} className="tc f6 f3-l mb3-l">
-					<Typography.Text className="moon-gray">
+					<Typography.Text className="moon-gray my-bg-dark-gray">
 						Do you need a website or a mobile apps? I will help you
 						to crate what you need and help grow your business. Just
 						keep in touch with me on those options below

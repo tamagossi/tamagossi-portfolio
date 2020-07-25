@@ -6,8 +6,8 @@ const SectionTitle = (props) => {
 		typeof window !== 'undefined' && window.innerWidth < 600 ? 2 : 1;
 
 	return (
-		<Typography.Title level={titleSize}>
-			<span className="moon-gray">{props.children}</span>
+		<Typography.Title className="my-bg-dark-gray" level={titleSize}>
+			<span className="moon-gray ">{props.children}</span>
 		</Typography.Title>
 	);
 };

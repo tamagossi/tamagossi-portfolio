@@ -11,6 +11,9 @@ import Testimonials from '../components/organisms/resume/testimonials';
 import WorkWithMe from '../components/organisms/work-with-me';
 
 const Resume = () => {
+	if (typeof window !== 'undefined') {
+		window.scrollTo(0, document.body.scrollHeight);
+	}
 	return (
 		<MainLayout pageTitle="Resume">
 			<Row
@@ -26,7 +29,7 @@ const Resume = () => {
 
 				<Services />
 
-				<Row justify="space-between" style={{ marginTop: '6rem' }}>
+				<Row justify="space-between">
 					<Col
 						className="mt5 mt0-l"
 						xs={{ span: 24 }}

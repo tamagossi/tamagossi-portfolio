@@ -7,10 +7,6 @@ import WorkWithMe from '../components/organisms/work-with-me';
 import OtherProject from '../components/organisms/works/other-projects';
 
 const Resume = () => {
-	if (typeof window !== 'undefined') {
-		window.scrollTo(0, document.body.scrollHeight);
-	}
-
 	return (
 		<MainLayout pageTitle="Works">
 			<Row
