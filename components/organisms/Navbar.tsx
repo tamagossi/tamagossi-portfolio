@@ -70,7 +70,7 @@ const OrganismNavbar: FC = (): ReactElement => {
 					left="50%"
 					style={{ transform: 'translate(-50%, -50%)' }}
 				>
-					<Image src="/icons/logo.png" height={130} width={130} alt="Tamagossi" />
+					<Image src="/icons/logo.png" height={110} width={110} alt="Tamagossi" />
 				</Box>
 			</HStack>
 
@@ -119,22 +119,32 @@ const OrganismNavbar: FC = (): ReactElement => {
 			<Drawer isOpen={isDrawerOpen} placement="right" onClose={() => setIsDrawerOpen(false)}>
 				<DrawerOverlay />
 
-				<DrawerContent px={10} py={10} bg="black">
+				<DrawerContent
+					px={10}
+					py={10}
+					bg="black"
+					backgroundImage="url('/icons/drawer-pattern.png')"
+					backgroundPosition="top"
+					backgroundRepeat="repeat-y"
+					backgroundSize="contain"
+				>
 					<HStack justifyContent="end">
 						<CloseIcon
 							onClick={() => setIsDrawerOpen(false)}
 							color="white"
-							sx={{ cursor: 'pointer' }}
+							sx={{ cursor: 'pointer', background: 'black' }}
 						/>
 					</HStack>
 
-					<VStack spacing={5} mt={10}>
+					<VStack spacing={3} mt={10}>
 						{MOBILE_MENU.map(
 							({ label, url }: { label: string; url: string }, index: number) => {
 								return (
 									<Link href={url} key={label}>
 										<Text
+											bg="blackAlpha.900"
 											color="white"
+											p={5}
 											fontSize="2xl"
 											fontWeight={400}
 											sx={{ cursor: 'pointer' }}
