@@ -1,9 +1,18 @@
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, ReactElement, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Box, HStack, Text, Drawer, DrawerOverlay, DrawerContent, VStack } from '@chakra-ui/react';
+import {
+	Box,
+	HStack,
+	Text,
+	Drawer,
+	DrawerOverlay,
+	DrawerContent,
+	VStack,
+	Image as ChakraImage,
+} from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { motion } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 const MENUS = [
 	{ label: 'Home', url: '/' },
@@ -18,16 +27,69 @@ MOBILE_MENU.splice(2, 1);
 
 const OrganismNavbar: FC = (): ReactElement => {
 	const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+	const [scrollPosition, setScrollPosition] = useState(0);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const position = window.pageYOffset;
+			setScrollPosition(position);
+		};
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
+
+	console.log(scrollPosition / 100);
 
 	return (
 		<Box
 			maxWidth="100vw"
 			height="100vh"
-			backgroundImage="url('/images/background.jpg')"
+			backgroundImage="url('/images/background-1.png')"
 			backgroundPosition="center"
 			backgroundRepeat="no-repeat"
 			backgroundSize="cover"
+			position="relative"
+			overflow="hidden"
 		>
+			<Text
+				color="whiteAlpha.800"
+				fontSize={200}
+				fontWeight={800}
+				position="absolute"
+				top={`${-15 + scrollPosition / 2}%`}
+				left="50%"
+				style={{ transform: 'translate(-50%, -50%)' }}
+				display={['none', null, null, 'block']}
+			>
+				Tamagossi
+			</Text>
+
+			<ChakraImage
+				src="/icons/moon.png"
+				position="absolute"
+				top={`${25 + scrollPosition / 20}%`}
+				left="55%"
+				width={300}
+			/>
+
+			<ChakraImage
+				src="/images/background-2.png"
+				position="absolute"
+				bottom={`${-15 + scrollPosition / 20}%`}
+				display={['none', null, null, 'block']}
+			/>
+
+			<ChakraImage
+				src="/images/background-3.png"
+				position="absolute"
+				bottom={`${0 - scrollPosition / 40}%`}
+				display={['none', null, null, 'block']}
+			/>
+
 			<HStack
 				py="3.5rem"
 				justifyContent="center"

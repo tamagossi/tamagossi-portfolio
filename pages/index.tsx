@@ -6,6 +6,8 @@ const HomePage = () => {
 	return (
 		<Box>
 			<OrganismNavbar />
+
+			<Box height={800} width="100%" background="black" />
 		</Box>
 	);
 };
