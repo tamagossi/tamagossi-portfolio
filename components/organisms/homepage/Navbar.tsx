@@ -1,6 +1,7 @@
 import React, { FC, ReactElement, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import {
 	Box,
 	HStack,
@@ -11,8 +12,6 @@ import {
 	VStack,
 	Image as ChakraImage,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { motion, useScroll } from 'framer-motion';
 
 const MENUS = [
 	{ label: 'Home', url: '/' },
@@ -42,8 +41,6 @@ const OrganismNavbar: FC = (): ReactElement => {
 		};
 	}, []);
 
-	console.log(scrollPosition / 100);
-
 	return (
 		<Box
 			maxWidth="100vw"
@@ -63,7 +60,7 @@ const OrganismNavbar: FC = (): ReactElement => {
 				top={`${-15 + scrollPosition / 2}%`}
 				left="50%"
 				style={{ transform: 'translate(-50%, -50%)' }}
-				display={['none', null, null, 'block']}
+				// display={['none', null, null, 'block']}
 			>
 				Tamagossi
 			</Text>
