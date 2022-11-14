@@ -1,12 +1,21 @@
 import React from 'react';
-import { OrganismNavbar, OrganismProfile } from '@/components/organisms';
-import { Box, Text, VStack } from '@chakra-ui/react';
+import Head from 'next/head';
+import { Box } from '@chakra-ui/react';
+import { NextPage } from 'next';
 
-const HomePage = () => {
+import { MoleculeNavbar } from '@/components/molecules';
+import { OrganismHomepageHeroSection } from '@/components/organisms';
+
+const HomePage: NextPage = () => {
 	return (
 		<Box>
-			<OrganismNavbar />
-			<OrganismProfile />
+			<Head>
+				<title>Tamagossi</title>
+			</Head>
+
+			<MoleculeNavbar />
+
+			<OrganismHomepageHeroSection />
 		</Box>
 	);
 };
