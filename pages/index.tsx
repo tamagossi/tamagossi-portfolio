@@ -15,7 +15,14 @@ const HomePage: NextPage = () => {
 
 			<MoleculeNavbar />
 
-			<OrganismHomepageHeroSection />
+			<div className="snap-y snap-mandatory h-screen w-screen mx:auto overflow-x-hidden">
+				<div className="snap-center bg-blue-200  w-screen h-screen place-items-center text-8xl">
+					<OrganismHomepageHeroSection />
+				</div>
+				<div className="snap-center bg-orange-200  w-screen h-screen place-items-center text-8xl">
+					<OrganismHomepageHeroSection />
+				</div>
+			</div>
 		</Box>
 	);
 };

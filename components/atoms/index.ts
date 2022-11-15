@@ -1,2 +1,2 @@
-export { default as AtomHeroSectionCircle } from './HeroSectionCirce';
+export { default as AtomCircleBackground } from './HeroSectionCirce';
 export { default as AtomMouseScrollAnimate } from './MouseScrollAnimate';

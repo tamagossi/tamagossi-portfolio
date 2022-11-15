@@ -1,10 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
 import { Box, Center, HStack, Text, VStack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useTypewriter } from 'react-simple-typewriter';
 
-import { AtomHeroSectionCircle, AtomMouseScrollAnimate } from '@/components/atoms';
+import { AtomCircleBackground, AtomMouseScrollAnimate } from '@/components/atoms';
 
 const OrganismHomepageHeroSection = () => {
 	const [text] = useTypewriter({
@@ -21,7 +20,7 @@ const OrganismHomepageHeroSection = () => {
 
 	return (
 		<Box height="100vh" bg="black" position="relative" overflow="hidden" id="hero-section">
-			<AtomHeroSectionCircle />
+			<AtomCircleBackground />
 
 			<Center height="100%">
 				<VStack spacing={0}>
