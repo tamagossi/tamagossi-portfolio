@@ -16,7 +16,7 @@ export default function useVisibility<T>(offset = 0): [boolean, MutableRefObject
 	useEffect(() => {
 		setTimeout(() => {
 			document.addEventListener('scroll', onScroll, true);
-		}, 500);
+		});
 
 		return () => document.removeEventListener('scroll', onScroll, true);
 	});

@@ -1,72 +1,45 @@
-import React, { FC, ReactElement, useState } from 'react';
-import { Box, Center, Text, VStack } from '@chakra-ui/react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { HiCursorClick } from 'react-icons/hi';
-
-import { AtomCircleBackground } from '@/components/atoms';
-import { useOnScreen } from '@/hooks';
+import React, { FC, ReactElement } from 'react';
+import { HStack, Text, VStack } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
 const OrganisHomepageBioSection: FC = (): ReactElement => {
-	const [isShowBio, setIsShowBio] = useState<boolean>(false);
-	const [isOnScreen, onScreenRef] = useOnScreen<HTMLDivElement>();
-
 	return (
-		<Box
+		<HStack
 			height="100vh"
-			bg="black"
-			position="relative"
-			overflow="hidden"
 			id="bio-section"
-			ref={onScreenRef}
+			justify={['center', null, null, null, 'start']}
+			overflow="hidden"
+			px="5rem"
 		>
-			<AtomCircleBackground />
+			<VStack w={['100%', null, null, null, '50%']} alignItems="start" spacing={5}>
+				<Text
+					fontSize={['40px', null, null, null, '55px']}
+					fontWeight="bold"
+					mb={0}
+					as={motion.p}
+					initial={{ x: -100, opacity: 0 }}
+					whileInView={{ x: 0, opacity: 1 }}
+					transitionDuration=".2s"
+				>
+					Hey, let me tell you something..
+				</Text>
 
-			<Center height="100%">
-				<AnimatePresence>
-					{isOnScreen && !isShowBio && (
-						<VStack
-							as={motion.div}
-							position="relative"
-							exit={{ x: 2000, transition: { duration: 0.5 } }}
-						>
-							<Text
-								as={motion.p}
-								initial={{ y: -1000, opacity: 0 }}
-								animate={{ y: 0, opacity: 1 }}
-								transitionDuration=".2s"
-								cursor="pointer"
-								fontSize={['90px', null, '100px', '110px', '120px']}
-								fontWeight="bold"
-								mb={0}
-								onClick={() => setIsShowBio(true)}
-								_hover={{ color: 'pink.500' }}
-							>
-								TAMAGOSSI
-							</Text>
-
-							<motion.div
-								style={{ top: 0, right: -30, position: 'absolute' }}
-								animate={{ opacity: 1, scale: 1 }}
-								initial={{ opacity: 0, scale: 0 }}
-								transition={{ duration: 1, delay: 0.2 }}
-							>
-								<motion.div
-									style={{ fontSize: '48px' }}
-									animate={{
-										color: ['#ff00a2', '#ff9edc'],
-									}}
-									transition={{
-										yoyo: Infinity,
-									}}
-								>
-									<HiCursorClick size={48} />
-								</motion.div>
-							</motion.div>
-						</VStack>
-					)}
-				</AnimatePresence>
-			</Center>
-		</Box>
+				<Text
+					fontSize={['xl', null, null, null, '22px']}
+					mb={0}
+					as={motion.p}
+					initial={{ x: 200, opacity: 0 }}
+					whileInView={{ x: 0, opacity: 1 }}
+					transitionDuration="1s"
+					lineHeight="short"
+				>
+					I am software engineer with 3+ years experienced software engineer with strong
+					expertise in Javascript technologies such as React, React Native, and Node.js.
+					Besides, also have a good grasp of Dart and a good knowledge of great-to-have
+					theory to software engineering field
+				</Text>
+			</VStack>
+		</HStack>
 	);
 };
 
