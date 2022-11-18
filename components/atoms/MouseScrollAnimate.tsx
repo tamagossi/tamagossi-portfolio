@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import { Box, HStack, Text } from '@chakra-ui/react';
+import { HStack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const MouseScrollAnimate: FC = (): ReactElement => {

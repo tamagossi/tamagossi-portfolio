@@ -21,7 +21,7 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 	return (
 		<Box height="100vh" position="relative" overflow="hidden" id="hero-section">
 			<Center height="100%">
-				<VStack spacing={2}>
+				<VStack>
 					<Text
 						as={motion.p}
 						fontSize={['20px', null, null, '25px']}
@@ -62,7 +62,7 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 						<VStack spacing={5}>
 							<AtomMouseScrollAnimate />
 
-							<Text fontSize="xl">Scroll down</Text>
+							<Text fontSize="xl">Scroll down slowly</Text>
 						</VStack>
 					</HStack>
 				</VStack>

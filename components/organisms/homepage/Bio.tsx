@@ -25,12 +25,12 @@ const OrganisHomepageBioSection: FC = (): ReactElement => {
 				</Text>
 
 				<Text
-					fontSize={['xl', null, null, null, '22px']}
+					fontSize={['xl', null, null, null, '2xl']}
 					mb={0}
 					as={motion.p}
 					initial={{ x: 200, opacity: 0 }}
 					whileInView={{ x: 0, opacity: 1 }}
-					transitionDuration="1s"
+					transitionDuration=".4s"
 					lineHeight="short"
 				>
 					I am software engineer with 3+ years experienced software engineer with strong

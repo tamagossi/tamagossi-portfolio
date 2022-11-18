@@ -4,7 +4,11 @@ import { Box } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 import { MoleculeNavbar } from '@/components/molecules';
-import { OrganismHomepageBioSection, OrganismHomepageHeroSection } from '@/components/organisms';
+import {
+	OrganismHomepageBioSection,
+	OrganismHomepageHeroSection,
+	OrganismHomepageProjectSection,
+} from '@/components/organisms';
 
 const HomePage: NextPage = () => {
 	return (
@@ -15,17 +19,17 @@ const HomePage: NextPage = () => {
 
 			<MoleculeNavbar />
 
-			<div className="snap-y snap-mandatory h-screen w-screen overflow-x-hidden bg-black">
-				<div className="snap-center w-screen h-screen text-8xl">
+			<div className="snap-y smooth-scrolling snap-mandatory h-screen w-screen overflow-x-hidden bg-black">
+				<div className="snap-center ">
 					<OrganismHomepageHeroSection />
 				</div>
 
-				<div className="snap-center w-screen h-screen text-8xl">
+				<div className="snap-center ">
 					<OrganismHomepageBioSection />
 				</div>
 
-				<div className="snap-center w-screen h-screen text-8xl">
-					<OrganismHomepageBioSection />
+				<div className="snap-center ">
+					<OrganismHomepageProjectSection />
 				</div>
 			</div>
 		</Box>
