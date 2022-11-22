@@ -21,43 +21,54 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 	return (
 		<Box height="100vh" position="relative" overflow="hidden" id="hero-section">
 			<Center height="100%">
-				<VStack>
+				<VStack spacing={0}>
 					<Text
-						as={motion.p}
 						fontSize={['20px', null, null, '25px']}
 						fontWeight="hairline"
 						mb={0}
-						whileInView={{ opacity: 1, scale: 1 }}
+						as={motion.p}
 						initial={{ opacity: 0, scale: 0 }}
-						transitionDuration=".5s"
-						transitionDelay=".5s"
+						whileInView={{
+							opacity: 1,
+							scale: 1,
+							transition: { ease: 'easeOut', duration: 0.5, delay: 0.4 },
+						}}
 					>
 						{(text as string).toUpperCase()}|.
 					</Text>
 
 					<Text
-						as={motion.p}
 						fontSize={['90px', null, '100px', '110px', '120px']}
 						fontWeight="bold"
 						mb={0}
-						whileInView={{ y: 0, opacity: 1 }}
+						as={motion.p}
 						initial={{ y: 500, opacity: 0 }}
-						exit={{ y: 500, opacity: 0, transition: { duration: 0.5 } }}
-						transitionDuration=".2s"
+						whileInView={{
+							y: 0,
+							opacity: 1,
+							transition: { ease: 'easeOut', duration: 1 },
+						}}
+						exit={{
+							y: 500,
+							opacity: 0,
+							transition: { ease: 'easeOut', duration: 1 },
+						}}
 					>
 						TAMAGOSSI
 					</Text>
 
 					<HStack
-						as={motion.div}
-						whileInView={{ opacity: 1, scale: 1 }}
-						initial={{ opacity: 0, scale: 0 }}
-						transitionDuration=".2s"
-						transitionDelay=".2s"
 						bottom={5}
 						justifyContent="center"
 						position="absolute"
 						width="100%"
+						as={motion.div}
+						whileInView={{
+							opacity: 1,
+							scale: 1,
+							transition: { ease: 'easeOut', duration: 0.5, delay: 0.2 },
+						}}
+						initial={{ opacity: 0, scale: 0 }}
 					>
 						<VStack spacing={5}>
 							<AtomMouseScrollAnimate />

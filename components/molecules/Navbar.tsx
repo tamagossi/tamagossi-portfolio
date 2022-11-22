@@ -31,24 +31,27 @@ const MoleculeNavbar: FC = (): ReactElement => {
 			<Link href="/">
 				<Text
 					_hover={{ color: 'pink.500' }}
-					animate={{ x: 0, opacity: 1, scale: 1 }}
-					as={motion.h1}
 					cursor="pointer"
 					fontSize="4xl"
+					as={motion.h1}
 					initial={{ x: -500, opacity: 0, scale: 0.5 }}
-					transition="1.5s"
+					animate={{
+						x: 0,
+						opacity: 1,
+						scale: 1,
+						transition: { ease: 'easeOut', duration: 1 },
+					}}
 				>
 					{`<T />.`}
 				</Text>
 			</Link>
 
 			<HStack
-				animate={{ x: 0, opacity: 1 }}
 				as={motion.div}
-				display={['none', null, null, 'flex']}
-				initial={{ x: 500, opacity: 0 }}
 				spacing="2rem"
-				transition="1.5s"
+				initial={{ x: 500, opacity: 0 }}
+				animate={{ x: 0, opacity: 1, transition: { ease: 'easeOut', duration: 1 } }}
+				display={['none', null, null, 'flex']}
 			>
 				{MENUS.map((menu: MENU) => {
 					const { label, url } = menu;

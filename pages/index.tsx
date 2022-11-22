@@ -19,16 +19,16 @@ const HomePage: NextPage = () => {
 
 			<MoleculeNavbar />
 
-			<div className="snap-y smooth-scrolling snap-mandatory h-screen w-screen overflow-x-hidden bg-black">
-				<div className="snap-center ">
+			<div className="snap-y smooth-scrolling snap-mandatory h-screen w-screen overflow-y-scroll overflow-x-hidden bg-black">
+				<div className="snap-center">
 					<OrganismHomepageHeroSection />
 				</div>
 
-				<div className="snap-center ">
+				<div className="snap-center">
 					<OrganismHomepageBioSection />
 				</div>
 
-				<div className="snap-center ">
+				<div className="snap-center">
 					<OrganismHomepageProjectSection />
 				</div>
 			</div>
