@@ -46,12 +46,12 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 						whileInView={{
 							y: 0,
 							opacity: 1,
-							transition: { ease: 'easeOut', duration: 1 },
+							transition: { ease: 'easeOut', duration: 0.5, delay: 0.2 },
 						}}
 						exit={{
 							y: 500,
 							opacity: 0,
-							transition: { ease: 'easeOut', duration: 1 },
+							transition: { ease: 'easeOut', duration: 0.5 },
 						}}
 					>
 						TAMAGOSSI

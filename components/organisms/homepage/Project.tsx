@@ -1,7 +1,9 @@
 import React, { FC, ReactElement, useEffect, useState } from 'react';
 import { Box, HStack, VStack, Image, Grid, GridItem, Text, Divider, Badge } from '@chakra-ui/react';
 import { motion, useAnimation } from 'framer-motion';
-import { AiFillDownCircle, AiOutlineRight } from 'react-icons/ai';
+
+import { AtomCheckoutProjectTitle } from '@/components/atoms';
+import { MoleculeProjectSummary } from '@/components/molecules';
 
 type PROJECT = {
 	image: string;
@@ -9,7 +11,7 @@ type PROJECT = {
 	description: string;
 };
 
-const PROJECTS = [
+const PROJECTS: PROJECT[] = [
 	{
 		image: 'https://webkit.org/demos/srcset/image-src.png',
 		title: 'Project title',
@@ -55,12 +57,12 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 	return (
 		<Box height="100vh" id="project-section" overflow="hidden" pr={['0', null, null, '5rem']}>
 			<Grid
+				display={['none', null, null, null, 'grid']}
 				gap={4}
 				h="100vh"
 				overflow="hidden"
-				templateColumns="repeat(24, 1fr)"
 				style={{ marginTop: 200 }}
-				display={['none', null, null, null, 'grid']}
+				templateColumns="repeat(24, 1fr)"
 			>
 				<GridItem
 					bg="whiteAlpha.200"
@@ -76,54 +78,13 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 						transition: { ease: 'easeOut', duration: 0.7 },
 					}}
 				>
-					<VStack spacing={7} as={motion.div} animate={projectSummaryControl}>
-						<HStack justify="center" w="100%">
-							<Image src={PROJECTS[currentIndex].image} height={300} />
-						</HStack>
-
-						<Box height={0} />
-
-						<VStack alignItems="start">
-							<Text fontSize="5xl" fontWeight={550}>
-								{PROJECTS[currentIndex].title}
-							</Text>
-
-							<Text fontSize="xl" noOfLines={2}>
-								{PROJECTS[currentIndex].description}
-							</Text>
-
-							<HStack w="100%">
-								<Badge colorScheme="blue" variant="solid">
-									React
-								</Badge>
-								<Badge colorScheme="blue" variant="solid">
-									Typescript
-								</Badge>
-								<Badge colorScheme="green" variant="solid">
-									Chakra UI
-								</Badge>
-								<Badge colorScheme="black" variant="solid">
-									Zustand
-								</Badge>
-							</HStack>
-						</VStack>
-
-						<HStack w="100%">
-							<HStack background="pink.500" px={5} py={2} borderRadius={10}>
-								<Text fontSize="xl">See detail</Text>
-
-								<motion.div
-									style={{ fontSize: '48px' }}
-									animate={{ x: [0, 5] }}
-									transition={{
-										yoyo: Infinity,
-									}}
-								>
-									<AiOutlineRight size={24} />
-								</motion.div>
-							</HStack>
-						</HStack>
-					</VStack>
+					<Box as={motion.div} animate={projectSummaryControl}>
+						<MoleculeProjectSummary
+							description={PROJECTS[currentIndex].description}
+							image={PROJECTS[currentIndex].image}
+							title={PROJECTS[currentIndex].title}
+						/>
+					</Box>
 				</GridItem>
 
 				<GridItem
@@ -137,21 +98,7 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 						transition: { ease: 'easeOut', duration: 0.7 },
 					}}
 				>
-					<HStack justify="end" spacing={5}>
-						<Text textAlign="right" fontSize="4xl" fontWeight={600}>
-							Hey, check out my project
-						</Text>
-
-						<motion.div
-							style={{ fontSize: '48px' }}
-							animate={{ y: [-10, 5] }}
-							transition={{
-								yoyo: Infinity,
-							}}
-						>
-							<AiFillDownCircle color="white" size={32} />
-						</motion.div>
-					</HStack>
+					<AtomCheckoutProjectTitle />
 
 					<Divider borderColor="white" m="2rem 0 1rem" />
 
@@ -191,21 +138,7 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 					transition: { ease: 'easeOut', duration: 0.7 },
 				}}
 			>
-				<HStack justify="end" spacing={5}>
-					<Text textAlign="right" fontSize="4xl" fontWeight={600}>
-						Hey, check out my project
-					</Text>
-
-					<motion.div
-						style={{ fontSize: '48px' }}
-						animate={{ y: [-10, 5] }}
-						transition={{
-							yoyo: Infinity,
-						}}
-					>
-						<AiFillDownCircle color="white" size={32} />
-					</motion.div>
-				</HStack>
+				<AtomCheckoutProjectTitle />
 
 				<Divider borderColor="white" m="20px 0" />
 
@@ -258,56 +191,13 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 						transition: { ease: 'easeOut', duration: 0.7 },
 					}}
 				>
-					<VStack spacing={7} as={motion.div} animate={projectSummaryControl}>
-						<HStack justify="center" w="100%">
-							<Image src={PROJECTS[currentIndex].image} height={250} />
-						</HStack>
-
-						<Box height={0} />
-
-						<VStack alignItems="start" spacing={0}>
-							<Text fontSize="4xl" fontWeight={550}>
-								{PROJECTS[currentIndex].title}
-							</Text>
-
-							<Text fontSize="lg" noOfLines={2}>
-								{PROJECTS[currentIndex].description}
-							</Text>
-
-							<Box h="1rem" />
-
-							<HStack w="100%">
-								<Badge colorScheme="blue" variant="solid">
-									React
-								</Badge>
-								<Badge colorScheme="blue" variant="solid">
-									Typescript
-								</Badge>
-								<Badge colorScheme="green" variant="solid">
-									Chakra UI
-								</Badge>
-								<Badge colorScheme="black" variant="solid">
-									Zustand
-								</Badge>
-							</HStack>
-						</VStack>
-
-						<HStack w="100%">
-							<HStack background="pink.500" px={5} py={2} borderRadius={10}>
-								<Text fontSize="xl">See detail</Text>
-
-								<motion.div
-									style={{ fontSize: '48px' }}
-									animate={{ x: [0, 5] }}
-									transition={{
-										yoyo: Infinity,
-									}}
-								>
-									<AiOutlineRight size={24} />
-								</motion.div>
-							</HStack>
-						</HStack>
-					</VStack>
+					<Box as={motion.div} animate={projectSummaryControl}>
+						<MoleculeProjectSummary
+							description={PROJECTS[currentIndex].description}
+							image={PROJECTS[currentIndex].image}
+							title={PROJECTS[currentIndex].title}
+						/>
+					</Box>
 				</Box>
 			</VStack>
 		</Box>
