@@ -6,6 +6,7 @@ import { NextPage } from 'next';
 import { MoleculeNavbar } from '@/components/molecules';
 import {
 	OrganismHomepageBioSection,
+	OrganisMHomepageExperienceSection,
 	OrganismHomepageHeroSection,
 	OrganismHomepageProjectSection,
 } from '@/components/organisms';
@@ -30,6 +31,10 @@ const HomePage: NextPage = () => {
 
 				<div className="snap-center">
 					<OrganismHomepageProjectSection />
+				</div>
+
+				<div className="snap-center">
+					<OrganisMHomepageExperienceSection />
 				</div>
 			</div>
 		</Box>
