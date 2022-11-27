@@ -21,6 +21,12 @@ a {
 	box-sizing: border-box;
 }
 
+.date-vertical-element {
+	font-size: 24px !important;
+	font-weight: bold !important;
+	transform: translateY(-10px);
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
