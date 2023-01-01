@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import { Box, Center, Image, Text, VStack } from '@chakra-ui/react';
 import { useTypewriter } from 'react-simple-typewriter';
+import { AtomButton } from '@/components/atoms';
 
 const OrganismHomepageHeroSection: FC = (): ReactElement => {
 	const [text] = useTypewriter({
@@ -24,12 +25,12 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 				justifyContent={['center', null, 'start']}
 				px={['3rem', null, '8rem']}
 			>
-				<VStack spacing={5} alignItems="self-start">
+				<VStack spacing={5} alignItems={['center', null, 'self-start']}>
 					<Text
 						fontSize={['32px', null, '54px']}
 						fontWeight="bold"
 						letterSpacing="tighter"
-						lineHeight={1}
+						lineHeight="normal"
 						mb={0}
 						textAlign={['center', null, 'start']}
 						w="90vw"
@@ -50,6 +51,8 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 						I’m a software engineer specializing in building (and occasionally
 						designing) exceptional digital experiences.
 					</Text>
+
+					<AtomButton>Get In Touch</AtomButton>
 				</VStack>
 			</Center>
 		</Box>
