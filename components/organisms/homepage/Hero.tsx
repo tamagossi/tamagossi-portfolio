@@ -1,9 +1,6 @@
 import React, { FC, ReactElement } from 'react';
-import { Box, Center, HStack, Text, VStack } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { Box, Center, Image, Text, VStack } from '@chakra-ui/react';
 import { useTypewriter } from 'react-simple-typewriter';
-
-import { AtomMouseScrollAnimate } from '@/components/atoms';
 
 const OrganismHomepageHeroSection: FC = (): ReactElement => {
 	const [text] = useTypewriter({
@@ -11,71 +8,48 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 		delaySpeed: 2000,
 		typeSpeed: 50,
 		deleteSpeed: 10,
-		words: [
-			'I am Software Engineer 💻',
-			'Also loves develop Front End apps 💛',
-			'But also loves creamy latte without sugar ☕️',
-		],
+		words: ['am Software Engineer 💻', 'loves built Website 💛'],
 	});
 
 	return (
-		<Box height="100vh" position="relative" overflow="hidden" id="hero-section">
-			<Center height="100%">
-				<VStack spacing={0}>
+		<Box
+			height="100vh"
+			position="relative"
+			overflow="hidden"
+			id="hero-section"
+			sx={{ zIndex: 3 }}
+		>
+			<Center
+				height="100%"
+				justifyContent={['center', null, 'start']}
+				px={['3rem', null, '8rem']}
+			>
+				<VStack spacing={5} alignItems="self-start">
 					<Text
-						fontSize={['20px', null, null, '25px']}
-						fontWeight="hairline"
-						mb={0}
-						as={motion.p}
-						initial={{ opacity: 0, scale: 0 }}
-						whileInView={{
-							opacity: 1,
-							scale: 1,
-							transition: { ease: 'easeOut', duration: 0.5, delay: 0.4 },
-						}}
-					>
-						{(text as string).toUpperCase()}|.
-					</Text>
-
-					<Text
-						fontSize={['90px', null, '100px', '110px', '120px']}
+						fontSize={['32px', null, '54px']}
 						fontWeight="bold"
+						letterSpacing="tighter"
+						lineHeight={1}
 						mb={0}
-						as={motion.p}
-						initial={{ y: 500, opacity: 0 }}
-						whileInView={{
-							y: 0,
-							opacity: 1,
-							transition: { ease: 'easeOut', duration: 0.5, delay: 0.2 },
-						}}
-						exit={{
-							y: 500,
-							opacity: 0,
-							transition: { ease: 'easeOut', duration: 0.5 },
-						}}
+						textAlign={['center', null, 'start']}
+						w="90vw"
 					>
-						TAMAGOSSI
+						Hi, Tama is here!
+						<br />I {text as string}|.
 					</Text>
 
-					<HStack
-						bottom={5}
-						justifyContent="center"
-						position="absolute"
-						width="100%"
-						as={motion.div}
-						whileInView={{
-							opacity: 1,
-							scale: 1,
-							transition: { ease: 'easeOut', duration: 0.5, delay: 0.2 },
-						}}
-						initial={{ opacity: 0, scale: 0 }}
+					<Text
+						fontSize={['16px', null, '21px']}
+						fontWeight={400}
+						letterSpacing="tighter"
+						lineHeight="shorter"
+						mb={0}
+						textAlign={['center', null, 'start']}
+						w={['initial', null, '50vw']}
 					>
-						<VStack spacing={5}>
-							<AtomMouseScrollAnimate />
-
-							<Text fontSize="xl">Scroll down slowly</Text>
-						</VStack>
-					</HStack>
+						I’m a software engineer specializing in building (and occasionally
+						designing) exceptional digital experiences.
+					</Text>
 				</VStack>
 			</Center>
 		</Box>

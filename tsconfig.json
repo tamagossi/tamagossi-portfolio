@@ -28,6 +28,6 @@
 			"@/utils": ["utils/index"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/useMousePosition.js"],
 	"exclude": ["node_modules"]
 }
