@@ -3,7 +3,11 @@ import { Box, Image } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 import { MoleculeNavbar } from '@/components/molecules';
-import { OrganismHomepageAboutSection, OrganismHomepageHeroSection } from '@/components/organisms';
+import {
+	OrganismHomepageAboutSection,
+	OrganismHomepageHeroSection,
+	OrganismHomepageProjectSection,
+} from '@/components/organisms';
 
 const HomePage: NextPage = () => {
 	return (
@@ -58,6 +62,18 @@ const HomePage: NextPage = () => {
 				w="100%"
 			>
 				<OrganismHomepageAboutSection />
+			</Box>
+
+			<Box
+				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
+				h="100vh"
+				scrollSnapAlign="center"
+				scrollSnapStop="always"
+				w="100%"
+				position="relative"
+				overflow="hidden"
+			>
+				<OrganismHomepageProjectSection />
 			</Box>
 		</Box>
 	);
