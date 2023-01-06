@@ -6,26 +6,29 @@ interface MoleculeProjectCardPropsInterface {
 	category: string;
 	id: string;
 	name: string;
+	onClick?: (id: string) => void;
 	scope: string;
 	stack: string;
 }
 
 const MoleculeProjectCard: FC<MoleculeProjectCardPropsInterface> = ({
-	name,
-	scope,
-	category,
-	stack,
 	active,
+	category,
 	id,
+	name,
+	onClick,
+	scope,
+	stack,
 }): ReactElement => {
 	return (
 		<HStack
-			key={name}
-			spacing={5}
-			cursor="pointer"
-			py={3}
-			px={4}
 			borderRadius="2xl"
+			cursor="pointer"
+			key={name}
+			onClick={() => onClick!(id)}
+			px={4}
+			py={3}
+			spacing={5}
 			background={
 				active ? 'linear-gradient(92.84deg, #80054A 24.38%, #4D002B 85.53%);' : undefined
 			}
@@ -39,7 +42,7 @@ const MoleculeProjectCard: FC<MoleculeProjectCardPropsInterface> = ({
 			/>
 
 			<VStack spacing={1} alignItems="start">
-				<Text fontWeight={600}>Chalatix Agency</Text>
+				<Text fontWeight={600}>{name}</Text>
 
 				<HStack
 					spacing={12}
