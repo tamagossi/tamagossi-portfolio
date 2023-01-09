@@ -44,8 +44,6 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 
 	const selectedProject = PROJECTS.find((project) => project.id === activeProject);
 
-	console.log(selectedProject);
-
 	return (
 		<VStack p="7rem" px={['1rem', null, null, '7rem']} spacing="3rem">
 			<Text fontSize="36px" fontWeight="bold" textAlign="center">
@@ -126,7 +124,7 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 				</GridItem>
 			</Grid>
 
-			<VStack display={['flex', null, null, 'none']} justifyContent="center" spacing="2rem">
+			<VStack display={['flex', null, null, 'none']} justifyContent="center" spacing="1rem">
 				<HStack
 					overflow="scroll"
 					scrollBehavior="smooth"

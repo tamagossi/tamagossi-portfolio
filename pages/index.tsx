@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import { MoleculeNavbar } from '@/components/molecules';
 import {
 	OrganismHomepageAboutSection,
+	OrganismHomepageExperienceSection,
 	OrganismHomepageHeroSection,
 	OrganismHomepageProjectSection,
 } from '@/components/organisms';
@@ -74,6 +75,16 @@ const HomePage: NextPage = () => {
 				overflow="hidden"
 			>
 				<OrganismHomepageProjectSection />
+			</Box>
+
+			<Box
+				bg="linear-gradient(137.05deg, #80054A 20.62%, #80054A 75.9%)"
+				h="100vh"
+				scrollSnapAlign="center"
+				scrollSnapStop="always"
+				w="100%"
+			>
+				<OrganismHomepageExperienceSection />
 			</Box>
 		</Box>
 	);
