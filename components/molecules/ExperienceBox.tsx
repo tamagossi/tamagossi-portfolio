@@ -1,43 +1,49 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 import { VStack, Box, Text } from '@chakra-ui/react';
+import { Experience } from 'interface/experience.interface';
 
-const MoleculeExperienceBox = () => {
+const MoleculeExperienceBox: FC<Experience> = ({
+	id,
+	title,
+	company,
+	company_url,
+	start_date,
+	end_date,
+	descriptions,
+}): ReactElement => {
+	console.log(descriptions);
+
 	return (
 		<Box
 			bg="linear-gradient(123.86deg, #710441 28.07%, #5F0136 83.79%)"
 			padding="2rem"
 			borderRadius="2xl"
-			width={['400px', null, '500px', '600px']}
+			width={['400px', null, '500px']}
+			height="400px"
 		>
 			<VStack alignItems="start" spacing="1rem">
 				<VStack alignItems="start" spacing={0}>
 					<Text fontSize="2xl" fontWeight={600}>
-						Staffinc
+						{company}
 					</Text>
-					<Text fontSize="sm">April 2022 - Now</Text>
+					<Text fontSize="sm">
+						{start_date} - {end_date}
+					</Text>
 				</VStack>
 
-				<ul style={{ marginLeft: 15 }}>
-					<li>
-						<Text fontSize="sm">
-							Write modern, performant, maintainable code for a diverse array of
-							client and internal projects
-						</Text>
-					</li>
-					<li>
-						<Text fontSize="sm">
-							Work with a variety of different languages, platforms, frameworks, and
-							content management systems such as JavaScript, TypeScript, Gatsby,
-							React, Craft, WordPress, Prismic, and Netlify
-						</Text>
-					</li>
-					<li>
-						<Text fontSize="sm">
-							Communicate with multi-disciplinary teams of engineers, designers,
-							producers, and clients on a daily basis
-						</Text>
-					</li>
-				</ul>
+				{descriptions && (
+					<ul style={{ marginLeft: 15 }}>
+						<VStack>
+							{descriptions.map((desc) => {
+								return (
+									<li key={desc}>
+										<Text fontSize="sm">{desc}</Text>
+									</li>
+								);
+							})}
+						</VStack>
+					</ul>
+				)}
 			</VStack>
 		</Box>
 	);

@@ -1,74 +1,49 @@
 import React, { FC, ReactElement, useState } from 'react';
-import { Box, HStack, VStack, Text, Grid, GridItem, Tag } from '@chakra-ui/react';
+import { Box, HStack, VStack, Text, Grid, GridItem } from '@chakra-ui/react';
 
-import { AtomProjectInfo, AtomButton } from '@/components/atoms';
-import {
-	MoleculeExperienceBox,
-	MoleculeProjectCard,
-	MoleculeProjectHighlight,
-} from '@/components/molecules';
+import { MoleculeExperienceBox } from '@/components/molecules';
 
-const EXPERIENCES = [
-	{
-		name: 'Skrillex',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '1 Month',
-		id: 'a',
-	},
-	{
-		name: 'Chalatix Agency',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '2 Month',
-		id: 'b',
-	},
-	{
-		name: 'Same Different',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '3 Month',
-		id: 'c',
-	},
-	{
-		name: 'Class:y',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '4 Month',
-		id: 'd',
-	},
-];
+import { useExperienceQuery } from '@/hooks';
+import { Experience } from 'interface/experience.interface';
 
 const OrganisHomepageProjectSection: FC = (): ReactElement => {
-	const [activeProject, setActiveProject] = useState('a');
+	const { useGetExperiences } = useExperienceQuery();
 
-	const selectedProject = EXPERIENCES.find((experience) => experience.id === activeProject);
+	const [activeExperience, setActiveExperience] = useState<number>(0);
 
-	return (
+	const { data: experiences, isLoading } = useGetExperiences({});
+
+	if (isLoading || !experiences) return <></>;
+
+	const selectedExperience = experiences[activeExperience];
+
+	console.log(activeExperience);
+	console.log(`${activeExperience * 60}px`);
+
+	return isLoading ? (
+		<></>
+	) : (
 		<>
 			<Grid
 				alignItems="center"
 				templateColumns="repeat(24, 1fr)"
 				height="100vh"
-				rowGap={4}
+				columnGap={10}
 				display={['none', null, null, 'grid']}
+				px="7rem"
 			>
-				<GridItem colSpan={[0, null, null, 10]}>
+				<GridItem colSpan={[0, null, null, 5]}>
 					<Text fontSize="36px" fontWeight="bold" textAlign="center">
 						Where I&apos;ve worked
 					</Text>
 				</GridItem>
 
-				<GridItem colSpan={[24, null, null, 14]}>
-					<HStack spacing="3rem">
+				<GridItem colSpan={[24, null, null, 19]}>
+					<HStack spacing="5rem" overflow="hidden">
 						<HStack spacing="2rem">
 							<Box
 								width="8px"
-								height={`${EXPERIENCES.length * 60}px`}
+								height={`${experiences.length * 60}px`}
 								borderRadius="3xl"
 								bgColor="#5B0334"
 								position="relative"
@@ -80,20 +55,30 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 									bgColor="#FF008C"
 									position="absolute"
 									left={0}
-									top={0}
+									top={`${activeExperience * 60}px`}
+									transitionDuration="1s"
 								/>
 							</Box>
 
 							<VStack spacing={0} alignItems="start">
-								{EXPERIENCES.map((experience) => {
+								{experiences.map((experience: Experience, index: number) => {
 									return (
 										<HStack
 											alignItems="center"
 											key={experience.id}
 											height="60px"
+											onClick={() => setActiveExperience(index)}
 										>
-											<Text fontSize="xl" fontWeight={500} cursor="pointer">
-												{experience.name}
+											<Text
+												fontSize="xl"
+												fontWeight={500}
+												cursor="pointer"
+												transitionDuration="1s"
+												color={
+													index === activeExperience ? '#FF008C' : 'white'
+												}
+											>
+												{experience.company}
 											</Text>
 										</HStack>
 									);
@@ -101,7 +86,31 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 							</VStack>
 						</HStack>
 
-						<MoleculeExperienceBox />
+						<Box
+							alignItems="center"
+							justifyContent="center"
+							position="relative"
+							height="400px"
+							background="blue"
+						>
+							{experiences.map((experience: Experience, index: number) => {
+								console.log(experience);
+
+								return (
+									<Box
+										key={experience.id}
+										onClick={() => setActiveExperience(index)}
+										position="absolute"
+										top={0}
+										left={index === activeExperience ? 0 : 150}
+										opacity={index === activeExperience ? 1 : 0}
+										transitionDuration="1s"
+									>
+										<MoleculeExperienceBox {...experience} />
+									</Box>
+								);
+							})}
+						</Box>
 					</HStack>
 				</GridItem>
 			</Grid>
@@ -137,14 +146,14 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 						},
 					}}
 				>
-					{EXPERIENCES.map((experience) => {
+					{experiences!.map((experience: Experience) => {
 						return (
 							<Box
 								scrollSnapAlign="center"
 								scrollSnapStop="always"
 								key={experience.id}
 							>
-								<MoleculeExperienceBox />
+								<MoleculeExperienceBox {...experience} />
 							</Box>
 						);
 					})}
