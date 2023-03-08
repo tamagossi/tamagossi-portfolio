@@ -63,10 +63,11 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 							<VStack spacing={0} alignItems="start">
 								{experiences.map((experience: Experience, index: number) => {
 									return (
-										<HStack
-											alignItems="center"
+										<VStack
+											alignItems="start"
 											key={experience.id}
 											height="60px"
+											spacing={-1}
 											onClick={() => setActiveExperience(index)}
 										>
 											<Text
@@ -80,7 +81,19 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 											>
 												{experience.company}
 											</Text>
-										</HStack>
+
+											<Text
+												fontSize="sm"
+												fontWeight={400}
+												cursor="pointer"
+												transitionDuration="1s"
+												color={
+													index === activeExperience ? '#FF008C' : 'white'
+												}
+											>
+												{experience.title.toUpperCase()}
+											</Text>
+										</VStack>
 									);
 								})}
 							</VStack>
@@ -94,8 +107,6 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 							background="blue"
 						>
 							{experiences.map((experience: Experience, index: number) => {
-								console.log(experience);
-
 								return (
 									<Box
 										key={experience.id}

@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 
 import { MoleculeNavbar } from '@/components/molecules';
 import {
+	OrganismFooter,
 	OrganismHomepageAboutSection,
 	OrganismHomepageExperienceSection,
 	OrganismHomepageHeroSection,
@@ -62,7 +63,7 @@ const HomePage: NextPage = () => {
 				scrollSnapStop="always"
 				w="100%"
 			>
-				<OrganismHomepageAboutSection />
+				z <OrganismHomepageAboutSection />
 			</Box>
 
 			<Box
@@ -74,6 +75,14 @@ const HomePage: NextPage = () => {
 				position="relative"
 				overflow="hidden"
 			>
+				<Image
+					src="/images/waves-pink.svg"
+					alt="hero"
+					width="100%"
+					height="100px"
+					position="absolute"
+				/>
+
 				<OrganismHomepageProjectSection />
 			</Box>
 
@@ -85,6 +94,24 @@ const HomePage: NextPage = () => {
 				w="100%"
 			>
 				<OrganismHomepageExperienceSection />
+			</Box>
+
+			<Box
+				bg="linear-gradient(137.05deg, #80054A 20.62%, #80054A 75.9%)"
+				h="100vh"
+				scrollSnapAlign="center"
+				scrollSnapStop="always"
+				w="100%"
+			>
+				<Image
+					src="/images/waves-pink-2.svg"
+					alt="hero"
+					width="100%"
+					height="200px"
+					position="absolute"
+				/>
+
+				<OrganismFooter />
 			</Box>
 		</Box>
 	);

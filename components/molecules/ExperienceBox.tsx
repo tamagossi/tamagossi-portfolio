@@ -20,12 +20,30 @@ const MoleculeExperienceBox: FC<Experience> = ({
 			borderRadius="2xl"
 			width={['400px', null, '500px']}
 			height="400px"
+			overflowY="auto"
+			css={{
+				'&::-webkit-scrollbar': {
+					width: '1px',
+				},
+				'&::-webkit-scrollbar-track': {
+					width: '1px',
+				},
+				'&::-webkit-scrollbar-thumb': {
+					background: 'trasnparent',
+					borderRadius: '24px',
+				},
+			}}
 		>
 			<VStack alignItems="start" spacing="1rem">
 				<VStack alignItems="start" spacing={0}>
-					<Text fontSize="2xl" fontWeight={600}>
-						{company}
-					</Text>
+					<a href={company_url}>
+						<Text fontSize="2xl" fontWeight={600}>
+							{company}
+						</Text>
+					</a>
+
+					<Text fontSize="sm">{title.toUpperCase()}</Text>
+
 					<Text fontSize="sm">
 						{start_date} - {end_date}
 					</Text>
