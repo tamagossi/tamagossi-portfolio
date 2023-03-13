@@ -1,9 +1,9 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, ReactNode } from 'react';
 import { Text, VStack } from '@chakra-ui/react';
 
 interface AtomProjectInfoPropsInterface {
 	title: string;
-	content: string;
+	content: ReactNode;
 }
 
 const AtomProjectInfo: FC<AtomProjectInfoPropsInterface> = ({ title, content }): ReactElement => {

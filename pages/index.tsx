@@ -11,7 +11,15 @@ import {
 	OrganismHomepageProjectSection,
 } from '@/components/organisms';
 
-const HomePage: NextPage = () => {
+import EXPERIENCES from 'constants/experience';
+import PROJECTS from 'constants/projects';
+import { Experience } from 'interface/experience.interface';
+import { Project } from 'interface/project.interface';
+
+const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = ({
+	experiences,
+	projects,
+}) => {
 	return (
 		<Box
 			bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
@@ -63,7 +71,7 @@ const HomePage: NextPage = () => {
 				scrollSnapStop="always"
 				w="100%"
 			>
-				z <OrganismHomepageAboutSection />
+				<OrganismHomepageAboutSection />
 			</Box>
 
 			<Box
@@ -83,7 +91,7 @@ const HomePage: NextPage = () => {
 					position="absolute"
 				/>
 
-				<OrganismHomepageProjectSection />
+				<OrganismHomepageProjectSection projects={projects} />
 			</Box>
 
 			<Box
@@ -93,7 +101,7 @@ const HomePage: NextPage = () => {
 				scrollSnapStop="always"
 				w="100%"
 			>
-				<OrganismHomepageExperienceSection />
+				<OrganismHomepageExperienceSection experiences={experiences} />
 			</Box>
 
 			<Box
@@ -116,5 +124,14 @@ const HomePage: NextPage = () => {
 		</Box>
 	);
 };
+
+export async function getStaticProps() {
+	return {
+		props: {
+			experiences: EXPERIENCES,
+			projects: PROJECTS,
+		},
+	};
+}
 
 export default HomePage;

@@ -1,117 +1,158 @@
 import React, { FC, ReactElement, useState } from 'react';
-import { Box, HStack, VStack, Text, Grid, GridItem, Tag } from '@chakra-ui/react';
+import { Box, HStack, VStack, Text, Grid, GridItem, Tag, Image } from '@chakra-ui/react';
 
 import { AtomProjectInfo, AtomButton } from '@/components/atoms';
 import { MoleculeProjectCard, MoleculeProjectHighlight } from '@/components/molecules';
+import { Project } from 'interface/project.interface';
+import { motion } from 'framer-motion';
 
-const PROJECTS = [
-	{
-		name: 'Skrillex',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '1 Month',
-		id: 'a',
-	},
-	{
-		name: 'Chalatix Agency',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '2 Month',
-		id: 'b',
-	},
-	{
-		name: 'Same Different',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '3 Month',
-		id: 'c',
-	},
-	{
-		name: 'Class:y',
-		scope: 'Web Development',
-		category: 'Man Power',
-		stack: 'Front End',
-		duration: '4 Month',
-		id: 'd',
-	},
-];
+interface OrganismHomepageProjectSectionPropsInterface {
+	projects: Project[];
+}
 
-const OrganisHomepageProjectSection: FC = (): ReactElement => {
-	const [activeProject, setActiveProject] = useState('a');
+const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInterface> = ({
+	projects,
+}): ReactElement => {
+	const [activeProject, setActiveProject] = useState(0);
 
-	const selectedProject = PROJECTS.find((project) => project.id === activeProject);
+	const selectedProject = projects.find((project) => project.id === activeProject);
+
+	const container = {
+		hidden: { opacity: 0 },
+		visible: (i = 1) => ({
+			opacity: 1,
+			transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+		}),
+	};
+
+	const child = {
+		visible: {
+			opacity: 1,
+			x: 0,
+			transition: {
+				type: 'spring',
+				damping: 12,
+				stiffness: 100,
+			},
+		},
+		hidden: {
+			opacity: 0,
+			x: -40,
+			transition: {
+				type: 'spring',
+				damping: 12,
+				stiffness: 100,
+			},
+		},
+	};
 
 	return (
-		<VStack p="7rem" px={['1rem', null, null, '7rem']} spacing="3rem">
+		<VStack p="7rem" px={['1rem', null, null, '7rem']} spacing={['1rem', null, null, '3rem']}>
 			<Text fontSize="36px" fontWeight="bold" textAlign="center">
 				Things I&apos;ve built
 			</Text>
 
-			<Grid templateColumns="repeat(24, 1fr)" display={['none', null, null, 'grid']}>
-				<GridItem colSpan={[24, null, null, 13]}>
-					<VStack alignItems="start" spacing="2rem">
-						<HStack spacing="2rem" alignItems="start">
-							<Box
-								backgroundImage={`url("/images/background.jpg")`}
-								height={280}
-								width={363}
-								backgroundSize="cover"
-								borderRadius={40}
+			<Grid templateColumns="repeat(24, 1fr)" display={['none', null, null, 'grid']} gap={5}>
+				<GridItem colSpan={[24, null, null, 15]}>
+					<VStack
+						alignItems="start"
+						spacing="1rem"
+						wrap="wrap"
+						width="100%"
+						as={motion.div}
+						variants={container}
+						initial="hidden"
+						animate="visible"
+						key={activeProject}
+					>
+						<HStack
+							as={motion.div}
+							variants={child}
+							spacing="2rem"
+							alignItems="start"
+							width="100%"
+							justifyContent="center"
+							height={500}
+						>
+							<Image
+								alt="project-thumbnail"
+								src={selectedProject?.thumbnail as string}
+								height="100%"
 							/>
-
-							<VStack spacing={3} alignItems="start">
-								<VStack spacing={0} alignItems="start">
-									<Text fontWeight={500}>Website</Text>
-									<Text fontSize="22px" fontWeight={700} sx={{ m: 0 }}>
-										{selectedProject?.name}
-									</Text>
-								</VStack>
-
-								<AtomProjectInfo title="ROLE" content={selectedProject?.stack!} />
-								<AtomProjectInfo
-									title="PROJECT CATEGORIES"
-									content={selectedProject?.scope!}
-								/>
-								<AtomProjectInfo
-									title="DURATION"
-									content={selectedProject?.duration!}
-								/>
-							</VStack>
 						</HStack>
 
-						<AtomProjectInfo
-							title="PROJECT OVERVIEW"
-							content="
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
-								eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-								Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores 
-								eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-							"
-						/>
+						<VStack spacing={0} alignItems="start" as={motion.div} variants={child}>
+							<Text fontWeight={500}>Website</Text>
+							<Text fontSize="22px" fontWeight={700} sx={{ m: 0 }}>
+								{selectedProject?.title}
+							</Text>
+						</VStack>
 
-						<HStack spacing={1}>
-							{['ReactJS', 'Ant Design', 'Mobx'].map((tech) => (
+						<HStack spacing="2rem" alignItems="start" as={motion.div} variants={child}>
+							<AtomProjectInfo
+								title="ROLE"
+								content={selectedProject?.tech.join(', ') as string}
+							/>
+							<AtomProjectInfo
+								title="PROJECT CATEGORIES"
+								content={selectedProject?.role as string}
+							/>
+							<AtomProjectInfo
+								title="DURATION"
+								content={`${selectedProject?.start_date} - ${selectedProject?.end_date}`}
+							/>
+						</HStack>
+
+						<Box as={motion.div} variants={child}>
+							<AtomProjectInfo
+								title="PROJECT OVERVIEW"
+								content={selectedProject!.descriptions}
+							/>
+						</Box>
+
+						<HStack spacing={1} as={motion.div} variants={child}>
+							{selectedProject?.tech.map((tech) => (
 								<Tag fontSize="11px" key={tech} background="pink.900">
 									{tech}
 								</Tag>
 							))}
+
+							<Box width={1} />
+							<Text> | </Text>
+							<Box width={1} />
+
+							<Text>See Detail →</Text>
 						</HStack>
 					</VStack>
 				</GridItem>
 
-				<GridItem colSpan={[0, null, null, 11]}>
-					<VStack spacing={0} alignItems="start">
-						{PROJECTS.map((project) => {
+				<GridItem colSpan={[0, null, null, 9]}>
+					<VStack
+						spacing={0}
+						alignItems="start"
+						borderLeft="1px solid white"
+						pl="2rem"
+						position="relative"
+					>
+						<Box
+							width={580}
+							height="90px"
+							borderRadius="xl"
+							background="linear-gradient(92.84deg, #80054A 24.38%, #4D002B 85.53%);"
+							position="absolute"
+							left={5}
+							top={`${activeProject * 92}px`}
+							transitionDuration="1s"
+							zIndex="998"
+						/>
+
+						{projects.slice(0, 8).map((project) => {
 							const { id } = project;
 
 							return (
 								<MoleculeProjectCard
 									{...project}
-									active={activeProject === id}
-									key={project.name}
+									key={project.title}
 									onClick={(id) => setActiveProject(id)}
 								/>
 							);
@@ -130,7 +171,7 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 					scrollBehavior="smooth"
 					scrollSnapType="x mandatory"
 					w="100vw"
-					spacing={5}
+					spacing="2rem"
 					px="12rem"
 					css={{
 						'&::-webkit-scrollbar': {
@@ -145,7 +186,7 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 						},
 					}}
 				>
-					{PROJECTS.map((project) => {
+					{projects.slice(0, 8).map((project) => {
 						return (
 							<Box scrollSnapAlign="center" scrollSnapStop="always" key={project.id}>
 								<MoleculeProjectHighlight {...project} />

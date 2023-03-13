@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import { Box, Center, Image, Text, VStack } from '@chakra-ui/react';
 import { useTypewriter } from 'react-simple-typewriter';
-import { AtomButton } from '@/components/atoms';
+import { AtomAnimatedTextWord, AtomButton } from '@/components/atoms';
 
 const OrganismHomepageHeroSection: FC = (): ReactElement => {
 	const [text] = useTypewriter({

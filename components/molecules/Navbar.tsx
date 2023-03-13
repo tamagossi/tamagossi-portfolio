@@ -28,7 +28,7 @@ const SOCIALS: SOCIAL[] = [
 	},
 	{
 		Icon: <AiOutlineLinkedin size={24} color="rgba(255,255,255,0.6)" />,
-		url: 'https://www.linkedin.com/in/prauliyatama/',
+		url: 'https://www.linkedin.com/in/tamagossi/',
 	},
 	{
 		Icon: <AiOutlineInstagram size={24} color="rgba(255,255,255,0.6)" />,

@@ -3,26 +3,18 @@ import { Box, HStack, VStack, Text, Grid, GridItem } from '@chakra-ui/react';
 
 import { MoleculeExperienceBox } from '@/components/molecules';
 
-import { useExperienceQuery } from '@/hooks';
 import { Experience } from 'interface/experience.interface';
 
-const OrganisHomepageProjectSection: FC = (): ReactElement => {
-	const { useGetExperiences } = useExperienceQuery();
+interface OrganisHomepageProjectSectionPropsInterface {
+	experiences: Experience[];
+}
 
+const OrganisHomepageProjectSection: FC<OrganisHomepageProjectSectionPropsInterface> = ({
+	experiences,
+}): ReactElement => {
 	const [activeExperience, setActiveExperience] = useState<number>(0);
 
-	const { data: experiences, isLoading } = useGetExperiences({});
-
-	if (isLoading || !experiences) return <></>;
-
-	const selectedExperience = experiences[activeExperience];
-
-	console.log(activeExperience);
-	console.log(`${activeExperience * 60}px`);
-
-	return isLoading ? (
-		<></>
-	) : (
+	return (
 		<>
 			<Grid
 				alignItems="center"
@@ -39,7 +31,7 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 				</GridItem>
 
 				<GridItem colSpan={[24, null, null, 19]}>
-					<HStack spacing="5rem" overflow="hidden">
+					<HStack spacing={['5rem', null, null, null, '12rem']} overflow="hidden">
 						<HStack spacing="2rem">
 							<Box
 								width="8px"
@@ -157,7 +149,7 @@ const OrganisHomepageProjectSection: FC = (): ReactElement => {
 						},
 					}}
 				>
-					{experiences!.map((experience: Experience) => {
+					{experiences.map((experience: Experience) => {
 						return (
 							<Box
 								scrollSnapAlign="center"

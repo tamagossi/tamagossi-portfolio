@@ -1,48 +1,33 @@
 import React, { FC, ReactElement } from 'react';
-import { HStack, VStack, Box, Text } from '@chakra-ui/react';
+import { Project } from 'interface/project.interface';
+import { HStack, Image, Text, VStack } from '@chakra-ui/react';
 
-interface MoleculeProjectCardPropsInterface {
-	active: boolean;
-	category: string;
-	id: string;
-	name: string;
-	onClick?: (id: string) => void;
-	scope: string;
-	stack: string;
-}
+type MoleculeProjectCardPropsInterface = Project & {
+	onClick?: (id: number) => void;
+};
 
 const MoleculeProjectCard: FC<MoleculeProjectCardPropsInterface> = ({
 	active,
 	category,
 	id,
-	name,
+	title,
 	onClick,
-	scope,
-	stack,
+	role,
+	tech,
 }): ReactElement => {
 	return (
 		<HStack
 			borderRadius="2xl"
 			cursor="pointer"
-			key={name}
+			key={title}
 			onClick={() => onClick!(id)}
 			px={4}
 			py={3}
 			spacing={5}
-			background={
-				active ? 'linear-gradient(92.84deg, #80054A 24.38%, #4D002B 85.53%);' : undefined
-			}
+			zIndex="999"
 		>
-			<Box
-				backgroundImage={`url("/images/background.jpg")`}
-				height={92}
-				width={112}
-				backgroundSize="cover"
-				borderRadius="2xl"
-			/>
-
 			<VStack spacing={1} alignItems="start">
-				<Text fontWeight={600}>{name}</Text>
+				<Text fontWeight={600}>{title}</Text>
 
 				<HStack
 					spacing={12}
@@ -53,13 +38,13 @@ const MoleculeProjectCard: FC<MoleculeProjectCardPropsInterface> = ({
 					}
 				>
 					<Text fontWeight={500} fontSize={12}>
-						{scope}
+						{role}
 					</Text>
 					<Text fontWeight={500} fontSize={12}>
 						{category}
 					</Text>
 					<Text fontWeight={500} fontSize={12}>
-						{stack}
+						{tech.join(', ')}
 					</Text>
 				</HStack>
 

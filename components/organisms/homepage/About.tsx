@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import { Box, Center, HStack, Text, VStack } from '@chakra-ui/react';
 
 import { MoleculeSkillCard } from '@/components/molecules';
+import { motion } from 'framer-motion';
 
 const SKILLS = [
 	<MoleculeSkillCard
@@ -34,7 +35,22 @@ const OrganismHomepageAboutSection: FC = (): ReactElement => {
 				justifyContent={['center', null, 'start']}
 				px={['0rem', null, null, '8rem']}
 			>
-				<VStack w="100vw" spacing={3} alignItems="center">
+				<VStack
+					w="100vw"
+					spacing={3}
+					alignItems="center"
+					as={motion.div}
+					initial={{ opacity: 0, y: 100 }}
+					whileInView={{
+						opacity: 1,
+						y: 0,
+						transition: {
+							duration: 1,
+							type: 'spring',
+							stiffness: 50,
+						},
+					}}
+				>
 					<VStack spacing={-1}>
 						<Text
 							fontSize={['16px', null, '21px']}
