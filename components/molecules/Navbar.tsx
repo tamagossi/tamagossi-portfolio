@@ -16,8 +16,8 @@ type SOCIAL = {
 
 const MENUS: MENU[] = [
 	{ label: 'Home', url: '/' },
-	{ label: 'Experiences', url: '/' },
-	{ label: 'Projects', url: '/' },
+	{ label: 'Experiences', url: '/experiences' },
+	{ label: 'Projects', url: '/projects' },
 	{ label: 'Contact', url: '/' },
 ];
 
