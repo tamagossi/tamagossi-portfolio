@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import { Box, Center, Image, Text, VStack } from '@chakra-ui/react';
+import { Box, Center, Text, VStack } from '@chakra-ui/react';
 import { useTypewriter } from 'react-simple-typewriter';
 import { AtomButton } from '@/components/atoms';
 
@@ -27,7 +27,7 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 			>
 				<VStack spacing={5} alignItems={['center', null, 'self-start']}>
 					<Text
-						fontSize={['32px', null, '54px']}
+						fontSize={['32px', null, '48px']}
 						fontWeight="bold"
 						letterSpacing="tighter"
 						lineHeight="normal"
@@ -40,7 +40,7 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 					</Text>
 
 					<Text
-						fontSize={['16px', null, '21px']}
+						fontSize={['14px', null, '18px']}
 						fontWeight={400}
 						letterSpacing="tighter"
 						lineHeight="shorter"

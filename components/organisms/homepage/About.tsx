@@ -53,7 +53,7 @@ const OrganismHomepageAboutSection: FC = (): ReactElement => {
 				>
 					<VStack spacing={-1}>
 						<Text
-							fontSize={['16px', null, '21px']}
+							fontSize={['14px', null, '18px']}
 							fontWeight={400}
 							textAlign={['center', null, 'start']}
 						>
@@ -70,7 +70,7 @@ const OrganismHomepageAboutSection: FC = (): ReactElement => {
 					</VStack>
 
 					<Text
-						fontSize="16px"
+						fontSize="14px"
 						fontWeight={400}
 						textAlign="center"
 						px={['0px', '3rem', '6rem', '9rem', '12rem']}

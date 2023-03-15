@@ -27,18 +27,16 @@ const MoleculeProjectHighlight: FC<Project> = ({
 
 			<VStack spacing={3} alignItems="start">
 				<VStack spacing={0} alignItems="start">
-					<Text fontWeight={500}>Website</Text>
-					<Text fontSize="28px" fontWeight={700} sx={{ m: 0 }}>
+					<Text fontWeight={500} fontSize="14px" color="#FF008C">
+						Website
+					</Text>
+					<Text fontSize="18px" fontWeight={700} sx={{ m: 0 }}>
 						{title}
 					</Text>
-					<Text fontWeight={500} sx={{ m: 0 }}>
+					<Text fontWeight={500} sx={{ m: 0 }} fontSize="12px">
 						{descriptions}
 					</Text>
 				</VStack>
-
-				<AtomProjectInfo title="ROLE" content={role as string} />
-				<AtomProjectInfo title="PROJECT CATEGORIES" content={category} />
-				<AtomProjectInfo title="DURATION" content={`${start_date} - ${end_date}`} />
 			</VStack>
 		</VStack>
 	);

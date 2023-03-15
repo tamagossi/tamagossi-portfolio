@@ -36,7 +36,11 @@ const SOCIALS: SOCIAL[] = [
 	},
 ];
 
-const MoleculeNavbar: FC = (): ReactElement => {
+interface MoleculeNavbarPropsInterface {
+	stickOnTop?: boolean;
+}
+
+const MoleculeNavbar: FC<MoleculeNavbarPropsInterface> = ({ stickOnTop = false }): ReactElement => {
 	return (
 		<>
 			<HStack
@@ -45,7 +49,7 @@ const MoleculeNavbar: FC = (): ReactElement => {
 				animate={{ y: 0, opacity: 1, transition: { ease: 'easeOut', duration: 1 } }}
 				id="navbar"
 				justifyContent="center"
-				position="fixed"
+				position={stickOnTop ? 'absolute' : 'fixed'}
 				px={['10rem', null, null, null, '20rem']}
 				py="2rem"
 				spacing="1.5rem"
@@ -59,7 +63,7 @@ const MoleculeNavbar: FC = (): ReactElement => {
 					return (
 						<Link key={url} href={url}>
 							<Text
-								fontSize="14px"
+								fontSize="12px"
 								fontWeight={500}
 								cursor="pointer"
 								_hover={{ transform: 'scale(1.1)' }}

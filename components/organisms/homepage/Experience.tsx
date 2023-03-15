@@ -25,46 +25,46 @@ const OrganisHomepageProjectSection: FC<OrganisHomepageProjectSectionPropsInterf
 				px="7rem"
 			>
 				<GridItem colSpan={[0, null, null, 5]}>
-					<Text fontSize="36px" fontWeight="bold" textAlign="center">
+					<Text fontSize="30px" fontWeight="bold" textAlign="center">
 						Where I&apos;ve worked
 					</Text>
 				</GridItem>
 
 				<GridItem colSpan={[24, null, null, 19]}>
-					<HStack spacing={['5rem', null, null, null, '12rem']} overflow="hidden">
-						<HStack spacing="2rem">
+					<HStack spacing={['2rem', null, null, null, '5rem']} overflow="hidden">
+						<HStack spacing="1rem">
 							<Box
 								width="8px"
-								height={`${experiences.length * 60}px`}
+								height={`${experiences.length * 54}px`}
 								borderRadius="3xl"
 								bgColor="#5B0334"
 								position="relative"
 							>
 								<Box
 									width={2}
-									height="60px"
+									height="50px"
 									borderRadius="3xl"
 									bgColor="#FF008C"
 									position="absolute"
 									left={0}
-									top={`${activeExperience * 60}px`}
+									top={`${activeExperience * 54}px`}
 									transitionDuration="1s"
 								/>
 							</Box>
 
-							<VStack spacing={0} alignItems="start">
+							<VStack spacing={1} alignItems="start">
 								{experiences.map((experience: Experience, index: number) => {
 									return (
 										<VStack
 											alignItems="start"
 											key={experience.id}
-											height="60px"
+											height="50px"
 											spacing={-1}
 											onClick={() => setActiveExperience(index)}
 										>
 											<Text
-												fontSize="xl"
-												fontWeight={500}
+												fontSize="md"
+												fontWeight={600}
 												cursor="pointer"
 												transitionDuration="1s"
 												color={
@@ -75,7 +75,7 @@ const OrganisHomepageProjectSection: FC<OrganisHomepageProjectSectionPropsInterf
 											</Text>
 
 											<Text
-												fontSize="sm"
+												fontSize="xs"
 												fontWeight={400}
 												cursor="pointer"
 												transitionDuration="1s"

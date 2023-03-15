@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 
 import { useMousePosition } from '@/hooks';
 import { MouseContext } from '@/context';
-import { Box } from '@chakra-ui/react';
 
 const AtomCursorFollow = () => {
 	const { cursorType } = useContext(MouseContext);

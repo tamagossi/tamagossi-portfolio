@@ -1,14 +1,31 @@
-import React from 'react';
-import { Box, Center, Image, VStack, Text } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Center, Image, VStack, Text, HStack } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 import { MoleculeNavbar } from '@/components/molecules';
 
 import PROJECTS from 'constants/projects';
 import { Project } from 'interface/project.interface';
-import { AtomButton } from '@/components/atoms';
 
-const HomePage: NextPage<{ projects: Project[] }> = ({ projects }) => {
+const WORKS = [
+	{
+		label: 'All',
+		role: ['Front-End Engineer', 'Mobile Engineer', 'Back-End Engineer'],
+	},
+	{
+		label: 'Front-End',
+		role: ['Front-End Engineer'],
+	},
+	{
+		label: 'Mobile',
+		role: ['Mobile Engineer'],
+	},
+];
+
+const ProjectPage: NextPage<{ projects: Project[] }> = ({ projects }) => {
+	const [active, setActive] = useState(WORKS[0].label);
+	const [role, setRole] = useState(WORKS[0].role);
+
 	return (
 		<Box
 			bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
@@ -31,23 +48,22 @@ const HomePage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 				},
 			}}
 		>
-			<MoleculeNavbar />
+			<MoleculeNavbar stickOnTop />
 
 			<Box
 				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
-				h="100vh"
-				scrollSnapAlign="center"
-				scrollSnapStop="always"
 				w="100%"
+				h="100vh"
 				sx={{ zIndex: 1 }}
 				position="relative"
+				borderBottomRadius="4rem"
 				overflow="hidden"
 			>
 				<Image
 					src="/images/project-bg.svg"
 					alt="hero"
 					position="absolute"
-					width="70%"
+					width={['100%', null, '90%', null, '75%']}
 					sx={{ bottom: 0, right: 0 }}
 				/>
 
@@ -63,21 +79,26 @@ const HomePage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 						justifyContent={['center', null, 'start']}
 						px={['3rem', null, '8rem']}
 					>
-						<VStack spacing={5} alignItems={['center', null, 'self-start']}>
+						<VStack
+							spacing={5}
+							alignItems={['center', null, 'self-start']}
+							bg="rgba(0,0,0,0.4)"
+							p={20}
+						>
 							<Text
-								fontSize={['32px', null, '54px']}
+								fontSize={['32px', null, '40px']}
 								fontWeight="bold"
 								letterSpacing="tighter"
 								lineHeight="normal"
 								mb={0}
 								textAlign={['center', null, 'start']}
-								w="40vw"
+								w={['80vw', null, '60vw', null, '45vw']}
 							>
 								Turn coffe into next level digital product
 							</Text>
 
 							<Text
-								fontSize={['16px', null, '18px']}
+								fontSize={['14px', null, '16px']}
 								fontWeight={400}
 								letterSpacing="tighter"
 								lineHeight="shorter"
@@ -92,6 +113,44 @@ const HomePage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 					</Center>
 				</Box>
 			</Box>
+
+			<HStack justify="center">
+				<VStack spacing={5} py="5rem">
+					<Text
+						fontSize="2xl"
+						fontWeight="bold"
+						letterSpacing="tighter"
+						lineHeight="normal"
+						mb={0}
+						textAlign="center"
+					>
+						Recent Work
+					</Text>
+
+					<HStack spacing="1rem">
+						{WORKS.map((work: { label: string; role: string[] }) => {
+							const { label } = work;
+
+							return (
+								<Text
+									key={label}
+									bg={label === active ? '#FF008C' : 'initial'}
+									py={1}
+									px={10}
+									borderRadius="full"
+									onClick={() => {
+										setActive(label);
+										setRole(work.role);
+									}}
+									transitionDuration=".5s"
+								>
+									{label}
+								</Text>
+							);
+						})}
+					</HStack>
+				</VStack>
+			</HStack>
 		</Box>
 	);
 };
@@ -104,4 +163,4 @@ export async function getStaticProps() {
 	};
 }
 
-export default HomePage;
+export default ProjectPage;

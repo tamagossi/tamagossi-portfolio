@@ -18,7 +18,7 @@ const MoleculeExperienceBox: FC<Experience> = ({
 			bg="linear-gradient(123.86deg, #710441 28.07%, #5F0136 83.79%)"
 			padding="2rem"
 			borderRadius="2xl"
-			width={['450px', null, null, '500px', '700px']}
+			width={['450px', null, null, '500px', '600px']}
 			height="400px"
 			overflowY="auto"
 			css={{
@@ -37,14 +37,14 @@ const MoleculeExperienceBox: FC<Experience> = ({
 			<VStack alignItems="start" spacing="1rem">
 				<VStack alignItems="start" spacing={0}>
 					<a href={company_url}>
-						<Text fontSize="2xl" fontWeight={600}>
+						<Text fontSize="xl" fontWeight={700}>
 							{company}
 						</Text>
 					</a>
 
-					<Text fontSize="sm">{title.toUpperCase()}</Text>
+					<Text fontSize="xs">{title.toUpperCase()}</Text>
 
-					<Text fontSize="sm">
+					<Text fontSize="xs">
 						{start_date} - {end_date}
 					</Text>
 				</VStack>

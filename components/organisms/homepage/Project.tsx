@@ -48,12 +48,12 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 
 	return (
 		<VStack p="7rem" px={['1rem', null, null, '7rem']} spacing={['1rem', null, null, '3rem']}>
-			<Text fontSize="36px" fontWeight="bold" textAlign="center">
+			<Text fontSize="30px" fontWeight="bold" textAlign="center">
 				Things I&apos;ve built
 			</Text>
 
 			<Grid templateColumns="repeat(24, 1fr)" display={['none', null, null, 'grid']} gap={5}>
-				<GridItem colSpan={[24, null, null, 15]}>
+				<GridItem colSpan={[24, null, null, 12]}>
 					<VStack
 						alignItems="start"
 						spacing="1rem"
@@ -72,7 +72,7 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 							alignItems="start"
 							width="100%"
 							justifyContent="center"
-							height={500}
+							height={400}
 						>
 							<Image
 								alt="project-thumbnail"
@@ -81,52 +81,20 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 							/>
 						</HStack>
 
-						<VStack spacing={0} alignItems="start" as={motion.div} variants={child}>
-							<Text fontWeight={500}>Website</Text>
-							<Text fontSize="22px" fontWeight={700} sx={{ m: 0 }}>
-								{selectedProject?.title}
-							</Text>
-						</VStack>
-
-						<HStack spacing="2rem" alignItems="start" as={motion.div} variants={child}>
-							<AtomProjectInfo
-								title="ROLE"
-								content={selectedProject?.tech.join(', ') as string}
-							/>
-							<AtomProjectInfo
-								title="PROJECT CATEGORIES"
-								content={selectedProject?.role as string}
-							/>
-							<AtomProjectInfo
-								title="DURATION"
-								content={`${selectedProject?.start_date} - ${selectedProject?.end_date}`}
-							/>
-						</HStack>
-
-						<Box as={motion.div} variants={child}>
-							<AtomProjectInfo
-								title="PROJECT OVERVIEW"
-								content={selectedProject!.descriptions}
-							/>
-						</Box>
-
-						<HStack spacing={1} as={motion.div} variants={child}>
-							{selectedProject?.tech.map((tech) => (
-								<Tag fontSize="11px" key={tech} background="pink.900">
-									{tech}
-								</Tag>
-							))}
-
-							<Box width={1} />
-							<Text> | </Text>
-							<Box width={1} />
-
+						<HStack
+							justify="end"
+							spacing={1}
+							as={motion.div}
+							variants={child}
+							w="100%"
+							px="4rem"
+						>
 							<Text>See Detail →</Text>
 						</HStack>
 					</VStack>
 				</GridItem>
 
-				<GridItem colSpan={[0, null, null, 9]}>
+				<GridItem colSpan={[0, null, null, 12]}>
 					<VStack
 						spacing={0}
 						alignItems="start"
