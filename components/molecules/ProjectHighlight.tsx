@@ -28,7 +28,7 @@ const MoleculeProjectHighlight: FC<Project> = ({
 			<VStack spacing={3} alignItems="start">
 				<VStack spacing={0} alignItems="start">
 					<Text fontWeight={500} fontSize="14px" color="#FF008C">
-						Website
+						{'Project Name'.toUpperCase()}
 					</Text>
 					<Text fontSize="18px" fontWeight={700} sx={{ m: 0 }}>
 						{title}

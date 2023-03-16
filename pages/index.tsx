@@ -105,8 +105,7 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 			</Box>
 
 			<Box
-				bg="linear-gradient(137.05deg, #80054A 20.62%, #80054A 75.9%)"
-				h="100vh"
+				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
 				scrollSnapAlign="center"
 				scrollSnapStop="always"
 				w="100%"

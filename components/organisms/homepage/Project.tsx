@@ -1,10 +1,11 @@
 import React, { FC, ReactElement, useState } from 'react';
 import { Box, HStack, VStack, Text, Grid, GridItem, Tag, Image } from '@chakra-ui/react';
 
-import { AtomProjectInfo, AtomButton } from '@/components/atoms';
+import { AtomButton } from '@/components/atoms';
 import { MoleculeProjectCard, MoleculeProjectHighlight } from '@/components/molecules';
 import { Project } from 'interface/project.interface';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 interface OrganismHomepageProjectSectionPropsInterface {
 	projects: Project[];
@@ -13,6 +14,8 @@ interface OrganismHomepageProjectSectionPropsInterface {
 const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInterface> = ({
 	projects,
 }): ReactElement => {
+	const { push } = useRouter();
+
 	const [activeProject, setActiveProject] = useState(0);
 
 	const selectedProject = projects.find((project) => project.id === activeProject);
@@ -128,7 +131,7 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 
 						<Box h="1rem" />
 
-						<AtomButton>See More Project</AtomButton>
+						<AtomButton onClick={() => push('/projects')}>See More Project</AtomButton>
 					</VStack>
 				</GridItem>
 			</Grid>
@@ -163,7 +166,7 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 					})}
 				</HStack>
 
-				<AtomButton>See More Project</AtomButton>
+				<AtomButton onClick={() => push('/projects')}>See More Project</AtomButton>
 			</VStack>
 		</VStack>
 	);

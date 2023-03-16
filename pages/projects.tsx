@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Center, Image, VStack, Text, HStack } from '@chakra-ui/react';
+import { Box, Center, Image, VStack, Text, HStack, SimpleGrid } from '@chakra-ui/react';
 import { NextPage } from 'next';
+import { motion } from 'framer-motion';
 
 import { MoleculeNavbar } from '@/components/molecules';
+import { OrganismFooter, OrganismProjectBox } from '@/components/organisms';
 
 import PROJECTS from 'constants/projects';
 import { Project } from 'interface/project.interface';
@@ -28,13 +30,10 @@ const ProjectPage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 
 	return (
 		<Box
-			bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
+			bg="linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(118.55deg, #353535 20.84%, #0A0A0A 86.03%)"
 			h="100vh"
 			overflowY="scroll"
 			position="relative"
-			scrollBehavior="smooth"
-			scrollSnapType="y mandatory"
-			zIndex="docked"
 			css={{
 				'&::-webkit-scrollbar': {
 					width: '1px',
@@ -114,7 +113,7 @@ const ProjectPage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 				</Box>
 			</Box>
 
-			<HStack justify="center">
+			<HStack justify="center" overflowX="hidden">
 				<VStack spacing={5} py="5rem">
 					<Text
 						fontSize="2xl"
@@ -138,19 +137,34 @@ const ProjectPage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 									py={1}
 									px={10}
 									borderRadius="full"
+									transitionDuration=".8s"
+									transitionTimingFunction="ease-in-out"
 									onClick={() => {
 										setActive(label);
 										setRole(work.role);
 									}}
-									transitionDuration=".5s"
 								>
 									{label}
 								</Text>
 							);
 						})}
 					</HStack>
+
+					<Box h="2rem" />
+
+					<SimpleGrid
+						columns={[1, null, null, 2]}
+						spacing={10}
+						w={['90vw', null, null, '80vw']}
+					>
+						{PROJECTS.map((project) => (
+							<OrganismProjectBox key={project.id} {...project} />
+						))}
+					</SimpleGrid>
 				</VStack>
 			</HStack>
+
+			<OrganismFooter />
 		</Box>
 	);
 };

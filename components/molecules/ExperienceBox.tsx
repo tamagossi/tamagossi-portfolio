@@ -11,8 +11,6 @@ const MoleculeExperienceBox: FC<Experience> = ({
 	end_date,
 	descriptions,
 }): ReactElement => {
-	console.log(descriptions);
-
 	return (
 		<Box
 			bg="linear-gradient(123.86deg, #710441 28.07%, #5F0136 83.79%)"

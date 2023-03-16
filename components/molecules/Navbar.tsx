@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Box, HStack, Text, VStack } from '@chakra-ui/react';
 import { AiOutlineInstagram, AiOutlineGithub, AiOutlineLinkedin } from 'react-icons/ai';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 type MENU = {
 	label: string;
@@ -18,7 +19,7 @@ const MENUS: MENU[] = [
 	{ label: 'Home', url: '/' },
 	{ label: 'Experiences', url: '/experiences' },
 	{ label: 'Projects', url: '/projects' },
-	{ label: 'Contact', url: '/' },
+	{ label: 'Contact', url: '/contant' },
 ];
 
 const SOCIALS: SOCIAL[] = [
@@ -41,6 +42,8 @@ interface MoleculeNavbarPropsInterface {
 }
 
 const MoleculeNavbar: FC<MoleculeNavbarPropsInterface> = ({ stickOnTop = false }): ReactElement => {
+	const { pathname } = useRouter();
+
 	return (
 		<>
 			<HStack
@@ -59,6 +62,7 @@ const MoleculeNavbar: FC<MoleculeNavbarPropsInterface> = ({ stickOnTop = false }
 			>
 				{MENUS.map((menu: MENU) => {
 					const { label, url } = menu;
+					const isActive = url === pathname;
 
 					return (
 						<Link key={url} href={url}>
@@ -67,6 +71,7 @@ const MoleculeNavbar: FC<MoleculeNavbarPropsInterface> = ({ stickOnTop = false }
 								fontWeight={500}
 								cursor="pointer"
 								_hover={{ transform: 'scale(1.1)' }}
+								color={isActive ? '#FF008C' : 'white'}
 								transitionDuration=".2s"
 							>
 								{label.toUpperCase()}

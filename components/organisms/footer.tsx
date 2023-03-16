@@ -4,8 +4,11 @@ import { AtomButton } from '../atoms';
 
 const OrganismFooter = () => {
 	return (
-		<Box bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)" h="100vh">
-			<VStack justifyContent="center" h="100vh" spacing="2rem">
+		<Box
+			bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
+			borderTopRadius={['2rem', null, null, '7rem']}
+		>
+			<VStack justifyContent="center" h="70vh" spacing="2rem">
 				<VStack spacing={0}>
 					<Text fontWeight={500}>WHAT&apos;S NEXT?</Text>
 					<Text fontWeight={700} fontSize="3xl">
