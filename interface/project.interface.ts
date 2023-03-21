@@ -9,7 +9,7 @@ export type Project = {
 	title: string;
 	thumbnail: string;
 	images: string[];
-	role: ROLE | ROLE[];
+	role: ROLE;
 	descriptions: string;
 	responsibilities: string[];
 	category: 'Web Application' | 'Mobile Application' | 'Desktop Application';

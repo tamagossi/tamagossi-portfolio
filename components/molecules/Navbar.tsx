@@ -17,7 +17,7 @@ type SOCIAL = {
 
 const MENUS: MENU[] = [
 	{ label: 'Home', url: '/' },
-	{ label: 'Experiences', url: '/experiences' },
+	// { label: 'Experiences', url: '/experiences' },
 	{ label: 'Projects', url: '/projects' },
 	{ label: 'Contact', url: '/contant' },
 ];
@@ -62,7 +62,8 @@ const MoleculeNavbar: FC<MoleculeNavbarPropsInterface> = ({ stickOnTop = false }
 			>
 				{MENUS.map((menu: MENU) => {
 					const { label, url } = menu;
-					const isActive = url === pathname;
+
+					const isActive = pathname === url;
 
 					return (
 						<Link key={url} href={url}>

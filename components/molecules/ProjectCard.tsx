@@ -1,13 +1,13 @@
 import React, { FC, ReactElement } from 'react';
 import { Project } from 'interface/project.interface';
 import { HStack, Image, Text, VStack } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 type MoleculeProjectCardPropsInterface = Project & {
 	onClick?: (id: number) => void;
 };
 
 const MoleculeProjectCard: FC<MoleculeProjectCardPropsInterface> = ({
-	active,
 	category,
 	id,
 	title,
@@ -15,6 +15,8 @@ const MoleculeProjectCard: FC<MoleculeProjectCardPropsInterface> = ({
 	role,
 	tech,
 }): ReactElement => {
+	const { push } = useRouter();
+
 	return (
 		<HStack
 			borderRadius="2xl"
@@ -48,7 +50,7 @@ const MoleculeProjectCard: FC<MoleculeProjectCardPropsInterface> = ({
 					</Text>
 				</HStack>
 
-				<Text fontWeight={400} fontSize={12}>
+				<Text fontWeight={400} fontSize={12} onClick={() => push(`/projects/${title}`)}>
 					See detail
 				</Text>
 			</VStack>

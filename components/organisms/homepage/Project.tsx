@@ -92,7 +92,9 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 							w="100%"
 							px="4rem"
 						>
-							<Text>See Detail →</Text>
+							<Text onClick={() => push(`/projects/${selectedProject?.title}`)}>
+								See Detail →
+							</Text>
 						</HStack>
 					</VStack>
 				</GridItem>
@@ -117,7 +119,7 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 							zIndex="998"
 						/>
 
-						{projects.slice(0, 8).map((project) => {
+						{projects.slice(0, 4).map((project) => {
 							const { id } = project;
 
 							return (
@@ -157,7 +159,7 @@ const OrganisHomepageProjectSection: FC<OrganismHomepageProjectSectionPropsInter
 						},
 					}}
 				>
-					{projects.slice(0, 8).map((project) => {
+					{projects.slice(0, 4).map((project) => {
 						return (
 							<Box scrollSnapAlign="center" scrollSnapStop="always" key={project.id}>
 								<MoleculeProjectHighlight {...project} />

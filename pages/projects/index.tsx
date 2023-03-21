@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Center, Image, VStack, Text, HStack, SimpleGrid } from '@chakra-ui/react';
 import { NextPage } from 'next';
-import { motion } from 'framer-motion';
 
 import { MoleculeNavbar } from '@/components/molecules';
 import { OrganismFooter, OrganismProjectBox } from '@/components/organisms';
@@ -157,7 +156,13 @@ const ProjectPage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 						spacing={10}
 						w={['90vw', null, null, '80vw']}
 					>
-						{PROJECTS.map((project) => (
+						{PROJECTS.filter((project) => {
+							if (active === 'All') {
+								return true;
+							}
+
+							return role.includes(project.role);
+						}).map((project) => (
 							<OrganismProjectBox key={project.id} {...project} />
 						))}
 					</SimpleGrid>
