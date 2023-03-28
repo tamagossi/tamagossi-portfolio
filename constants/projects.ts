@@ -119,6 +119,31 @@ const PROJECTS: Project[] = [
 			'Migrate state library to use zustand',
 		],
 	},
+	{
+		id: 4,
+		title: 'Praktisi Mengahar',
+		thumbnail:
+			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-thumbnail.png',
+		thumbnailSize: 'dekstop',
+		images: [
+			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-2.png',
+			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-3.png',
+			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-4.png',
+			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-5.png',
+		],
+		role: 'Front-End Engineer',
+		descriptions:
+			'Kampus Merdeka platform to manage all activity in `Praktisi Mengajar` process',
+		category: 'Web Application',
+		end_date: 'March 2023',
+		start_date: 'December 2022',
+		tech: ['NextJS', 'MUI', 'Typecript', 'Context', 'Zustand'],
+		responsibilities: [
+			'Help the team to increase development velocity by creating new Front End code base for Kampus Medeka IT team ',
+			'Help the team to create all menus for role `Praktisi` in this platform',
+			'Help the team fix bugs, accomplish new incoming request',
+		],
+	},
 ];
 
 export default PROJECTS;
