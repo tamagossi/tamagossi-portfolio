@@ -101,7 +101,11 @@ const ProjectDetailPage: NextPage<{ project: Project }> = ({ project }): ReactEl
 
 						<Image
 							alt="hero"
-							bottom={['-10%', null, '-40%']}
+							bottom={[
+								'0%',
+								null,
+								project.thumbnailSize === 'mobile' ? '-50%' : '-40%',
+							]}
 							left="50%"
 							position="absolute"
 							src={project.thumbnail}
@@ -117,7 +121,7 @@ const ProjectDetailPage: NextPage<{ project: Project }> = ({ project }): ReactEl
 				</Box>
 			</Box>
 
-			<VStack align="start" spacing={10} p={20}>
+			<VStack align="start" spacing={10} p={20} px={[20, null, null, 40]}>
 				<HStack
 					justify="start"
 					overflowX="hidden"
@@ -157,10 +161,12 @@ const ProjectDetailPage: NextPage<{ project: Project }> = ({ project }): ReactEl
 
 				<Center w="100%">
 					<SimpleGrid
+						alignItems="center"
 						columns={[1, null, null, 2]}
+						justifyContent="center"
 						spacingX={10}
-						spacingY={0}
-						w={['90vw', null, null, '80vw']}
+						spacingY={[10, null, null, project.thumbnailSize === 'mobile' ? 20 : 10]}
+						w={['100vw', null, null, '80vw']}
 					>
 						{project.images.map((image) => (
 							<Image
@@ -169,6 +175,7 @@ const ProjectDetailPage: NextPage<{ project: Project }> = ({ project }): ReactEl
 								key={image}
 								as={motion.img}
 								initial={{ opacity: 0 }}
+								borderRadius={20}
 								whileInView={{
 									opacity: 1,
 									transition: { duration: 1, stiffness: 1 },
