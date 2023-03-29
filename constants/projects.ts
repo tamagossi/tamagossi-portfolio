@@ -65,7 +65,7 @@ const PROJECTS: Project[] = [
 	{
 		id: 2,
 		title: 'Staffinc - Recruitment Portal',
-		thumbnailSize: 'dekstop',
+		thumbnailSize: 'desktop',
 		thumbnail:
 			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-thumbnail.png',
 		images: [
@@ -80,7 +80,7 @@ const PROJECTS: Project[] = [
 		role: 'Front-End Engineer',
 		category: 'Web Application',
 		end_date: 'Present',
-		start_date: 'June 2021',
+		start_date: 'Apr 2020',
 		project_url: 'https://jobs.staffinc.co/',
 		tech: ['NextJS', 'Zustand', 'Antd', 'React Query'],
 		descriptions:
@@ -97,7 +97,7 @@ const PROJECTS: Project[] = [
 		id: 3,
 		title: 'Staffinc Suite',
 		thumbnail: '/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-thumbnail.png',
-		thumbnailSize: 'dekstop',
+		thumbnailSize: 'desktop',
 		images: [
 			'/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-1.png',
 			'/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-2.png',
@@ -124,7 +124,7 @@ const PROJECTS: Project[] = [
 		title: 'Praktisi Mengahar',
 		thumbnail:
 			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-thumbnail.png',
-		thumbnailSize: 'dekstop',
+		thumbnailSize: 'desktop',
 		images: [
 			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-2.png',
 			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-3.png',
@@ -142,6 +142,35 @@ const PROJECTS: Project[] = [
 			'Help the team to increase development velocity by creating new Front End code base for Kampus Medeka IT team ',
 			'Help the team to create all menus for role `Praktisi` in this platform',
 			'Help the team fix bugs, accomplish new incoming request',
+		],
+	},
+	{
+		id: 5,
+		title: 'Staffinc - Recruitment Admin Portal',
+		thumbnailSize: 'desktop',
+		thumbnail:
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-thumbnail.png',
+		images: [
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-1.png',
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-2.png',
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-3.png',
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-4.png',
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-5.png',
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-6.png',
+			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-7.png',
+		],
+		role: 'Front-End Engineer',
+		category: 'Web Application',
+		end_date: 'Present',
+		start_date: 'Apr 2020',
+		project_url: '',
+		tech: ['NextJS', 'Mobx', 'Antd'],
+		descriptions:
+			'Staffinc portal application for admin who will review job post which create by client',
+		responsibilities: [
+			'Successfully develop all features within the apps that meet timeline and acceptance criteria',
+			'Refactor its folder structure and its code style to increase clarity and code cleanness',
+			'Do unit testing',
 		],
 	},
 ];

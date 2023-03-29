@@ -17,5 +17,5 @@ export type Project = {
 	start_date: string;
 	project_url?: string;
 	tech: string[];
-	thumbnailSize: 'mobile' | 'dekstop';
+	thumbnailSize: 'mobile' | 'desktop';
 };

@@ -39,7 +39,13 @@ const OrganismProjectBox: FC<Project> = ({
 			borderRadius="1rem"
 		>
 			<VStack align="start" spacing="2rem">
-				<HStack justify="center" bg="rgba(0,0,0,0.1)" p="1rem" borderRadius="1rem">
+				<HStack
+					justify="center"
+					bg="rgba(0,0,0,0.1)"
+					p="1rem"
+					borderRadius="1rem"
+					minHeight={400}
+				>
 					<Image alt="project-thumbnail" src={thumbnail as string} height="80%" />
 				</HStack>
 

@@ -20,7 +20,7 @@ const MoleculeProjectHighlight: FC<Project> = ({
 				<Image
 					alt="project-thumbnail"
 					src={thumbnail as string}
-					width={thumbnailSize === 'dekstop' ? '100%' : 'initial'}
+					width={thumbnailSize === 'desktop' ? '100%' : 'initial'}
 					height={thumbnailSize === 'mobile' ? '100%' : 'initial'}
 				/>
 			</HStack>
