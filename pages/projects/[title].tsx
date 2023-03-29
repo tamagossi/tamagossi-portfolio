@@ -163,24 +163,24 @@ const ProjectDetailPage: NextPage<{ project: Project }> = ({ project }): ReactEl
 					<SimpleGrid
 						alignItems="center"
 						columns={[1, null, null, 2]}
-						justifyContent="center"
 						spacingX={10}
 						spacingY={[10, null, null, project.thumbnailSize === 'mobile' ? 20 : 10]}
-						w={['100vw', null, null, '80vw']}
+						w={['100vw', null, null, '90vw']}
 					>
 						{project.images.map((image) => (
-							<Image
-								alt="image"
-								src={image}
-								key={image}
-								as={motion.img}
-								initial={{ opacity: 0 }}
-								borderRadius={20}
-								whileInView={{
-									opacity: 1,
-									transition: { duration: 1, stiffness: 1 },
-								}}
-							/>
+							<Center key={image}>
+								<Image
+									alt="image"
+									src={image}
+									as={motion.img}
+									initial={{ opacity: 0 }}
+									borderRadius={20}
+									whileInView={{
+										opacity: 1,
+										transition: { duration: 1, stiffness: 1 },
+									}}
+								/>
+							</Center>
 						))}
 					</SimpleGrid>
 				</Center>
