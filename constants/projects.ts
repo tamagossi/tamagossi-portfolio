@@ -173,6 +173,30 @@ const PROJECTS: Project[] = [
 			'Do unit testing',
 		],
 	},
+	{
+		id: 6,
+		title: 'Bisa CPNS',
+		thumbnailSize: 'desktop',
+		thumbnail: '/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-thumbnail.png',
+		images: [
+			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-1.png',
+			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-2.png',
+			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-3.png',
+			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-4.png',
+			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-5.png',
+		],
+		role: 'Front-End Engineer',
+		category: 'Web Application',
+		end_date: 'April 2021',
+		start_date: 'August 2020',
+		project_url: '',
+		tech: ['ReactJS', 'Bootstrap', 'Redux'],
+		descriptions: 'Web based learning platform of civil administration servant',
+		responsibilities: [
+			'Successfully help the team to migrate the current app to SPA application using React',
+			'Successfully help the team to increase code quality',
+		],
+	},
 ];
 
 export default PROJECTS;
