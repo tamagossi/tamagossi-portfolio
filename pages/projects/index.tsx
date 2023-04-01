@@ -104,8 +104,9 @@ const ProjectPage: NextPage<{ projects: Project[] }> = ({ projects }) => {
 								textAlign={['center', null, 'start']}
 								w={['initial', null, '30vw']}
 							>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-								accusantium doloremque laudantium, totam rem aperiam,eaque.
+								Welcome to my project page. You can explore projects that I created
+								to know more about my skills in Front-End, Mobile and Back-End
+								projects
 							</Text>
 						</VStack>
 					</Center>

@@ -40,7 +40,7 @@ const OrganismHomepageHeroSection: FC = (): ReactElement => {
 					</Text>
 
 					<Text
-						fontSize={['14px', null, '18px']}
+						fontSize={['14px', null, '16px']}
 						fontWeight={400}
 						letterSpacing="tighter"
 						lineHeight="shorter"

@@ -6,14 +6,14 @@ import { motion } from 'framer-motion';
 
 const SKILLS = [
 	<MoleculeSkillCard
-		description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+		description="Creating highly responsive and visually appealing user interfaces. At the moment, I also work as a Front-End engineer in startup company to create their website using NextJS"
 		image="/icons/front-end.png"
 		key="skill-1"
-		techs={['ReactJS', 'VueJS', 'Svelte', 'Angular']}
+		techs={['ReactJS', 'NextJS', 'VueJS', 'Flutter']}
 		title="Front-End Development"
 	/>,
 	<MoleculeSkillCard
-		description="Sed ut perspiciatis unde omnis iste natus error sit doloremque laudantium"
+		description="Creating robust and scalable server-side applications mostly using Go and Node.js. Have a good understanding of database management, including SQL and NoSQL."
 		image="/icons/back-end.png"
 		key="skill-2"
 		techs={['ExpressJS', 'Go', 'Laravel']}
@@ -75,10 +75,10 @@ const OrganismHomepageAboutSection: FC = (): ReactElement => {
 						textAlign="center"
 						px={['0px', '3rem', '6rem', '9rem', '12rem']}
 					>
-						Hello! My name is Tama and I enjoy creating things that live on the
-						internet. My interest in web development started back in 2017 when I decided
-						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-						doloremque laudantium, totam rem aperiam.
+						Experienced software engineer with a focus on Front-End development,
+						proficient in Javascript, Go, and Dart. Skilled in using frameworks such as
+						NextJS, ReactJS, and Flutter. Strong foundation in computer science, with 4+
+						years of industry experience.
 					</Text>
 
 					<Box h={['1rem', null, null, '3rem']} />

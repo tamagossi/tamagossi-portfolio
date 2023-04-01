@@ -197,6 +197,27 @@ const PROJECTS: Project[] = [
 			'Successfully help the team to increase code quality',
 		],
 	},
+	{
+		id: 7,
+		title: 'Mindful',
+		thumbnailSize: 'desktop',
+		thumbnail: '/images/app-screenshots/freelance/mindful/mindful-thumbnail.png',
+		images: [
+			'/images/app-screenshots/freelance/mindful/mindful-1.png',
+			'/images/app-screenshots/freelance/mindful/mindful-2.png',
+		],
+		role: 'Front-End Engineer',
+		category: 'Web Application',
+		end_date: 'Nov 2021',
+		start_date: 'Nov 2020',
+		project_url: '',
+		tech: ['ReactJS', 'Material', 'Socket'],
+		descriptions: 'Chat app I create requested by client from upwork',
+		responsibilities: [
+			'Successfully help the client to construct the UI from the design given',
+			'Successfully help the client to integrate client-side app to the BE to create realtime chat app',
+		],
+	},
 ];
 
 export default PROJECTS;

@@ -16,11 +16,11 @@ const OrganismFooter = () => {
 					</Text>
 				</VStack>
 
-				<Text textAlign="center" px={['3rem', null, '10rem', '15rem']} fontSize="md">
+				{/* <Text textAlign="center" px={['3rem', null, '10rem', '15rem']} fontSize="md">
 					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 					doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 					veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-				</Text>
+				</Text> */}
 
 				<AtomButton>CONTACT ME</AtomButton>
 
