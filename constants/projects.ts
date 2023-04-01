@@ -218,6 +218,26 @@ const PROJECTS: Project[] = [
 			'Successfully help the client to integrate client-side app to the BE to create realtime chat app',
 		],
 	},
+	{
+		id: 8,
+		title: '99 Concierge',
+		thumbnailSize: 'desktop',
+		thumbnail: '/images/app-screenshots/freelance/99/99-thumbnail.png',
+		images: [
+			'/images/app-screenshots/freelance/99/99-1.jpg',
+			'/images/app-screenshots/freelance/99/99-2.jpg',
+			'/images/app-screenshots/freelance/99/99-3.jpg',
+			'/images/app-screenshots/freelance/99/99-4.jpg',
+		],
+		role: 'Front-End Engineer',
+		category: 'Web Application',
+		end_date: 'Apr 2022',
+		start_date: 'Feb 2022',
+		project_url: '',
+		tech: ['ReactJS', 'Styled Component', 'Context', 'Typescript'],
+		descriptions: '99 rumah123.com property website',
+		responsibilities: ['Succesfully help the team to finish feature given'],
+	},
 ];
 
 export default PROJECTS;
