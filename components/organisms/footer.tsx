@@ -5,7 +5,7 @@ import { AtomButton } from '../atoms';
 const OrganismFooter = () => {
     return (
         <Box
-            bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
+            bg="linear-gradient(118.55deg, #353535 20.84%, #0A0A0A 86.03%)"
             borderTopRadius={['2rem', null, null, '7rem']}
         >
             <VStack
