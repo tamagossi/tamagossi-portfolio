@@ -1,19 +1,8 @@
 import React from 'react';
 import { NextPage } from 'next';
-import {
-    Box,
-    Center,
-    HStack,
-    Image,
-    Input,
-    SimpleGrid,
-    Stack,
-    Text,
-    Textarea,
-    VStack,
-} from '@chakra-ui/react';
+import { Box, Center, HStack, Image, Text, VStack } from '@chakra-ui/react';
 
-import { OrganismFooter } from '@/components/organisms';
+import { OrganismFooter, OrganismContactForm } from '@/components/organisms';
 import { MoleculeNavbar } from '@/components/molecules';
 
 const ContactPage: NextPage = () => {
@@ -40,10 +29,10 @@ const ContactPage: NextPage = () => {
             <MoleculeNavbar stickOnTop />
 
             <Image
-                src="/images/abstract-purple-square.svg"
                 alt="Abstract Image"
                 height="290px"
                 position="absolute"
+                src="/images/abstract-purple-square.svg"
                 sx={{
                     left: -150,
                     bottom: -100,
@@ -55,15 +44,15 @@ const ContactPage: NextPage = () => {
             <Box
                 w="100%"
                 h="100vh"
-                sx={{ zIndex: 1 }}
                 position="relative"
                 overflow="hidden"
+                sx={{ zIndex: 1 }}
             >
                 <Image
-                    src="/images/abstract-purple-square.svg"
                     alt="Abstract Image"
                     height="290px"
                     position="absolute"
+                    src="/images/abstract-purple-square.svg"
                     sx={{
                         right: -20,
                         top: 0,
@@ -73,9 +62,9 @@ const ContactPage: NextPage = () => {
 
                 <Box
                     height="100vh"
-                    position="relative"
-                    overflow="hidden"
                     id="contact-section"
+                    overflow="hidden"
+                    position="relative"
                     sx={{
                         zIndex: 3,
                     }}
@@ -101,41 +90,16 @@ const ContactPage: NextPage = () => {
                                 Ready to discuss your project with me?
                             </Text>
 
-                            <form>
-                                <VStack spacing={5}>
-                                    <HStack spacing={16}>
-                                        <Input
-                                            width="290px"
-                                            focusBorderColor="#FF008C"
-                                            variant="flushed"
-                                            placeholder="Full name"
-                                        />
-
-                                        <Input
-                                            width="290px"
-                                            focusBorderColor="#FF008C"
-                                            variant="flushed"
-                                            placeholder="Email"
-                                        />
-                                    </HStack>
-
-                                    <Textarea
-                                        rows={2}
-                                        focusBorderColor="#FF008C"
-                                        variant="flushed"
-                                        placeholder="Tell me what you need"
-                                    />
-                                </VStack>
-                            </form>
+                            <OrganismContactForm />
                         </VStack>
 
                         <VStack
-                            spacing={10}
                             alignItems={['center', null, 'self-start']}
                             bg="rgba(24, 24, 24, 0.1)"
-                            px={10}
-                            pt={16}
                             pb={6}
+                            pt={16}
+                            px={10}
+                            spacing={10}
                             sx={{
                                 boxShadow: `inset 16px -16px 48px rgba(147, 147, 147, 0.1), inset -16px -16px 48px rgba(19, 19, 19, 0.9), inset 16px 16px 60px rgba(15, 15, 15, 0.9)`,
                                 borderRadius: '30px',
@@ -159,19 +123,21 @@ const ContactPage: NextPage = () => {
 
                             <HStack spacing={5}>
                                 <Image
+                                    alt="User Avatar"
                                     borderRadius="full"
                                     boxSize="86px"
                                     src="https://bit.ly/dan-abramov"
-                                    alt="User Avatar"
                                 />
 
                                 <VStack alignItems="start">
-                                    <Text fontWeight={600}>Tama</Text>
-                                    <Text fontSize={14}>
-                                        Your lovely{' '}
-                                        <span style={{ fontWeight: 600 }}>
-                                            software engineer
-                                        </span>
+                                    <Text fontWeight={600}>
+                                        Tama
+                                        <Text fontSize={14} fontWeight="normal">
+                                            Your lovely{' '}
+                                            <span style={{ fontWeight: 600 }}>
+                                                software engineer
+                                            </span>
+                                        </Text>
                                     </Text>
                                 </VStack>
                             </HStack>
