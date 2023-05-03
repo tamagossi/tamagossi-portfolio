@@ -4,13 +4,13 @@ import type { AppProps } from 'next/app';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 
 import { MouseProvider } from '@/context';
-import { AtomCursorFollow } from '@/components/atoms';
+import { CursorFollow } from '@/components';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<MouseProvider>
 			<ChakraProvider>
-				<AtomCursorFollow />
+				<CursorFollow />
 
 				<Box cursor="none">
 					<Component {...pageProps} />

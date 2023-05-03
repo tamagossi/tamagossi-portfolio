@@ -77,6 +77,7 @@ const Navbar: FC = (): ReactElement => {
 					color={COLORS.pink}
 					toggle={setIsDrawerOpen}
 					rounded
+					size={32}
 					toggled={isDrawerOpen}
 					duration={1}
 				/>

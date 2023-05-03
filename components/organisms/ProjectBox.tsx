@@ -67,9 +67,7 @@ const OrganismProjectBox: FC<Project> = ({
 					<AtomProjectInfo title="Duration" content={`${start_date} - ${end_date}`} />
 				</VStack>
 
-				<AtomButton type="secondary" onClick={() => push(`/projects/${title}`)}>
-					See Detail
-				</AtomButton>
+				<AtomButton onClick={() => push(`/projects/${title}`)}>See Detail</AtomButton>
 			</VStack>
 		</Box>
 	);

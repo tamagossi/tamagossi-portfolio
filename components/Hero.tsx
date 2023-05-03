@@ -13,7 +13,8 @@ const OrganismHeroSection: FC = (): ReactElement => {
 			sx={{ zIndex: 3 }}
 			as={motion.div}
 			initial={{ y: 400, opacity: 0 }}
-			animate={{
+			exit={{ y: 400, opacity: 0 }}
+			whileInView={{
 				y: 0,
 				opacity: 1,
 				transition: { ease: 'easeOut', duration: 1 },

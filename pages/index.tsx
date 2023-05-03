@@ -2,12 +2,8 @@ import React from 'react';
 import { Box, Image } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
-import { Navbar, HeroSection, SocialMedia, AboutSection } from '@/components';
-import {
-	OrganismFooter,
-	OrganismHomepageExperienceSection,
-	OrganismHomepageProjectSection,
-} from '@/components/organisms';
+import { Navbar, HeroSection, SocialMedia, AboutSection, ExperienceSection } from '@/components';
+import { OrganismFooter, OrganismHomepageProjectSection } from '@/components/organisms';
 
 import EXPERIENCES from 'constants/experience';
 import PROJECTS from 'constants/projects';
@@ -24,13 +20,45 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 			h="100vh"
 			overflowY="scroll"
 			position="relative"
+			scrollSnapType="y mandatory"
 			scrollBehavior="smooth"
 			zIndex="docked"
 		>
 			<Navbar />
 			<SocialMedia />
-			<HeroSection />
-			<AboutSection />
+
+			<Box
+				h="100vh"
+				scrollSnapAlign="center"
+				scrollSnapStop="always"
+				w="100%"
+				position="relative"
+				overflow="hidden"
+			>
+				<HeroSection />
+			</Box>
+
+			<Box
+				h="100vh"
+				scrollSnapAlign="center"
+				scrollSnapStop="always"
+				w="100%"
+				position="relative"
+				overflow="hidden"
+			>
+				<AboutSection />
+			</Box>
+
+			<Box
+				h="100vh"
+				scrollSnapAlign="center"
+				scrollSnapStop="always"
+				w="100%"
+				position="relative"
+				overflow="hidden"
+			>
+				<ExperienceSection experiences={experiences} />
+			</Box>
 
 			{/* <Box
 				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"

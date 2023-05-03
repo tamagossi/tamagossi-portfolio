@@ -1,7 +1,8 @@
 import React, { FC, ReactElement } from 'react';
-import { Avatar, Box, Center, HStack, Tag, Text, VStack } from '@chakra-ui/react';
-
+import { Avatar, Box, Center, Divider, HStack, Tag, Text, VStack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+
+import { SectionIndicator } from '@/components';
 
 interface SkillCardPropsInterface {
 	description: string;
@@ -75,9 +76,10 @@ const AboutSection: FC = (): ReactElement => {
 			px={['0rem', null, null, '8rem']}
 			justifyContent={['center', null, 'start']}
 			w="100%"
+			mt="3rem"
 		>
 			<VStack
-				spacing={3}
+				spacing={5}
 				alignItems="center"
 				as={motion.div}
 				initial={{ opacity: 0, y: 100 }}
@@ -92,19 +94,7 @@ const AboutSection: FC = (): ReactElement => {
 					},
 				}}
 			>
-				<VStack spacing={-1}>
-					<Text
-						fontSize={['14px', null, '18px']}
-						fontWeight={400}
-						textAlign={['center', null, 'start']}
-					>
-						ABOUT
-					</Text>
-
-					<Text fontSize="30px" fontWeight={700} textAlign={['center', null, 'start']}>
-						Developer
-					</Text>
-				</VStack>
+				<SectionIndicator indicator="01." title="About Me" position="end" />
 
 				<Text
 					className="font-poppins"
@@ -119,8 +109,6 @@ const AboutSection: FC = (): ReactElement => {
 					and Dart. Skilled in using frameworks such as NextJS, ReactJS, and Flutter.
 					Strong foundation in computer science, with 5+ years of industry experience.
 				</Text>
-
-				<Box h="1rem" />
 
 				<HStack
 					alignItems="center"
