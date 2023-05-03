@@ -85,4 +85,16 @@ a {
 	display: none;
 }
 
+*::-webkit-scrollbar {
+	width: 0px;
+}
+*::-webkit-scrollbar-track {
+	width: 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: trasnparent;
+	border-radius: 24px;
+}
+
 /* ------------- CSS FOR CURSOR FOLLOW --------------  */

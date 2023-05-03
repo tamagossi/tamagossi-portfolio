@@ -17,6 +17,7 @@
 		"target": "es5",
 		"paths": {
 			"@/components/*": ["components/*"],
+			"@/components": ["components/index"],
 			"@/constants": ["constants/index"],
 			"@/context": ["context/index"],
 			"@/hooks": ["hooks/index"],

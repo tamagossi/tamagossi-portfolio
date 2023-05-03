@@ -2,12 +2,10 @@ import React from 'react';
 import { Box, Image } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
-import { MoleculeNavbar } from '@/components/molecules';
+import { Navbar, HeroSection, SocialMedia, AboutSection } from '@/components';
 import {
 	OrganismFooter,
-	OrganismHomepageAboutSection,
 	OrganismHomepageExperienceSection,
-	OrganismHomepageHeroSection,
 	OrganismHomepageProjectSection,
 } from '@/components/organisms';
 
@@ -27,54 +25,14 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 			overflowY="scroll"
 			position="relative"
 			scrollBehavior="smooth"
-			scrollSnapType="y mandatory"
 			zIndex="docked"
-			css={{
-				'&::-webkit-scrollbar': {
-					width: '1px',
-				},
-				'&::-webkit-scrollbar-track': {
-					width: '1px',
-				},
-				'&::-webkit-scrollbar-thumb': {
-					background: 'trasnparent',
-					borderRadius: '24px',
-				},
-			}}
 		>
-			<MoleculeNavbar />
+			<Navbar />
+			<SocialMedia />
+			<HeroSection />
+			<AboutSection />
 
-			<Box
-				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
-				h="100vh"
-				scrollSnapAlign="center"
-				scrollSnapStop="always"
-				w="100%"
-				sx={{ zIndex: 1 }}
-				position="relative"
-				overflow="hidden"
-			>
-				<Image
-					src="/icons/hero-icon.svg"
-					alt="hero"
-					position="absolute"
-					sx={{ bottom: -10, right: 0 }}
-				/>
-
-				<OrganismHomepageHeroSection />
-			</Box>
-
-			<Box
-				bg="linear-gradient(137.05deg, #80054A 20.62%, #80054A 75.9%)"
-				h="100vh"
-				scrollSnapAlign="center"
-				scrollSnapStop="always"
-				w="100%"
-			>
-				<OrganismHomepageAboutSection />
-			</Box>
-
-			<Box
+			{/* <Box
 				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
 				h="100vh"
 				scrollSnapAlign="center"
@@ -119,7 +77,7 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 				/>
 
 				<OrganismFooter />
-			</Box>
+			</Box> */}
 		</Box>
 	);
 };
