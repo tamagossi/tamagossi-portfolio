@@ -2,7 +2,14 @@ import React from 'react';
 import { Box, Image } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
-import { Navbar, HeroSection, SocialMedia, AboutSection, ExperienceSection } from '@/components';
+import {
+	Navbar,
+	HeroSection,
+	SocialMedia,
+	AboutSection,
+	ExperienceSection,
+	ProjectSection,
+} from '@/components';
 import { OrganismFooter, OrganismHomepageProjectSection } from '@/components/organisms';
 
 import EXPERIENCES from 'constants/experience';
@@ -58,6 +65,17 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 				overflow="hidden"
 			>
 				<ExperienceSection experiences={experiences} />
+			</Box>
+
+			<Box
+				h="100vh"
+				scrollSnapAlign="center"
+				scrollSnapStop="always"
+				w="100%"
+				position="relative"
+				overflow="hidden"
+			>
+				<ProjectSection projects={projects} />
 			</Box>
 
 			{/* <Box

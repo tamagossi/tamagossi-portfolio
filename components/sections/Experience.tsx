@@ -1,6 +1,7 @@
 import React, { FC, ReactElement, useState } from 'react';
 import { Box, HStack, VStack, Text, Grid, GridItem, Center } from '@chakra-ui/react';
 import { FaEgg } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 import { SectionIndicator } from '@/components';
 
@@ -56,7 +57,7 @@ const ExperienceBox: FC<Experience> = ({
 							return (
 								<HStack key={desc} spacing={4}>
 									<Box>
-										<FaEgg color={COLORS.pink} size={12} />
+										<FaEgg fill={COLORS.pink} size={12} />
 									</Box>
 
 									<Text fontSize="sm" color="gray.400" className="font-poppins">
@@ -130,7 +131,22 @@ const ExperienceSection: FC<ExperienceSectionPropsInterface> = ({ experiences })
 
 	return (
 		<Center h="100vh" px={['0rem', null, null, '8rem']} mt="3rem">
-			<VStack w="100%" spacing={10}>
+			<VStack
+				w="100%"
+				spacing={10}
+				as={motion.div}
+				initial={{ opacity: 0, y: 100 }}
+				exit={{ opacity: 0, y: 100 }}
+				whileInView={{
+					opacity: 1,
+					y: 0,
+					transition: {
+						duration: 2,
+						type: 'spring',
+						stiffness: 50,
+					},
+				}}
+			>
 				<SectionIndicator indicator="02." title="Where I've Worked" position="center" />
 
 				<HStack

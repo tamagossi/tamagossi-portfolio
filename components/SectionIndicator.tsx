@@ -23,7 +23,7 @@ const SectionIndicator: FC<SectionIndicatorProps> = ({
 		>
 			<Text
 				className="font-fira"
-				fontSize="18px"
+				fontSize={['20px', null, '28px']}
 				fontWeight={200}
 				textAlign={['center', null, 'start']}
 				color={COLORS.pink}
@@ -31,7 +31,11 @@ const SectionIndicator: FC<SectionIndicatorProps> = ({
 				{indicator}
 			</Text>
 
-			<Text fontSize="22px" fontWeight={600} textAlign={['center', null, 'start']}>
+			<Text
+				fontSize={['24px', null, '28px']}
+				fontWeight={700}
+				textAlign={['center', null, 'start']}
+			>
 				{title}
 			</Text>
 

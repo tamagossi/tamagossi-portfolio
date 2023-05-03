@@ -38,6 +38,7 @@ const PROJECTS: Project[] = [
 		title: 'Staffinc Jobs',
 		thumbnail: '/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-thumbnail.png',
 		thumbnailSize: 'mobile',
+		is_featured: true,
 		images: [
 			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-1.png',
 			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-2.png',
@@ -79,6 +80,7 @@ const PROJECTS: Project[] = [
 		],
 		role: 'Front-End Engineer',
 		category: 'Web Application',
+		is_featured: true,
 		end_date: 'Present',
 		start_date: 'Apr 2020',
 		project_url: 'https://jobs.staffinc.co/',
@@ -121,7 +123,8 @@ const PROJECTS: Project[] = [
 	},
 	{
 		id: 4,
-		title: 'Praktisi Mengahar',
+		title: 'Praktisi Mengajar',
+		is_featured: true,
 		thumbnail:
 			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-thumbnail.png',
 		thumbnailSize: 'desktop',
@@ -234,7 +237,7 @@ const PROJECTS: Project[] = [
 		end_date: 'Apr 2022',
 		start_date: 'Feb 2022',
 		project_url: '',
-		tech: ['ReactJS', 'Styled Component', 'Context', 'Typescript'],
+		tech: ['ReactJS', 'Styled', 'Context', 'Typescript'],
 		descriptions: '99 rumah123.com property website',
 		responsibilities: ['Succesfully help the team to finish feature given'],
 	},

@@ -110,6 +110,8 @@ const AboutSection: FC = (): ReactElement => {
 					Strong foundation in computer science, with 5+ years of industry experience.
 				</Text>
 
+				<Box h={[0, null, '.5rem']} />
+
 				<HStack
 					alignItems="center"
 					display={['none', null, 'flex']}
