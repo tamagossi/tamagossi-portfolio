@@ -8,7 +8,7 @@ const PROJECTS: Project[] = [
 		github_url: 'https://github.com/tamagossi/tamagossi-portfolio',
 		id: 9,
 		is_personal_project: true,
-		project_url: 'https://www.tamago.ssi',
+		project_url: 'https://www.tamagossi.dev',
 		role: 'Front-End Engineer',
 		start_date: 'January 2023',
 		tech: ['NextJS', 'ChakraUI'],
