@@ -56,7 +56,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 					return (
 						<HStack
 							backgroundColor={[COLORS.semiblack, null, null, 'initial']}
-							backgroundImage={[project.images?.[0]!, null, null, 'initial']}
+							backgroundImage={[project.thumbnail!, null, null, 'initial']}
 							backgroundPosition="center"
 							backgroundSize="cover"
 							borderRadius={10}
@@ -87,7 +87,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 								<Image
 									height="400px"
 									width="620px"
-									src={project.images?.[0]!}
+									src={project.thumbnail!}
 									alt={project.title}
 								/>
 							</Box>
@@ -182,13 +182,13 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 						<TabList>
 							<Tab _selected={{ bg: COLORS.pink }} transitionDuration=".5s">
 								<Text className="font-fira" fontSize="xl" fontWeight="semibold">
-									Other Project You Can&apos;t Miss
+									Other Project
 								</Text>
 							</Tab>
 
 							<Tab _selected={{ bg: COLORS.pink }} transitionDuration=".5s">
 								<Text className="font-fira" fontSize="xl" fontWeight="semibold">
-									My Personal Project
+									Personal Project
 								</Text>
 							</Tab>
 						</TabList>

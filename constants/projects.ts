@@ -3,6 +3,7 @@ import { Project } from 'interface/project.interface';
 const PROJECTS: Project[] = [
 	{
 		id: 9,
+		title: 'Tamagossi Portfolio Website',
 		category: 'Web Application',
 		descriptions: 'My personal web application built using Next.JS and ChakraUI',
 		end_date: 'May 2023',
@@ -10,30 +11,15 @@ const PROJECTS: Project[] = [
 		role: 'Front-End Engineer',
 		start_date: 'January 2023',
 		tech: ['NextJS', 'ChakraUI'],
-		title: 'Tamagossi Portfolio Website',
 		project_url: 'https://www.tamago.ssi',
 	},
 	{
 		id: 0,
 		title: 'Trevv',
-		thumbnail: '/images/app-screenshots/freelance/trevv/trevv-thumbnail.png',
-		images: [
-			'/images/app-screenshots/freelance/trevv/trevv-2.png',
-			'/images/app-screenshots/freelance/trevv/trevv-3.png',
-			'/images/app-screenshots/freelance/trevv/trevv-4.png',
-			'/images/app-screenshots/freelance/trevv/trevv-5.png',
-			'/images/app-screenshots/freelance/trevv/trevv-6.png',
-			'/images/app-screenshots/freelance/trevv/trevv-7.png',
-			'/images/app-screenshots/freelance/trevv/trevv-8.png',
-			'/images/app-screenshots/freelance/trevv/trevv-9.png',
-			'/images/app-screenshots/freelance/trevv/trevv-10.png',
-			'/images/app-screenshots/freelance/trevv/trevv-11.png',
-			'/images/app-screenshots/freelance/trevv/trevv-12.png',
-		],
-		role: 'Mobile Engineer',
-		descriptions: 'An Instagram-like apps to share a review of a place',
 		category: 'Mobile Application',
+		descriptions: 'An Instagram-like apps to share a review of a place',
 		end_date: 'Present',
+		role: 'Mobile Engineer',
 		start_date: 'January 2023',
 		tech: ['React Native', 'Redux', 'Antd'],
 		responsibilities: [
@@ -47,23 +33,15 @@ const PROJECTS: Project[] = [
 	{
 		id: 1,
 		title: 'Staffinc Jobs',
-		thumbnail: '/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-thumbnail.png',
-		is_featured: true,
-		images: [
-			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-1.png',
-			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-2.png',
-			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-3.png',
-			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-4.png',
-			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-5.png',
-		],
-		role: 'Front-End Engineer',
 		category: 'Web Application',
 		end_date: 'Present',
-		start_date: 'June 2021',
+		is_featured: true,
 		project_url: 'https://jobs.staffinc.co/',
+		role: 'Front-End Engineer',
+		start_date: 'June 2021',
 		tech: ['NextJS', 'Zustand', 'Antd', 'React Query'],
-		descriptions:
-			'Staffinc job searching application to handle user who not already downloaded the Staffinc app but still want to looking and apply to a job',
+		thumbnail: '/images/app-screenshots/staffinc-jobs-thumbnail.png',
+		descriptions: 't',
 		responsibilities: [
 			'Develop the app from the scratch',
 			'Improve some patterns used within the app to minimize error possibility',
@@ -76,24 +54,14 @@ const PROJECTS: Project[] = [
 	{
 		id: 2,
 		title: 'Staffinc - Recruitment Portal',
-		thumbnail:
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-thumbnail.png',
-		images: [
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-1.png',
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-2.png',
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-3.png',
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-4.png',
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-5.png',
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-6.png',
-			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-7.png',
-		],
-		role: 'Front-End Engineer',
 		category: 'Web Application',
-		is_featured: true,
 		end_date: 'Present',
-		start_date: 'Apr 2020',
+		is_featured: true,
 		project_url: 'https://jobs.staffinc.co/',
+		role: 'Front-End Engineer',
+		start_date: 'Apr 2020',
 		tech: ['NextJS', 'Zustand', 'Antd', 'React Query'],
+		thumbnail: '/images/app-screenshots/recruitment-portal-thumbnail.png',
 		descriptions:
 			'Staffinc portal application for client who want to create job post, searching for agent, attend interview process',
 		responsibilities: [
@@ -107,18 +75,13 @@ const PROJECTS: Project[] = [
 	{
 		id: 3,
 		title: 'Staffinc Suite',
-		thumbnail: '/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-thumbnail.png',
-		images: [
-			'/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-1.png',
-			'/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-2.png',
-			'/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-3.png',
-		],
-		role: 'Front-End Engineer',
 		category: 'Web Application',
 		end_date: 'February 2022',
-		start_date: 'December 2021',
 		project_url: 'https://client.staffincsuite.co/',
+		role: 'Front-End Engineer',
+		start_date: 'December 2021',
 		tech: ['NextJS', 'Zustand', 'ChakraUI', 'React Query'],
+		thumbnail: '/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-thumbnail.png',
 		descriptions:
 			'Staffinc suite seamless portal as a platform for client to login both to Recruitment Portal or Management Portal',
 		responsibilities: [
@@ -132,22 +95,16 @@ const PROJECTS: Project[] = [
 	{
 		id: 4,
 		title: 'Praktisi Mengajar',
-		is_featured: true,
-		thumbnail:
-			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-thumbnail.png',
-		images: [
-			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-2.png',
-			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-3.png',
-			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-4.png',
-			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-5.png',
-		],
-		role: 'Front-End Engineer',
-		descriptions:
-			'Kampus Merdeka platform to manage all activity in `Praktisi Mengajar` process',
 		category: 'Web Application',
 		end_date: 'March 2023',
+		is_featured: true,
+		role: 'Front-End Engineer',
 		start_date: 'December 2022',
 		tech: ['NextJS', 'MUI', 'Typecript', 'Context', 'Zustand'],
+		thumbnail: '/images/app-screenshots/praktisi-mengajar-thumbnail.png',
+		descriptions:
+			'Kampus Merdeka platform to manage all activity in `Praktisi Mengajar` process',
+
 		responsibilities: [
 			'Help the team to increase development velocity by creating new Front End code base for Kampus Medeka IT team ',
 			'Help the team to create all menus for role `Praktisi` in this platform',
@@ -157,17 +114,7 @@ const PROJECTS: Project[] = [
 	{
 		id: 5,
 		title: 'Staffinc - Recruitment Admin Portal',
-		thumbnail:
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-thumbnail.png',
-		images: [
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-1.png',
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-2.png',
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-3.png',
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-4.png',
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-5.png',
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-6.png',
-			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-7.png',
-		],
+
 		role: 'Front-End Engineer',
 		category: 'Web Application',
 		end_date: 'Present',
@@ -185,14 +132,6 @@ const PROJECTS: Project[] = [
 	{
 		id: 6,
 		title: 'Bisa CPNS',
-		thumbnail: '/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-thumbnail.png',
-		images: [
-			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-1.png',
-			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-2.png',
-			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-3.png',
-			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-4.png',
-			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-5.png',
-		],
 		role: 'Front-End Engineer',
 		category: 'Web Application',
 		end_date: 'April 2021',
@@ -208,11 +147,6 @@ const PROJECTS: Project[] = [
 	{
 		id: 7,
 		title: 'Mindful',
-		thumbnail: '/images/app-screenshots/freelance/mindful/mindful-thumbnail.png',
-		images: [
-			'/images/app-screenshots/freelance/mindful/mindful-1.png',
-			'/images/app-screenshots/freelance/mindful/mindful-2.png',
-		],
 		role: 'Front-End Engineer',
 		category: 'Web Application',
 		end_date: 'Nov 2021',
@@ -229,12 +163,7 @@ const PROJECTS: Project[] = [
 		id: 8,
 		title: '99 Concierge',
 		thumbnail: '/images/app-screenshots/freelance/99/99-thumbnail.png',
-		images: [
-			'/images/app-screenshots/freelance/99/99-1.jpg',
-			'/images/app-screenshots/freelance/99/99-2.jpg',
-			'/images/app-screenshots/freelance/99/99-3.jpg',
-			'/images/app-screenshots/freelance/99/99-4.jpg',
-		],
+
 		role: 'Front-End Engineer',
 		category: 'Web Application',
 		end_date: 'Apr 2022',
