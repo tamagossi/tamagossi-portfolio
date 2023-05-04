@@ -19,7 +19,7 @@ const SectionIndicator: FC<SectionIndicatorProps> = ({
 			spacing={2}
 			w="100%"
 			justify={['start', null, position]}
-			px={['3rem', null]}
+			px={['3rem', null, '5rem', null]}
 		>
 			<Text
 				className="font-fira"

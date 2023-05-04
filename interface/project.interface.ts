@@ -9,14 +9,14 @@ export type Project = {
 	descriptions: string;
 	end_date: string;
 	id: number;
-	images: string[];
+	images?: string[];
 	is_featured?: boolean;
+	is_personal_project?: boolean;
 	project_url?: string;
-	responsibilities: string[];
+	responsibilities?: string[];
 	role: ROLE;
 	start_date: string;
 	tech: string[];
-	thumbnail: string;
-	thumbnailSize: 'mobile' | 'desktop';
+	thumbnail?: string;
 	title: string;
 };

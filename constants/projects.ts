@@ -2,10 +2,21 @@ import { Project } from 'interface/project.interface';
 
 const PROJECTS: Project[] = [
 	{
+		id: 9,
+		category: 'Web Application',
+		descriptions: 'My personal web application built using Next.JS and ChakraUI',
+		end_date: 'May 2023',
+		is_personal_project: true,
+		role: 'Front-End Engineer',
+		start_date: 'January 2023',
+		tech: ['NextJS', 'ChakraUI'],
+		title: 'Tamagossi Portfolio Website',
+		project_url: 'https://www.tamago.ssi',
+	},
+	{
 		id: 0,
 		title: 'Trevv',
 		thumbnail: '/images/app-screenshots/freelance/trevv/trevv-thumbnail.png',
-		thumbnailSize: 'mobile',
 		images: [
 			'/images/app-screenshots/freelance/trevv/trevv-2.png',
 			'/images/app-screenshots/freelance/trevv/trevv-3.png',
@@ -37,7 +48,6 @@ const PROJECTS: Project[] = [
 		id: 1,
 		title: 'Staffinc Jobs',
 		thumbnail: '/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-thumbnail.png',
-		thumbnailSize: 'mobile',
 		is_featured: true,
 		images: [
 			'/images/app-screenshots/staffinc/staffinc-jobs/staffinc-jobs-1.png',
@@ -66,7 +76,6 @@ const PROJECTS: Project[] = [
 	{
 		id: 2,
 		title: 'Staffinc - Recruitment Portal',
-		thumbnailSize: 'desktop',
 		thumbnail:
 			'/images/app-screenshots/staffinc/recruitment-portal/recruitment-portal-thumbnail.png',
 		images: [
@@ -99,7 +108,6 @@ const PROJECTS: Project[] = [
 		id: 3,
 		title: 'Staffinc Suite',
 		thumbnail: '/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-thumbnail.png',
-		thumbnailSize: 'desktop',
 		images: [
 			'/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-1.png',
 			'/images/app-screenshots/staffinc/staffinc-suite/staffinc-suite-2.png',
@@ -127,7 +135,6 @@ const PROJECTS: Project[] = [
 		is_featured: true,
 		thumbnail:
 			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-thumbnail.png',
-		thumbnailSize: 'desktop',
 		images: [
 			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-2.png',
 			'/images/app-screenshots/kampus-merdeka/praktisi-mengajar/praktisi-mengajar-3.png',
@@ -150,7 +157,6 @@ const PROJECTS: Project[] = [
 	{
 		id: 5,
 		title: 'Staffinc - Recruitment Admin Portal',
-		thumbnailSize: 'desktop',
 		thumbnail:
 			'/images/app-screenshots/staffinc/recruitment-admin-portal/recruitment-admin-portal-thumbnail.png',
 		images: [
@@ -179,7 +185,6 @@ const PROJECTS: Project[] = [
 	{
 		id: 6,
 		title: 'Bisa CPNS',
-		thumbnailSize: 'desktop',
 		thumbnail: '/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-thumbnail.png',
 		images: [
 			'/images/app-screenshots/freelance/bisa-cpns/bisa-cpns-1.png',
@@ -203,7 +208,6 @@ const PROJECTS: Project[] = [
 	{
 		id: 7,
 		title: 'Mindful',
-		thumbnailSize: 'desktop',
 		thumbnail: '/images/app-screenshots/freelance/mindful/mindful-thumbnail.png',
 		images: [
 			'/images/app-screenshots/freelance/mindful/mindful-1.png',
@@ -224,7 +228,6 @@ const PROJECTS: Project[] = [
 	{
 		id: 8,
 		title: '99 Concierge',
-		thumbnailSize: 'desktop',
 		thumbnail: '/images/app-screenshots/freelance/99/99-thumbnail.png',
 		images: [
 			'/images/app-screenshots/freelance/99/99-1.jpg',

@@ -1,16 +1,16 @@
 import React from 'react';
-import { Box, Image } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 import {
-	Navbar,
-	HeroSection,
-	SocialMedia,
 	AboutSection,
 	ExperienceSection,
+	FooterSection,
+	HeroSection,
+	Navbar,
 	ProjectSection,
+	SocialMedia,
 } from '@/components';
-import { OrganismFooter, OrganismHomepageProjectSection } from '@/components/organisms';
 
 import EXPERIENCES from 'constants/experience';
 import PROJECTS from 'constants/projects';
@@ -78,8 +78,7 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 				<ProjectSection projects={projects} />
 			</Box>
 
-			{/* <Box
-				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
+			<Box
 				h="100vh"
 				scrollSnapAlign="center"
 				scrollSnapStop="always"
@@ -87,43 +86,8 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 				position="relative"
 				overflow="hidden"
 			>
-				<Image
-					src="/images/waves-pink.svg"
-					alt="hero"
-					width="100%"
-					height="100px"
-					position="absolute"
-				/>
-
-				<OrganismHomepageProjectSection projects={projects} />
+				<FooterSection />
 			</Box>
-
-			<Box
-				bg="linear-gradient(137.05deg, #80054A 20.62%, #80054A 75.9%)"
-				h="100vh"
-				scrollSnapAlign="center"
-				scrollSnapStop="always"
-				w="100%"
-			>
-				<OrganismHomepageExperienceSection experiences={experiences} />
-			</Box>
-
-			<Box
-				bg="linear-gradient(118.89deg, #353535 7.25%, #0A0A0A 68.67%)"
-				scrollSnapAlign="center"
-				scrollSnapStop="always"
-				w="100%"
-			>
-				<Image
-					src="/images/waves-pink-2.svg"
-					alt="hero"
-					width="100%"
-					height="200px"
-					position="absolute"
-				/>
-
-				<OrganismFooter />
-			</Box> */}
 		</Box>
 	);
 };
