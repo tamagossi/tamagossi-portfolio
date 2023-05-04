@@ -73,7 +73,7 @@ const AboutSection: FC = (): ReactElement => {
 		<Center
 			h="100vh"
 			id="about-section"
-			px={['0rem', null, null, '8rem', '30rem']}
+			px={['0rem', null, null, '8rem', null, '30rem']}
 			justifyContent={['center', null, 'start']}
 			w="100%"
 		>
@@ -83,7 +83,7 @@ const AboutSection: FC = (): ReactElement => {
 				as={motion.div}
 				initial={{ opacity: 0, y: 100 }}
 				exit={{ opacity: 0, y: 100 }}
-				mt={['5rem', null, null, null, '0rem']}
+				mt={['5rem', null, null, null, '4rem']}
 				whileInView={{
 					opacity: 1,
 					y: 0,

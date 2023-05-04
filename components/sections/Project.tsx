@@ -76,7 +76,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 							}}
 						>
 							<VStack
-								h={['400px', null, null, '100%']}
+								h={['400px', null, null, '400px', null, '600px']}
 								position="relative"
 								justify="center"
 								w="100%"
@@ -91,7 +91,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 									position="absolute"
 									right={!isOdd ? '0' : 'initial'}
 									top="0"
-									w={['0%', null, null, '60%', '70%']}
+									w={['0%', null, null, '60%', null, '50%']}
 									zIndex={1}
 								/>
 
