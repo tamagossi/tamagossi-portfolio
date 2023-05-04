@@ -10,15 +10,20 @@ const FooterSection = () => {
 					<Text className="font-fira" fontWeight={300} color={COLORS.pink}>
 						WHAT&apos;S NEXT?
 					</Text>
-					<Text fontWeight={700} fontSize="5xl" color="gray.300">
+
+					<Text
+						fontWeight={700}
+						fontSize={['3xl', null, '4xl', null, '5xl']}
+						color="gray.300"
+					>
 						Get in Touch
 					</Text>
 				</VStack>
 
 				<Text
 					textAlign="center"
-					px={['3rem', null, '10rem', '20rem']}
-					fontSize="md"
+					px={['2rem', null, '10rem', '20rem']}
+					fontSize={['sm', null, 'md']}
 					color="gray.400"
 				>
 					I am not actively seeking full-time employment, but I am open to exploring good
@@ -27,25 +32,17 @@ const FooterSection = () => {
 					achieve great things together.
 				</Text>
 
-				<Button variant="outline" borderColor={COLORS.pink}>
-					<Text color={COLORS.pink} fontWeight={400} fontSize="12px">
-						CONTACT ME
-					</Text>
-				</Button>
-
-				<address>
-					<a href="mailto:mgf.prauliyatama@gmail.com">
-						<Text
-							fontSize="sm"
-							position="absolute"
-							bottom="2rem"
-							left="45.5%"
-							__css={{}}
-						>
-							© 2023 Raka Pratama
+				<a href="mailto:mgf.prauliyatama@gmail.com">
+					<Button variant="outline" borderColor={COLORS.pink}>
+						<Text color={COLORS.pink} fontWeight={400} fontSize="12px">
+							CONTACT ME
 						</Text>
-					</a>
-				</address>
+					</Button>
+				</a>
+
+				<Text fontSize="sm" position="absolute" bottom="2rem" __css={{}}>
+					© 2023 Raka Pratama
+				</Text>
 			</VStack>
 		</Center>
 	);

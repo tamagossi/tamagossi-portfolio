@@ -73,7 +73,7 @@ const AboutSection: FC = (): ReactElement => {
 		<Center
 			h="100vh"
 			id="about-section"
-			px={['0rem', null, null, '8rem']}
+			px={['0rem', null, null, '8rem', '30rem']}
 			justifyContent={['center', null, 'start']}
 			w="100%"
 		>
@@ -83,7 +83,7 @@ const AboutSection: FC = (): ReactElement => {
 				as={motion.div}
 				initial={{ opacity: 0, y: 100 }}
 				exit={{ opacity: 0, y: 100 }}
-				mt="5rem"
+				mt={['5rem', null, null, null, '0rem']}
 				whileInView={{
 					opacity: 1,
 					y: 0,
@@ -102,7 +102,7 @@ const AboutSection: FC = (): ReactElement => {
 					color="gray.300"
 					fontWeight={400}
 					textAlign="center"
-					px={['0px', '3rem', '6rem', '9rem', '12rem']}
+					px={['1rem', '3rem', '6rem', '9rem', '12rem']}
 				>
 					Hi 👋 my name is Raka Pratama (brand myself as Tamagossi), experienced software
 					engineer with a focus on Front-End development, proficient in Javascript, Go,

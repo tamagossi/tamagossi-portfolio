@@ -20,7 +20,7 @@ const ExperienceBox: FC<Experience> = ({
 	return (
 		<Box
 			borderRadius="2xl"
-			width={['450px', null, null, '500px', '600px']}
+			width="100%"
 			height="400px"
 			overflowY="auto"
 			css={{
@@ -52,7 +52,7 @@ const ExperienceBox: FC<Experience> = ({
 				</VStack>
 
 				{descriptions && (
-					<VStack>
+					<VStack alignItems="start">
 						{descriptions.map((desc) => {
 							return (
 								<HStack key={desc} spacing={4}>

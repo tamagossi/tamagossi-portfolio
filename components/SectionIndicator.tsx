@@ -23,7 +23,7 @@ const SectionIndicator: FC<SectionIndicatorProps> = ({
 		>
 			<Text
 				className="font-fira"
-				fontSize={['20px', null, '28px']}
+				fontSize={['19px', null, '28px']}
 				fontWeight={200}
 				textAlign={['center', null, 'start']}
 				color={COLORS.pink}
@@ -34,14 +34,14 @@ const SectionIndicator: FC<SectionIndicatorProps> = ({
 			<Text
 				fontSize={['24px', null, '28px']}
 				fontWeight={700}
-				textAlign={['center', null, 'start']}
+				textAlign={['start', null, 'start']}
 			>
 				{title}
 			</Text>
 
 			<Box w={['.1rem', null, '.4rem']} />
 
-			<Divider w={['100px', null, '200px']} />
+			<Divider w={['100px', null, '200px']} display={['none', null, 'block']} />
 		</HStack>
 	);
 };

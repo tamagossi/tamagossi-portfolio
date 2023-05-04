@@ -35,15 +35,15 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 	);
 
 	return (
-		<VStack mt="8rem" px={['0rem', null, null, '8rem']} id="project-section">
+		<VStack mt={['6rem', null, '8rem']} px={['0rem', null, null, '8rem']} id="project-section">
 			<SectionIndicator indicator="03." title="What I've built" position="start" />
 
-			<Box h=".2rem" />
+			<Box h={['0rem', null, '.2rem']} />
 
 			<VStack
-				h="70vh"
+				h="75vh"
 				w="100%"
-				spacing="8rem"
+				spacing="4rem"
 				overflow="scroll"
 				scrollBehavior="smooth"
 				className="masked-overflow"
@@ -55,6 +55,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 
 					return (
 						<HStack
+							backgroundBlendMode="multiply"
 							backgroundColor={[COLORS.semiblack, null, null, 'initial']}
 							backgroundImage={[project.thumbnail!, null, null, 'initial']}
 							backgroundPosition="center"
@@ -62,10 +63,8 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 							borderRadius={10}
 							justify={['start', null, null, isOdd ? 'end' : 'start']}
 							key={project.id}
-							p={10}
-							position="relative"
+							p={[5, null, 10]}
 							w="100%"
-							backgroundBlendMode="multiply"
 							as={motion.div}
 							initial={{ opacity: 0, y: 100 }}
 							whileInView={{
@@ -76,118 +75,133 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 								},
 							}}
 						>
-							<Box
-								display={['none', null, null, 'block']}
-								position="absolute"
-								top="0"
-								zIndex={1}
-								left={isOdd ? '0' : 'initial'}
-								right={!isOdd ? '0' : 'initial'}
-							>
-								<Image
-									height="400px"
-									width="620px"
-									src={project.thumbnail!}
-									alt={project.title}
-								/>
-							</Box>
-
 							<VStack
-								alignItems={['start', null, null, isOdd ? 'end' : 'start']}
+								h={['400px', null, null, '100%']}
+								position="relative"
 								justify="center"
-								spacing={1}
 								w="100%"
-								h="400px"
-								zIndex={2}
 							>
-								<Text color={COLORS.pink} className="font-fira">
-									Featured Project
-								</Text>
-
-								<Text
-									color="whiteAlpha.800"
-									className="font-poppins"
-									fontSize="3xl"
-									fontWeight="semibold"
-									_hover={{ color: COLORS.pink }}
-									transitionDuration="1s"
-								>
-									{project.title}
-								</Text>
-
-								<Box h="1.2rem" />
-
 								<Box
-									bg={[null, null, null, COLORS.semiblack]}
-									w={['100%', null, '80%', '55%']}
-									p={5}
-									borderRadius={5}
+									backgroundImage={project.thumbnail!}
+									backgroundPosition="center"
+									backgroundSize="cover"
+									display={['none', null, null, 'block']}
+									height={['0px', null, null, '100%']}
+									left={isOdd ? '0' : 'initial'}
+									position="absolute"
+									right={!isOdd ? '0' : 'initial'}
+									top="0"
+									w={['0%', null, null, '60%', '70%']}
+									zIndex={1}
+								/>
+
+								<VStack
+									alignItems={['start', null, null, isOdd ? 'end' : 'start']}
+									spacing={1}
+									w="100%"
+									zIndex={2}
 								>
-									<Text color="gray.300" fontSize="sm">
-										{project.descriptions}. My responsibilities are:
+									<Text color={COLORS.pink} className="font-fira">
+										Featured Project
 									</Text>
 
-									<VStack
-										alignItems="start"
-										mt=".9rem"
-										spacing={1}
-										display={['none', null, null, 'flex']}
+									<Text
+										color="whiteAlpha.800"
+										className="font-poppins"
+										fontSize="3xl"
+										fontWeight="semibold"
+										_hover={{ color: COLORS.pink }}
+										transitionDuration="1s"
 									>
-										{project.responsibilities?.map((resp) => {
-											return (
-												<HStack key={resp} spacing={4}>
-													<Box>
-														<FaEgg fill={COLORS.pink} size={12} />
-													</Box>
+										{project.title}
+									</Text>
 
-													<Text
-														fontSize="sm"
-														color="gray.400"
-														className="font-poppins"
-													>
-														{resp}
-													</Text>
-												</HStack>
+									<Box h="1.2rem" />
+
+									<Box
+										bg={[null, null, null, COLORS.semiblack]}
+										w={['100%', null, '80%', '55%']}
+										p={[0, null, 5]}
+										borderRadius={5}
+									>
+										<Text color="gray.300" fontSize="sm">
+											{project.descriptions}. My responsibilities are:
+										</Text>
+
+										<VStack
+											alignItems="start"
+											mt=".9rem"
+											spacing={1}
+											display={['none', null, null, 'flex']}
+										>
+											{project.responsibilities?.map((resp) => {
+												return (
+													<HStack key={resp} spacing={4}>
+														<Box>
+															<FaEgg fill={COLORS.pink} size={12} />
+														</Box>
+
+														<Text
+															fontSize="sm"
+															color="gray.400"
+															className="font-poppins"
+														>
+															{resp}
+														</Text>
+													</HStack>
+												);
+											})}
+										</VStack>
+									</Box>
+
+									<Box h="1.2rem" />
+
+									<HStack spacing={4}>
+										{project.tech.map((tech) => {
+											return (
+												<Text color="gray.400" fontSize="sm" key={tech}>
+													{tech}
+												</Text>
 											);
 										})}
-									</VStack>
-								</Box>
+									</HStack>
 
-								<Box h="1.2rem" />
+									<Box h="1.2rem" />
 
-								<HStack spacing={4}>
-									{project.tech.map((tech) => {
-										return (
-											<Text color="gray.400" fontSize="sm" key={tech}>
-												{tech}
-											</Text>
-										);
-									})}
-								</HStack>
-
-								<Box h="1.2rem" />
-
-								{project.project_url && (
-									<a href={project.project_url} target="_blank" rel="noreferrer">
-										<IoMdOpen size={24} fill="#ABABAB" />
-									</a>
-								)}
+									{project.project_url && (
+										<a
+											href={project.project_url}
+											target="_blank"
+											rel="noreferrer"
+										>
+											<IoMdOpen size={24} fill="#ABABAB" />
+										</a>
+									)}
+								</VStack>
 							</VStack>
 						</HStack>
 					);
 				})}
 
-				<VStack spacing={10} w="100%" px={['1rem', null, '4rem', '0rem']}>
+				<VStack spacing={10} w="100%" px={['0rem', null, '4rem', '0rem']}>
 					<Tabs w="100%" isFitted>
 						<TabList>
 							<Tab _selected={{ bg: COLORS.pink }} transitionDuration=".5s">
-								<Text className="font-fira" fontSize="xl" fontWeight="semibold">
+								<Text
+									className="font-fira"
+									fontSize={['sm', null, 'xl']}
+									fontWeight="semibold"
+								>
 									Other Project
 								</Text>
 							</Tab>
 
 							<Tab _selected={{ bg: COLORS.pink }} transitionDuration=".5s">
-								<Text className="font-fira" fontSize="xl" fontWeight="semibold">
+								<Text
+									className="font-fira"
+									fontSize={['sm', null, 'xl']}
+									fontWeight="semibold"
+								>
 									Personal Project
 								</Text>
 							</Tab>
@@ -211,7 +225,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 
 const ProjectGrid: FC<{ projects: Project[] }> = ({ projects }): ReactElement => {
 	return (
-		<SimpleGrid columns={[1, null, 2, 3]} spacing={5} w="100%">
+		<SimpleGrid columns={[1, null, 2, 3]} spacing={4} w="100%">
 			{projects.map((project) => {
 				const isWeb = project.category === 'Web Application';
 				const isMobile = project.category === 'Mobile Application';
@@ -221,8 +235,7 @@ const ProjectGrid: FC<{ projects: Project[] }> = ({ projects }): ReactElement =>
 						bg={COLORS.semiblack}
 						height="350px"
 						key={project.id}
-						px="2rem"
-						py="2rem"
+						p={['1.5rem', null, '2rem']}
 						borderRadius={10}
 						as={motion.div}
 						initial={{ opacity: 0, y: 100 }}
