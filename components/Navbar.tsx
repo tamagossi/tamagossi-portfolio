@@ -133,12 +133,9 @@ const Links: FC<{ closeDrawer?: Function } & Pick<TypographyProps, 'fontSize'>> 
 	fontSize,
 	closeDrawer,
 }): ReactElement => {
-	const [active, setActive] = useState('');
-
 	const scrollToElement = (to: string) => {
 		const element = document.getElementById(to);
 		if (element) element.scrollIntoView({ behavior: 'smooth' });
-		setActive(to);
 		if (closeDrawer) closeDrawer();
 	};
 
@@ -146,7 +143,6 @@ const Links: FC<{ closeDrawer?: Function } & Pick<TypographyProps, 'fontSize'>> 
 		<>
 			{MENUS.map((menu: MENU, index: number) => {
 				const { label, to } = menu;
-				const isActive = to === active;
 
 				return (
 					<HStack
@@ -170,7 +166,6 @@ const Links: FC<{ closeDrawer?: Function } & Pick<TypographyProps, 'fontSize'>> 
 						<Text
 							_hover={{ color: COLORS.pink }}
 							cursor="pointer"
-							color={isActive ? COLORS.pink : 'white'}
 							fontSize={fontSize}
 							fontWeight={500}
 							transitionDuration=".2s"

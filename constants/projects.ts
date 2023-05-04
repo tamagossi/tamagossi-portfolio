@@ -2,16 +2,17 @@ import { Project } from 'interface/project.interface';
 
 const PROJECTS: Project[] = [
 	{
-		id: 9,
-		title: 'Tamagossi Portfolio Website',
 		category: 'Web Application',
 		descriptions: 'My personal web application built using Next.JS and ChakraUI',
 		end_date: 'May 2023',
+		github_url: 'https://github.com/tamagossi/tamagossi-portfolio',
+		id: 9,
 		is_personal_project: true,
+		project_url: 'https://www.tamago.ssi',
 		role: 'Front-End Engineer',
 		start_date: 'January 2023',
 		tech: ['NextJS', 'ChakraUI'],
-		project_url: 'https://www.tamago.ssi',
+		title: 'Tamagossi Portfolio Website',
 	},
 	{
 		id: 0,
@@ -41,7 +42,8 @@ const PROJECTS: Project[] = [
 		start_date: 'June 2021',
 		tech: ['NextJS', 'Zustand', 'Antd', 'React Query'],
 		thumbnail: '/images/app-screenshots/staffinc-jobs-thumbnail.png',
-		descriptions: 't',
+		descriptions:
+			'Staffinc jobs searching application to handle user who not already downloaded the Staffinc app but still want to looking and apply to a job',
 		responsibilities: [
 			'Develop the app from the scratch',
 			'Improve some patterns used within the app to minimize error possibility',

@@ -13,7 +13,7 @@ import {
 	VStack,
 } from '@chakra-ui/react';
 import { FaEgg } from 'react-icons/fa';
-import { IoMdOpen } from 'react-icons/io';
+import { IoMdOpen, IoLogoGithub } from 'react-icons/io';
 import { motion } from 'framer-motion';
 
 import { Project } from 'interface/project.interface';
@@ -250,7 +250,17 @@ const ProjectGrid: FC<{ projects: Project[] }> = ({ projects }): ReactElement =>
 									{isWeb && <AiOutlineChrome size={36} fill={COLORS.pink} />}
 									{isMobile && <AiOutlineMobile size={36} fill={COLORS.pink} />}
 
-									<HStack>
+									<HStack spacing={4}>
+										{project.github_url && (
+											<a
+												href={project.github_url}
+												target="_blank"
+												rel="noreferrer"
+											>
+												<IoLogoGithub size={24} fill="#ABABAB" />
+											</a>
+										)}
+
 										{project.project_url && (
 											<a
 												href={project.project_url}

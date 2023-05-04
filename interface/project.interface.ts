@@ -8,6 +8,7 @@ export type Project = {
 	category: 'Web Application' | 'Mobile Application' | 'Desktop Application';
 	descriptions: string;
 	end_date: string;
+	github_url?: string;
 	id: number;
 	images?: string[];
 	is_featured?: boolean;
