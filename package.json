@@ -20,11 +20,11 @@
 		"eslint": "8.27.0",
 		"eslint-config-next": "13.0.2",
 		"framer-motion": "^7.6.5",
+		"hamburger-react": "^2.5.0",
 		"next": "^12.3.0",
+		"next-seo": "^6.0.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-hook-form": "^7.43.9",
-		"react-simple-typewriter": "^4.0.5",
 		"typescript": "4.8.4",
 		"zustand": "^4.3.1"
 	},

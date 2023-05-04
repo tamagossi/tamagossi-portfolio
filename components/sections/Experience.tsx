@@ -130,7 +130,7 @@ const ExperienceSection: FC<ExperienceSectionPropsInterface> = ({ experiences })
 	const [activeExperience, setActiveExperience] = useState<number>(0);
 
 	return (
-		<Center h="100vh" px={['0rem', null, null, '8rem']} mt="3rem">
+		<Center h="100vh" px={['0rem', null, null, '8rem']} mt="3rem" id="experience-section">
 			<VStack
 				w="100%"
 				spacing={10}

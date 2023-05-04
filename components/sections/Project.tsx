@@ -35,7 +35,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ projects }): ReactElement => 
 	);
 
 	return (
-		<VStack mt="8rem" px={['0rem', null, null, '8rem']}>
+		<VStack mt="8rem" px={['0rem', null, null, '8rem']} id="project-section">
 			<SectionIndicator indicator="03." title="What I've built" position="start" />
 
 			<Box h=".2rem" />

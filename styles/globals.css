@@ -123,3 +123,7 @@ a {
 	mask-position: 0 0, 100% 0;
 	mask-repeat: no-repeat, no-repeat;
 }
+
+.navbar-active {
+	color: #ff008c;
+}

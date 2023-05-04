@@ -76,7 +76,6 @@ const AboutSection: FC = (): ReactElement => {
 			px={['0rem', null, null, '8rem']}
 			justifyContent={['center', null, 'start']}
 			w="100%"
-			mt="3rem"
 		>
 			<VStack
 				spacing={5}
@@ -84,6 +83,7 @@ const AboutSection: FC = (): ReactElement => {
 				as={motion.div}
 				initial={{ opacity: 0, y: 100 }}
 				exit={{ opacity: 0, y: 100 }}
+				mt="5rem"
 				whileInView={{
 					opacity: 1,
 					y: 0,

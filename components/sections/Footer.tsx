@@ -4,7 +4,7 @@ import { COLORS } from '@/constants';
 
 const FooterSection = () => {
 	return (
-		<Center h="100vh" borderTopRadius={['2rem', null, null, '7rem']}>
+		<Center h="100vh" borderTopRadius={['2rem', null, null, '7rem']} id="contact-section">
 			<VStack justifyContent="center" h="70vh" spacing="2rem">
 				<VStack spacing={0}>
 					<Text className="font-fira" fontWeight={300} color={COLORS.pink}>

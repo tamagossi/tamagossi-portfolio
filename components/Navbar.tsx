@@ -1,21 +1,22 @@
 import React, { FC, ReactElement, useState } from 'react';
-import Link from 'next/link';
 import { Box, Button, HStack, Text, TypographyProps, VStack } from '@chakra-ui/react';
+
 import { motion } from 'framer-motion';
 import { Divide as Hamburger } from 'hamburger-react';
 
 import { COLORS } from '@/constants';
+import Image from 'next/image';
 
 type MENU = {
 	label: string;
-	url: string;
+	to: string;
 };
 
 const MENUS: MENU[] = [
-	{ label: 'About', url: '/' },
-	{ label: 'Experiences', url: '/experiences' },
-	{ label: 'Projects', url: '/projects' },
-	{ label: 'Contact', url: '/contact' },
+	{ label: 'About', to: 'about-section' },
+	{ label: 'Experiences', to: 'experience-section' },
+	{ label: 'Projects', to: 'project-section' },
+	{ label: 'Contact', to: 'contact-section' },
 ];
 
 const Navbar: FC = (): ReactElement => {
@@ -86,6 +87,7 @@ const Navbar: FC = (): ReactElement => {
 			<Box
 				bg="blackAlpha.800"
 				display={[isDrawerOpen ? 'flex' : 'none', null, 'none']}
+				onClick={() => setIsDrawerOpen(false)}
 				h="100vh"
 				position="fixed"
 				top="0"
@@ -114,7 +116,7 @@ const Navbar: FC = (): ReactElement => {
 				animate={{ x: isDrawerOpen ? 0 : -460, transition: { duration: 0.5 } }}
 			>
 				<VStack alignItems="start" spacing="1.5rem">
-					<Links fontSize="md" />
+					<Links fontSize="md" closeDrawer={() => setIsDrawerOpen(false)} />
 				</VStack>
 
 				<Button variant="outline" borderColor={COLORS.pink} w="100%" onClick={openResume}>
@@ -127,38 +129,55 @@ const Navbar: FC = (): ReactElement => {
 	);
 };
 
-const Links: FC<Pick<TypographyProps, 'fontSize'>> = ({ fontSize }): ReactElement => {
+const Links: FC<{ closeDrawer?: Function } & Pick<TypographyProps, 'fontSize'>> = ({
+	fontSize,
+	closeDrawer,
+}): ReactElement => {
+	const [active, setActive] = useState('');
+
+	const scrollToElement = (to: string) => {
+		const element = document.getElementById(to);
+		if (element) element.scrollIntoView({ behavior: 'smooth' });
+		setActive(to);
+		if (closeDrawer) closeDrawer();
+	};
+
 	return (
 		<>
 			{MENUS.map((menu: MENU, index: number) => {
-				const { label, url } = menu;
+				const { label, to } = menu;
+				const isActive = to === active;
 
 				return (
-					<Link key={url} href={url}>
-						<HStack _hover={{ transform: 'scale(1.1)' }} transitionDuration=".2s">
-							<Text
-								_hover={{ transform: 'scale(1.1)' }}
-								className="font-fira"
-								color={COLORS.pink}
-								cursor="pointer"
-								fontSize={fontSize}
-								fontWeight={500}
-								transitionDuration=".2s"
-							>
-								0{index + 1}.
-							</Text>
+					<HStack
+						key={to}
+						_hover={{ transform: 'scale(1.1)' }}
+						transitionDuration=".2s"
+						onClick={() => scrollToElement(to)}
+					>
+						<Text
+							_hover={{ transform: 'scale(1.1)' }}
+							className="font-fira"
+							color={COLORS.pink}
+							cursor="pointer"
+							fontSize={fontSize}
+							fontWeight={500}
+							transitionDuration=".2s"
+						>
+							0{index + 1}.
+						</Text>
 
-							<Text
-								_hover={{ color: COLORS.pink }}
-								cursor="pointer"
-								fontSize={fontSize}
-								fontWeight={500}
-								transitionDuration=".2s"
-							>
-								{label.toUpperCase()}
-							</Text>
-						</HStack>
-					</Link>
+						<Text
+							_hover={{ color: COLORS.pink }}
+							cursor="pointer"
+							color={isActive ? COLORS.pink : 'white'}
+							fontSize={fontSize}
+							fontWeight={500}
+							transitionDuration=".2s"
+						>
+							{label.toUpperCase()}
+						</Text>
+					</HStack>
 				);
 			})}
 		</>
