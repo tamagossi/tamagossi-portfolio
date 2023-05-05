@@ -73,7 +73,7 @@ const AboutSection: FC = (): ReactElement => {
 		<Center
 			h="100vh"
 			id="about-section"
-			px={['0rem', null, null, '8rem', null, '30rem']}
+			px={['0rem', null, null, '8rem', null, '25rem']}
 			justifyContent={['center', null, 'start']}
 			w="100%"
 		>
