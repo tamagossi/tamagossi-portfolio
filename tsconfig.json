@@ -20,6 +20,7 @@
 			"@/components": ["components/index"],
 			"@/constants": ["constants/index"],
 			"@/context": ["context/index"],
+			"@/helpers": ["helpers/index"],
 			"@/hooks": ["hooks/index"],
 			"@/interfaces": ["interfaces/index"],
 			"@/layouts": ["layouts/index"],

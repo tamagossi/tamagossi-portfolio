@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Project {
+  id                  String @id @default(uuid())
+  title               String
+  category            String
+  description         String
+  is_personal_project Boolean @default(false)
+  is_featured         Boolean @default(false)
+  github_url          String?
+  project_url         String?
+  start_date          DateTime @default(now())
+  end_date            DateTime?
+  role                String
+  tech                String
+  responsibilities    String
+  associated_with     Experience @relation("AssociatedWith", fields: [experience_id], references: [id])
+  experience_id       String
+
+
+  @@map("projects")
+}
+
+model Tech {
+  id    String @id @default(uuid())
+  name  String
+
+  @@map("techs")
+}
+
+model Skill {
+  id    String @id @default(uuid())
+  name  String
+
+  @@map("skills")
+}
+
+model Experience {
+  id            String @id @default(uuid())
+  title         String
+  company       String
+  company_url   String?
+  start_date    DateTime @default(now())
+  end_date      DateTime?
+  descriptions  String
+  projects      Project[] @relation("AssociatedWith")
+
+  @@map("experiences")
+}

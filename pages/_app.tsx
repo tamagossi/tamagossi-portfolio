@@ -1,21 +1,19 @@
 import '../styles/globals.css';
 
 import type { AppProps } from 'next/app';
-import { Box, ChakraProvider } from '@chakra-ui/react';
-
-import { MouseProvider } from '@/context';
-import { CursorFollow } from '@/components';
+import { ChakraProvider } from '@chakra-ui/react';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<MouseProvider>
-			<ChakraProvider>
-				<CursorFollow />
-
-				<Box cursor="none">
-					<Component {...pageProps} />
-				</Box>
+		<QueryClientProvider client={new QueryClient()}>
+			<ChakraProvider
+				toastOptions={{
+					defaultOptions: { position: 'bottom-left' },
+				}}
+			>
+				<Component {...pageProps} />
 			</ChakraProvider>
-		</MouseProvider>
+		</QueryClientProvider>
 	);
 }

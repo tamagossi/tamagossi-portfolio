@@ -21,3 +21,5 @@ export type Project = {
 	thumbnail?: string;
 	title: string;
 };
+
+export default Project;

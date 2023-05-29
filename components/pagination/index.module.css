@@ -1,0 +1,31 @@
+.pagination {
+	display: flex;
+	list-style-type: none;
+	gap: 10px;
+}
+
+.pagination-item {
+	align-items: center;
+	display: flex;
+	height: 38px;
+	width: 38px;
+	justify-content: center;
+	border: 1px solid #cbcbcb;
+	border-radius: 3px;
+}
+
+.arrow-item {
+	width: initial;
+	padding: 0 10px;
+}
+
+.pagination-active {
+	background: #ffbb4b;
+	border: 1px solid #ffbb4b;
+	color: white;
+}
+
+.disabled {
+	cursor: not-allowed;
+	color: #cbcbcb;
+}
