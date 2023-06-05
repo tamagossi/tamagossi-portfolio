@@ -13,7 +13,7 @@ export default class HTTPAdapterService {
 		});
 	}
 
-	public sendGetRequest(URL: string, params: Record<string, any>) {
+	public sendGetRequest(URL: string, params?: Record<string, any>) {
 		return this.client.get(URL, { params });
 	}
 

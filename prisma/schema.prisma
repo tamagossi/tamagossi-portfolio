@@ -23,21 +23,27 @@ model Project {
   responsibilities    String
   associated_with     Experience @relation("AssociatedWith", fields: [experience_id], references: [id])
   experience_id       String
+  created_at          DateTime @default(now())
+  updated_at          DateTime? @updatedAt
 
 
   @@map("projects")
 }
 
 model Tech {
-  id    String @id @default(uuid())
-  name  String
+  id            String @id @default(uuid())
+  name          String
+  created_at    DateTime @default(now())
+  updated_at    DateTime? @updatedAt
 
   @@map("techs")
 }
 
 model Skill {
-  id    String @id @default(uuid())
-  name  String
+  id            String @id @default(uuid())
+  name          String
+  created_at    DateTime @default(now())
+  updated_at    DateTime? @updatedAt
 
   @@map("skills")
 }
@@ -50,6 +56,9 @@ model Experience {
   start_date    DateTime @default(now())
   end_date      DateTime?
   descriptions  String
+  is_current    Boolean? @default(false)
+  created_at    DateTime @default(now())
+  updated_at    DateTime? @updatedAt
   projects      Project[] @relation("AssociatedWith")
 
   @@map("experiences")
