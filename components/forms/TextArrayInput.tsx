@@ -1,10 +1,8 @@
 import { FC, ReactElement } from 'react';
-import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
+import { TrashBinOutline } from 'react-ionicons';
+import { Controller, UseControllerProps, useFieldArray, useFormContext } from 'react-hook-form';
 import {
 	Box,
-	FormControl,
-	FormHelperText,
-	FormLabel,
 	HStack,
 	Input,
 	InputGroup,
@@ -14,56 +12,31 @@ import {
 } from '@chakra-ui/react';
 
 import { useEffectOnce } from '@/hooks';
-import { InputWrapperProps, getInputWrapperProps } from './InputWrapper';
-import Button from '../Button';
-import { TrashBinOutline } from 'react-ionicons';
+import { Button } from '@/components';
+import FormControl, { FormControlProps } from './FormControl';
 
-type TextArrayInputProps = InputProps &
-	Omit<InputWrapperProps, 'children'> & { keepValueAsString?: boolean };
+type TextArrayInputProps = InputProps & Omit<FormControlProps, 'children'> & UseControllerProps;
 
 const TextArrayInput: FC<TextArrayInputProps> = (props): ReactElement => {
-	const {
-		wrapperProps: {
-			disabled,
-			helper,
-			label,
-			labelSize = 'sm',
-			labelWeight = 500,
-			name,
-			sublabel,
-			rules,
-		},
-		inputProps,
-	} = getInputWrapperProps(props);
+	const { name, rules } = props;
 
-	const { setValue, control, formState } = useFormContext();
-	const { errors, dirtyFields, touchedFields } = formState;
-
+	const { setValue, control } = useFormContext();
 	const { fields, append, remove } = useFieldArray({
 		name,
 		rules: {
-			minLength: rules.hasOwnProperty('required') ? 1 : 0,
+			minLength: rules?.hasOwnProperty('required') ? 1 : 0,
 		},
 	});
 
-	const isInvalid =
-		typeof errors?.[name] !== 'undefined' && dirtyFields?.[name] && touchedFields?.[name];
-
 	useEffectOnce(() => {
-		setValue(name, [{ value: '' }]);
+		if (fields.length < 1) {
+			setValue(name, [{ value: '' }]);
+		}
 	});
 
 	return (
 		<VStack align="start" w="100%" spacing={4}>
-			<FormControl isDisabled={disabled} isInvalid={isInvalid}>
-				{label && (
-					<FormLabel fontSize={labelSize} fontWeight={labelWeight} mb={0.5} >
-						{label}
-					</FormLabel>
-				)}
-
-				{sublabel && <FormLabel>{sublabel}</FormLabel>}
-
+			<FormControl {...props} name={name}>
 				<VStack w="100%" spacing={2}>
 					{fields.map((field, index) => {
 						return (
@@ -75,20 +48,19 @@ const TextArrayInput: FC<TextArrayInputProps> = (props): ReactElement => {
 									render={({ field }) => {
 										return (
 											<InputGroup>
-												{inputProps.prefix && (
+												{props.prefix && (
 													<InputLeftElement>
-														<Box fontSize="md">{inputProps.prefix}</Box>
+														<Box fontSize="md">{props.prefix}</Box>
 													</InputLeftElement>
 												)}
 
 												<Input
-													{...inputProps}
+													{...props}
 													{...field}
-													placeholder={`${inputProps.placeholder} ${
+													width="100%"
+													placeholder={`${props.placeholder} ${
 														index + 1
 													}`}
-													
-													width="100%"
 												/>
 											</InputGroup>
 										);
@@ -96,7 +68,12 @@ const TextArrayInput: FC<TextArrayInputProps> = (props): ReactElement => {
 								/>
 
 								{index !== 0 && (
-									<Button block={false} color="red" onClick={() => remove(index)}>
+									<Button
+										block={false}
+										color="red"
+										onClick={() => remove(index)}
+										px={4}
+									>
 										<TrashBinOutline width="20px" height="20px" />
 									</Button>
 								)}
@@ -104,22 +81,10 @@ const TextArrayInput: FC<TextArrayInputProps> = (props): ReactElement => {
 						);
 					})}
 				</VStack>
-
-				{helper && (
-					<FormHelperText fontSize="xs" fontWeight={500} mt={1} >
-						{helper}
-					</FormHelperText>
-				)}
-
-				{isInvalid && (
-					<FormHelperText color="red.500" mt={1} fontSize="xs" fontWeight={500}>
-						{errors?.[name]?.message as string}
-					</FormHelperText>
-				)}
 			</FormControl>
 
 			<Button block={false} onClick={() => append({ value: '' })}>
-				Add {inputProps.placeholder}
+				Add {props.placeholder}
 			</Button>
 		</VStack>
 	);

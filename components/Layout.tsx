@@ -9,8 +9,11 @@ import {
 	GridItem,
 	Heading,
 	Spinner,
+	Center,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { AlertOutline } from 'react-ionicons';
 
 const MENUS: Record<'name' | 'path', string>[] = [
 	{ name: 'Projects', path: '/dashboard/projects' },
@@ -21,10 +24,12 @@ const MENUS: Record<'name' | 'path', string>[] = [
 
 type LayoutProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
 	title: string;
+	backable?: boolean;
+	isError?: boolean;
 };
 
-const Layout: FC<LayoutProps> = ({ children, title }): ReactElement => {
-	const { pathname } = useRouter();
+const Layout: FC<LayoutProps> = ({ children, backable, isError, title }): ReactElement => {
+	const { back, pathname } = useRouter();
 
 	return (
 		<Grid templateColumns="repeat(24, 1fr)" gap={0} overflowY="hidden">
@@ -44,7 +49,14 @@ const Layout: FC<LayoutProps> = ({ children, title }): ReactElement => {
 								<HStack key={menu.path}>
 									{isActive && <Circle background="white" size={2} />}
 
-									<Text fontWeight={isActive ? 600 : 400}>{menu.name}</Text>
+									<Text
+										cursor="pointer"
+										fontWeight={isActive ? 600 : 400}
+										as="a"
+										href={menu.path}
+									>
+										{menu.name}
+									</Text>
 								</HStack>
 							);
 						})}
@@ -54,16 +66,32 @@ const Layout: FC<LayoutProps> = ({ children, title }): ReactElement => {
 
 			<GridItem colSpan={19} py={7} px={20} h="100vh" overflowY="auto" bg="blackAlpha.900">
 				<VStack w="100%" spacing={10} align="start">
-					<Heading fontSize="2xl">{title}</Heading>
+					<HStack spacing={4}>
+						{backable && <AiOutlineArrowLeft onClick={back} />}
 
-					<Box h="100%" w="100%">
-						{children || (
-							<VStack w="100%" spacing={3}>
-								<Spinner />
-								<Text>Loading...</Text>
+						<Heading fontSize="2xl">{title}</Heading>
+					</HStack>
+
+					{isError ? (
+						<Center h="60vh" w="100%">
+							<VStack>
+								<AlertOutline height="150px" width="150px" />
+
+								<Heading fontSize="2xl">Opps.. There is something wrong~</Heading>
 							</VStack>
-						)}
-					</Box>
+						</Center>
+					) : (
+						<Box h="100%" w="100%">
+							{children || (
+								<Center h="60vh" w="100%">
+									<VStack w="100%" spacing={5}>
+										<Spinner size="xl" />
+										<Heading fontSize="xl">Loading...</Heading>
+									</VStack>
+								</Center>
+							)}
+						</Box>
+					)}
 				</VStack>
 			</GridItem>
 		</Grid>

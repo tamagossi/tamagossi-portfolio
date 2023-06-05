@@ -1,46 +1,26 @@
-import { FC, ReactElement, useState } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { Input, InputProps, Checkbox, Text, VStack } from '@chakra-ui/react';
+import { FC, ReactElement } from 'react';
+import { UseControllerProps, useController, useFormContext } from 'react-hook-form';
+import { Input, InputProps } from '@chakra-ui/react';
 
-import InputWrapper, { InputWrapperProps, getInputWrapperProps } from './InputWrapper';
-import dayjs from 'dayjs';
+import FormControl, { FormControlProps } from './FormControl';
 
-type DateInputProps = InputProps &
-	Omit<InputWrapperProps, 'children'> & { isEndDate?: boolean; endDateLabel?: string };
+type DateInputProps = InputProps & UseControllerProps & Omit<FormControlProps, 'children'>;
 
 const DateInput: FC<DateInputProps> = (props): ReactElement => {
-	const { setValue } = useFormContext();
+	const { rules, name } = props;
 
-	const [ongoing, setOngoing] = useState(false);
-
-	const { wrapperProps, inputProps } = getInputWrapperProps(props);
-	const { isEndDate, endDateLabel, ...rest } = inputProps;
-
-	const setProgressing = () => {
-		setOngoing(true);
-		setValue(wrapperProps.name, dayjs('1970/01/01'));
-	};
+	const { control, setValue } = useFormContext();
+	const { field } = useController({
+		control,
+		name,
+		shouldUnregister: true,
+		rules,
+	});
 
 	return (
-		<VStack align="start" w="100%">
-			<InputWrapper {...wrapperProps} name={wrapperProps.name}>
-				<Input type="date" {...rest} disabled={ongoing} />
-			</InputWrapper>
-
-			{isEndDate && (
-				<Checkbox
-					onChange={(e) => {
-						if (e.target.checked) {
-							setProgressing();
-						} else {
-							setOngoing(false);
-						}
-					}}
-				>
-					<Text fontSize="sm">{endDateLabel}</Text>
-				</Checkbox>
-			)}
-		</VStack>
+		<FormControl {...props} name={name}>
+			<Input type="date" {...props} {...field} width="100%" />
+		</FormControl>
 	);
 };
 

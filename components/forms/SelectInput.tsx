@@ -1,11 +1,17 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
 import Select, { Props } from 'react-select';
-import { useToast } from '@chakra-ui/react';
-import { InputOptions } from 'interface';
+import { FC, ReactElement, useState } from 'react';
+import { InputProps, useToast } from '@chakra-ui/react';
+import { useFormContext, useController, UseControllerProps } from 'react-hook-form';
 
-import InputWrapper, { InputWrapperProps, getInputWrapperProps } from './InputWrapper';
+import { InputOptions } from 'interface';
+import FormControl, { FormControlProps } from './FormControl';
+import { useUpdateEffect } from '@/hooks';
+
 export type SelectItem = { label: string; value: string };
-type SelectInputProps = InputWrapperProps & InputOptions & Props;
+type SelectInputProps = Omit<FormControlProps, 'chidlren'> &
+	UseControllerProps &
+	InputOptions &
+	Props & { variant?: InputProps['variant'] };
 
 const SelectInput: FC<SelectInputProps> = (props): ReactElement => {
 	const toast = useToast();
@@ -13,20 +19,27 @@ const SelectInput: FC<SelectInputProps> = (props): ReactElement => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [options, setOptions] = useState<SelectItem[]>([]);
 
-	const { wrapperProps, inputProps } = getInputWrapperProps(props);
 	const {
 		dataSourceParams,
 		dataSourceUrl,
 		options: defaultOptions,
 		renderOption,
 		service,
-		variant,
-		...selectInputProps
-	} = inputProps;
+		variant = 'flushed',
+		name,
+		rules,
+	} = props;
+	const { control } = useFormContext();
+	const { field } = useController({
+		control,
+		name,
+		shouldUnregister: true,
+		rules,
+	});
 
 	const underlined = variant === 'flushed';
 
-	useEffect(() => {
+	useUpdateEffect(() => {
 		(async () => {
 			if (defaultOptions) {
 				setIsLoading(false);
@@ -77,9 +90,10 @@ const SelectInput: FC<SelectInputProps> = (props): ReactElement => {
 	};
 
 	return (
-		<InputWrapper {...wrapperProps} name={wrapperProps.name}>
+		<FormControl {...props} name={name}>
 			<Select
-				{...selectInputProps}
+				{...props}
+				{...field}
 				isLoading={isLoading}
 				menuPlacement="auto"
 				loadingMessage={() => 'Getting options...'}
@@ -121,7 +135,7 @@ const SelectInput: FC<SelectInputProps> = (props): ReactElement => {
 					}),
 				}}
 			/>
-		</InputWrapper>
+		</FormControl>
 	);
 };
 

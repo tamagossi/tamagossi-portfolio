@@ -2,6 +2,7 @@ import { FC, ReactElement, useState } from 'react';
 import { Eye, EyeOff } from 'react-ionicons';
 import {
 	Box,
+	FormControlProps,
 	Input,
 	InputGroup,
 	InputLeftElement,
@@ -9,19 +10,26 @@ import {
 	InputRightElement,
 } from '@chakra-ui/react';
 
-import InputWrapper, { InputWrapperProps, getInputWrapperProps } from './InputWrapper';
+import { useFormContext, useController, UseControllerProps } from 'react-hook-form';
+import FormControl from './FormControl';
 
-type PasswordInputProps = InputProps &
-	Omit<InputWrapperProps, 'children'> & { keepValueAsString?: boolean };
+type PasswordInputProps = InputProps & UseControllerProps & Omit<FormControlProps, 'children'>;
 
 const PasswordInput: FC<PasswordInputProps> = (props): ReactElement => {
 	const [visible, setVisible] = useState<boolean>(false);
 
-	const { wrapperProps, inputProps } = getInputWrapperProps(props);
-	const { prefix } = inputProps;
+	const { prefix, rules, name, ...inputProps } = props;
+
+	const { control } = useFormContext();
+	const { field } = useController({
+		control,
+		name,
+		shouldUnregister: true,
+		rules,
+	});
 
 	return (
-		<InputWrapper {...wrapperProps} name={wrapperProps.name}>
+		<FormControl {...props} name={name}>
 			<InputGroup>
 				{prefix && (
 					<InputLeftElement>
@@ -29,7 +37,12 @@ const PasswordInput: FC<PasswordInputProps> = (props): ReactElement => {
 					</InputLeftElement>
 				)}
 
-				<Input {...inputProps} width="100%" type={visible ? 'text' : 'password'} />
+				<Input
+					{...inputProps}
+					{...field}
+					width="100%"
+					type={visible ? 'text' : 'password'}
+				/>
 
 				<InputRightElement>
 					{visible ? (
@@ -39,7 +52,7 @@ const PasswordInput: FC<PasswordInputProps> = (props): ReactElement => {
 					)}
 				</InputRightElement>
 			</InputGroup>
-		</InputWrapper>
+		</FormControl>
 	);
 };
 

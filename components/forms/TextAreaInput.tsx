@@ -1,18 +1,28 @@
 import { FC, ReactElement } from 'react';
-import { Box, Input, InputGroup, InputLeftElement, InputProps, Textarea } from '@chakra-ui/react';
+import { FormControlProps, Textarea, TextareaProps } from '@chakra-ui/react';
 
-import InputWrapper, { InputWrapperProps, getInputWrapperProps } from './InputWrapper';
+import FormControl from './FormControl';
+import { useFormContext, useController, UseControllerProps } from 'react-hook-form';
 
-type TextAreaInputProps = InputProps &
-	Omit<InputWrapperProps, 'children'> & { keepValueAsString?: boolean };
+type TextAreaInputProps = TextareaProps &
+	Omit<FormControlProps, 'children'> &
+	UseControllerProps & { disabled?: boolean };
 
 const TextAreaInput: FC<TextAreaInputProps> = (props): ReactElement => {
-	const { wrapperProps, inputProps } = getInputWrapperProps(props);
+	const { rules, name } = props;
+
+	const { control } = useFormContext();
+	const { field } = useController({
+		control,
+		name,
+		shouldUnregister: true,
+		rules,
+	});
 
 	return (
-		<InputWrapper {...wrapperProps} name={wrapperProps.name}>
-			<Textarea {...inputProps} width="100%" />
-		</InputWrapper>
+		<FormControl {...props} name={name}>
+			<Textarea {...props} {...field} width="100%" />
+		</FormControl>
 	);
 };
 

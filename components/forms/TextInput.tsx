@@ -1,30 +1,39 @@
-import { FC, ReactElement } from 'react';
-import { useFormContext, useWatch } from 'react-hook-form';
+import { FC, ReactElement, ReactNode } from 'react';
+import { UseControllerProps, useController, useFormContext, useWatch } from 'react-hook-form';
 import { Box, Input, InputGroup, InputLeftElement, InputProps } from '@chakra-ui/react';
 
 import { useDebounce, useUpdateEffect } from '@/hooks';
-import InputWrapper, { InputWrapperProps, getInputWrapperProps } from './InputWrapper';
+import FormControl, { FormControlProps } from './FormControl';
+
+type CustomInputProps = { keepValueAsString?: boolean; prefix?: ReactNode };
 
 type TextInputProps = InputProps &
-	Omit<InputWrapperProps, 'children'> & { keepValueAsString?: boolean };
+	UseControllerProps &
+	Omit<FormControlProps, 'children'> &
+	CustomInputProps;
 
 const TextInput: FC<TextInputProps> = (props): ReactElement => {
-	const { setValue } = useFormContext();
+	const { prefix, type, keepValueAsString, rules, name, ...inputProps } = props;
 
-	const { wrapperProps, inputProps } = getInputWrapperProps(props);
-	const { prefix, type, keepValueAsString } = inputProps;
+	const { control, setValue } = useFormContext();
+	const { field } = useController({
+		control,
+		name,
+		shouldUnregister: true,
+		rules,
+	});
 
-	const value = useWatch({ name: wrapperProps.name });
+	const value = useWatch({ name: name });
 	const debouncedValue = useDebounce<string>(value, 1000);
 
 	useUpdateEffect(() => {
 		if (type === 'number' && typeof value === 'string' && !keepValueAsString) {
-			setValue(wrapperProps.name, parseInt(debouncedValue));
+			setValue(name, parseInt(debouncedValue));
 		}
 	}, [debouncedValue]);
 
 	return (
-		<InputWrapper {...wrapperProps} name={wrapperProps.name}>
+		<FormControl {...props} name={name}>
 			<InputGroup>
 				{prefix && (
 					<InputLeftElement>
@@ -32,9 +41,9 @@ const TextInput: FC<TextInputProps> = (props): ReactElement => {
 					</InputLeftElement>
 				)}
 
-				<Input {...inputProps} width="100%" />
+				<Input {...inputProps} {...field} width="100%" />
 			</InputGroup>
-		</InputWrapper>
+		</FormControl>
 	);
 };
 

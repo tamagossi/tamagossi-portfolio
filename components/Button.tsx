@@ -29,6 +29,7 @@ type ButtonProps = ChakraButtonProps & {
 	color?: keyof typeof BUTTON_STYLE;
 	shape?: 'rectangle' | 'rounded';
 	block?: boolean;
+	href?: string;
 };
 
 const Button: FC<ButtonProps> = ({
@@ -36,6 +37,7 @@ const Button: FC<ButtonProps> = ({
 	shape = 'rectangle',
 	color = 'black',
 	block = true,
+	px = 8,
 	...defaultButtonProps
 }) => {
 	return (
@@ -46,7 +48,7 @@ const Button: FC<ButtonProps> = ({
 			borderRadius={shape === 'rounded' ? 999 : 5}
 			fontSize="sm"
 			fontWeight={700}
-			px={8}
+			px={px}
 			py={2}
 			w={block && '100%'}
 		>
