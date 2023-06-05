@@ -113,20 +113,20 @@ const Datatable = <Data extends object>({
 					<Thead {...tHeaderProps}>
 						<Tr>
 							{selectable && (
-								<Th position="sticky" left="0" background="blackAlpha.900"></Th>
+								<Th position="sticky" left="0" background="#141414"></Th>
 							)}
 
 							{columns.map((col, index) => {
 								return (
 									<Th
-										{...col.headerProps}
-										{...headerCellProps}
-										background="blackAlpha.900"
+										background="#141414"
 										key={'header' + (col.key as string) + index}
 										cursor={col.sortable ? 'pointer' : 'auto'}
 										alignItems="center"
 										verticalAlign="middle"
 										position={col.freeze ? 'sticky' : 'initial'}
+										{...col.headerProps}
+										{...headerCellProps}
 										onClick={() => {
 											if (col.sortable) {
 												updateSort(col.key as string);
@@ -172,7 +172,7 @@ const Datatable = <Data extends object>({
 											width="8px"
 											position="sticky"
 											left="0"
-											background="blackAlpha.900"
+											background="#141414"
 										>
 											<Checkbox
 												{...(checkboxProps as any)}
@@ -186,10 +186,10 @@ const Datatable = <Data extends object>({
 									{columns.map((col, index) => {
 										return (
 											<Td
-												{...col.cellProps}
 												key={'data-item' + (col.key as string) + index}
 												position={col.freeze ? 'sticky' : 'initial'}
-												background="blackAlpha.900"
+												background="#141414"
+												{...col.cellProps}
 											>
 												{col.render
 													? col.render((row as any)[col.key], row)
