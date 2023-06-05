@@ -31,7 +31,7 @@ const Pagination: FC<PaginationProps> = ({
 				previousLabel="← Previous"
 				nextLabel="Next →"
 				pageCount={Math.ceil(totalData / limit)}
-				onPageChange={({ selected }) => setPage(selected)}
+				onPageChange={({ selected }) => setPage(selected + 1)}
 				containerClassName={styles.pagination}
 				pageLinkClassName={styles['pagination-item']}
 				previousLinkClassName={`${styles['pagination-item']} ${styles['arrow-item']}`}
@@ -45,6 +45,10 @@ const Pagination: FC<PaginationProps> = ({
 					onChange={(selected) => setLimit(selected!.value)}
 					placeholder="Data per page..."
 					menuPlacement="top"
+					styles={{
+						menu: (styles) => ({ ...styles, background: 'black' }),
+						control: (styles) => ({ ...styles, background: 'black', color: 'white' }),
+					}}
 					options={
 						pageSizeOptions || [
 							{
