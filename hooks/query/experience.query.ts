@@ -49,15 +49,32 @@ export const useGetExperiences = ({
 	params,
 	options,
 }: {
-	params: Record<any, string>;
+	params: Record<any, string | number>;
 	options?: QueryOpts<any>;
 }) => {
 	return useQuery<{ data: Experience[]; meta: Meta }, Error>(
-		[QUERY_KEYS.EXPERIENCES, { ...params }],
+		[QUERY_KEYS.EXPERIENCES, params.page, params.limit],
 		async () => {
 			try {
 				const service = new ExperienceService();
 				const response = await service.getExperiences(params);
+
+				return response;
+			} catch (error: any) {
+				throw Error(error);
+			}
+		},
+		generateQueryOptions(options)
+	);
+};
+
+export const useGetExperienceById = ({ id, options }: { id: string; options?: QueryOpts<any> }) => {
+	return useQuery<{ data: Experience }, Error>(
+		[QUERY_KEYS.EXPERIENCES, id],
+		async () => {
+			try {
+				const service = new ExperienceService();
+				const response = await service.getExperienceById(id);
 
 				return response;
 			} catch (error: any) {

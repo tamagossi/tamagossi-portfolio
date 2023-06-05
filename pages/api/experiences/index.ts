@@ -11,9 +11,21 @@ const experiences = async (req: NextApiRequest, res: NextApiResponse) => {
 		}
 
 		if (req.method === 'GET') {
+			const { limit, page = 1 } = req.query;
+
+			if (typeof limit === 'undefined') {
+				return res.status(400).json({ message: 'Limit is required' });
+			}
+
 			const [count, result] = await prisma.$transaction([
 				prisma.experience.count(),
-				prisma.experience.findMany(),
+				prisma.experience.findMany({
+					skip: (parseInt(page as string) - 1) * parseInt(limit as string),
+					take: parseInt(limit as string),
+					orderBy: {
+						end_date: 'asc',
+					},
+				}),
 			]);
 
 			if (count === 0) {

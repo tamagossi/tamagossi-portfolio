@@ -127,3 +127,7 @@ a {
 .navbar-active {
 	color: #ff008c;
 }
+
+::-webkit-calendar-picker-indicator {
+	filter: invert(1);
+}
