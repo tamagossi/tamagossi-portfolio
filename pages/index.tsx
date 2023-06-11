@@ -15,7 +15,6 @@ import {
 } from '@/components';
 import { MouseProvider } from '@/context';
 
-import EXPERIENCES from 'constants/experience';
 import PROJECTS from 'constants/projects';
 import { Experience } from 'interface/experience.interface';
 import { Project } from 'interface/project.interface';

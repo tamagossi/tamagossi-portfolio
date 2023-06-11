@@ -1,4 +1,3 @@
-import { MasterService } from '@/services';
 import { SelectItem } from '@/components';
 
 type InputOptions = {
@@ -6,7 +5,6 @@ type InputOptions = {
 	dataSourceUrl?: string;
 	options?: SelectItem[];
 	renderOption?: (data: any) => SelectItem;
-	service?: MasterService;
 };
 
 export default InputOptions;
