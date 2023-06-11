@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useState } from 'react';
-import { Box, HStack, VStack, Text, Grid, GridItem, Center } from '@chakra-ui/react';
-import { FaEgg } from 'react-icons/fa';
+import dayjs from 'dayjs';
+import { Box, HStack, VStack, Text, Center } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 import { SectionIndicator } from '@/components';
@@ -9,13 +9,13 @@ import { Experience } from 'interface/experience.interface';
 import { COLORS } from '@/constants';
 
 const ExperienceBox: FC<Experience> = ({
-	id,
-	title,
-	company,
 	company_url,
-	start_date,
-	end_date,
+	company,
+	is_current,
 	descriptions,
+	end_date,
+	start_date,
+	title,
 }): ReactElement => {
 	return (
 		<Box
@@ -47,26 +47,15 @@ const ExperienceBox: FC<Experience> = ({
 					<Text fontSize="xs">{title.toUpperCase()}</Text>
 
 					<Text fontSize="xs" color="gray.400">
-						{start_date} - {end_date}
+						{dayjs(start_date).format('D MMMM YYYY')} -{' '}
+						{is_current ? 'Now' : dayjs(end_date).format('D MMMM YYYY')}
 					</Text>
 				</VStack>
 
 				{descriptions && (
-					<VStack alignItems="start">
-						{(descriptions as any).map((desc: any) => {
-							return (
-								<HStack key={desc} spacing={4}>
-									<Box>
-										<FaEgg fill={COLORS.pink} size={12} />
-									</Box>
-
-									<Text fontSize="sm" color="gray.400" className="font-poppins">
-										{desc}
-									</Text>
-								</HStack>
-							);
-						})}
-					</VStack>
+					<Text fontSize="sm" color="gray.400" className="font-poppins">
+						{descriptions}
+					</Text>
 				)}
 			</VStack>
 		</Box>
@@ -102,6 +91,7 @@ const ExperienceTitle: FC<{
 							cursor="pointer"
 							transitionDuration="1s"
 							color={isActive ? COLORS.pink : 'white'}
+							noOfLines={1}
 						>
 							{experience.company}
 						</Text>
@@ -199,6 +189,7 @@ const ExperienceSection: FC<ExperienceSectionPropsInterface> = ({ experiences })
 									opacity={index === activeExperience ? 1 : 0}
 									position="absolute"
 									transitionDuration="1s"
+									mt={10}
 								>
 									<ExperienceBox {...experience} />
 								</Box>

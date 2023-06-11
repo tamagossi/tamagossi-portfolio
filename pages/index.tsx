@@ -19,11 +19,11 @@ import EXPERIENCES from 'constants/experience';
 import PROJECTS from 'constants/projects';
 import { Experience } from 'interface/experience.interface';
 import { Project } from 'interface/project.interface';
+import { useGetExperiences } from '@/hooks';
 
-const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = ({
-	experiences,
-	projects,
-}) => {
+const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = ({ projects }) => {
+	const experiences = useGetExperiences({ params: { limit: 10, page: 1 } });
+
 	return (
 		<MouseProvider>
 			<CursorFollow />
@@ -74,16 +74,18 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 					<AboutSection />
 				</Box>
 
-				<Box
-					h="100vh"
-					scrollSnapAlign="center"
-					scrollSnapStop="always"
-					w="100%"
-					position="relative"
-					overflow="hidden"
-				>
-					<ExperienceSection experiences={experiences} />
-				</Box>
+				{!experiences.isLoading && (
+					<Box
+						h="100vh"
+						scrollSnapAlign="center"
+						scrollSnapStop="always"
+						w="100%"
+						position="relative"
+						overflow="hidden"
+					>
+						<ExperienceSection experiences={experiences.data?.data!} />
+					</Box>
+				)}
 
 				<Box
 					h="100vh"
@@ -114,7 +116,6 @@ const HomePage: NextPage<{ experiences: Experience[]; projects: Project[] }> = (
 export async function getStaticProps() {
 	return {
 		props: {
-			experiences: EXPERIENCES,
 			projects: PROJECTS,
 		},
 	};
