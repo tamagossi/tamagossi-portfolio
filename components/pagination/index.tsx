@@ -15,7 +15,7 @@ export type PaginationProps = {
 
 const Pagination: FC<PaginationProps> = ({
 	pageSizeOptions,
-	perPage = 5,
+	perPage = 10,
 	showPageSizeChanger = true,
 	totalData,
 }): ReactElement => {
