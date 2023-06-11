@@ -12,6 +12,16 @@ class ExperienceService extends HTTPAdapterService {
 		}
 	}
 
+	public async deleteExperienceById(id: string): Promise<any> {
+		try {
+			const { data } = await this.sendDeleteRequest(`/api/experiences/${id}`);
+
+			return data;
+		} catch (error: any) {
+			throw new Error(error.message);
+		}
+	}
+
 	public async getExperienceById(id: string): Promise<{ data: Experience }> {
 		try {
 			const { data } = await this.sendGetRequest(`/api/experiences/${id}`);
@@ -27,6 +37,16 @@ class ExperienceService extends HTTPAdapterService {
 	): Promise<{ data: Experience[]; meta: Meta }> {
 		try {
 			const { data } = await this.sendGetRequest('/api/experiences', { ...params });
+
+			return data;
+		} catch (error: any) {
+			throw new Error(error.message);
+		}
+	}
+
+	public async updateExperience(id: string, payload: Experience): Promise<any> {
+		try {
+			const { data } = await this.sendPutRequest(`/api/experiences/${id}`, payload);
 
 			return data;
 		} catch (error: any) {

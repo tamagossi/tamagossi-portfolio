@@ -3,7 +3,6 @@ import { Checkbox, CheckboxProps } from '@chakra-ui/react';
 import { useFormContext, useController, UseControllerProps } from 'react-hook-form';
 
 import FormControl, { FormControlProps } from './FormControl';
-import { useUpdateEffect } from '@/hooks';
 
 type SingleCheckboxInputProps = CheckboxProps &
 	Omit<FormControlProps, 'children'> &
@@ -12,7 +11,7 @@ type SingleCheckboxInputProps = CheckboxProps &
 const SingleCheckboxInput: FC<SingleCheckboxInputProps> = (props): ReactElement => {
 	const { rules, name, children } = props;
 
-	const { control, watch } = useFormContext();
+	const { control } = useFormContext();
 	const { field } = useController({
 		control,
 		name,
@@ -20,14 +19,9 @@ const SingleCheckboxInput: FC<SingleCheckboxInputProps> = (props): ReactElement 
 		rules,
 	});
 
-	const value = watch(name);
-	useUpdateEffect(() => {
-		props.onChange?.(value);
-	}, [value]);
-
 	return (
 		<FormControl {...props} name={name}>
-			<Checkbox {...props} {...field} width="100%">
+			<Checkbox {...props} {...field} width="100%" isChecked={field.value}>
 				{children}
 			</Checkbox>
 		</FormControl>

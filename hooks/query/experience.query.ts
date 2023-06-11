@@ -45,6 +45,84 @@ export const useAddExperienceMutation = (options?: MutationOptions) => {
 	);
 };
 
+export const useDeleteExperienceById = (options?: MutationOptions) => {
+	const client = useQueryClient();
+	const toast = useToast();
+
+	return useMutation<any, Error, any>(
+		async (id: string): Promise<any> => {
+			try {
+				const service = new ExperienceService();
+				const response = await service.deleteExperienceById(id);
+
+				return response;
+			} catch (error: any) {
+				throw Error(error);
+			}
+		},
+		{
+			...options,
+			onSuccess: () => {
+				toast({
+					status: 'success',
+					description: 'You succesfully delete experience',
+					title: 'Success 😊',
+					position: 'bottom-left',
+				});
+
+				return client.invalidateQueries({ queryKey: [QUERY_KEYS.EXPERIENCES] });
+			},
+			onError: (error) => {
+				toast({
+					status: 'error',
+					description: error.message,
+					title: 'Something went wrong 😱',
+					position: 'bottom-left',
+				});
+			},
+		}
+	);
+};
+
+export const useUpdateExperience = (options?: MutationOptions) => {
+	const client = useQueryClient();
+	const toast = useToast();
+
+	return useMutation<any, Error, any>(
+		async ({ id, payload }: { id: string; payload: Experience }): Promise<any> => {
+			try {
+				const service = new ExperienceService();
+				const response = await service.updateExperience(id, payload);
+
+				return response;
+			} catch (error: any) {
+				throw Error(error);
+			}
+		},
+		{
+			...options,
+			onSuccess: () => {
+				toast({
+					status: 'success',
+					description: 'You succesfully update experience',
+					title: 'Success 😊',
+					position: 'bottom-left',
+				});
+
+				return client.invalidateQueries({ queryKey: [QUERY_KEYS.EXPERIENCES] });
+			},
+			onError: (error) => {
+				toast({
+					status: 'error',
+					description: error.message,
+					title: 'Something went wrong 😱',
+					position: 'bottom-left',
+				});
+			},
+		}
+	);
+};
+
 export const useGetExperiences = ({
 	params,
 	options,

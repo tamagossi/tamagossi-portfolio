@@ -24,7 +24,6 @@ const SelectInput: FC<SelectInputProps> = (props): ReactElement => {
 		dataSourceUrl,
 		options: defaultOptions,
 		renderOption,
-		service,
 		variant = 'flushed',
 		name,
 		rules,
@@ -64,14 +63,7 @@ const SelectInput: FC<SelectInputProps> = (props): ReactElement => {
 		setIsLoading(true);
 
 		try {
-			if (typeof service === 'undefined') {
-				toast({
-					title: 'Form error',
-					status: 'error',
-					description:
-						'Service is unavailable, make sure service props is passed when you invoke SelectInput component',
-				});
-			} else if (typeof dataSourceUrl === 'undefined') {
+			if (typeof dataSourceUrl === 'undefined') {
 				toast({
 					title: 'Form error',
 					status: 'error',
@@ -79,10 +71,10 @@ const SelectInput: FC<SelectInputProps> = (props): ReactElement => {
 						'Data source URL is unavailable, make sure service props is passed when you invoke SelectInput component',
 				});
 			} else {
-				const { data } = await service.getMasterData(dataSourceUrl, dataSourceParams);
-
-				setOptions(data.map((item: any) => generateOption(item)));
-				setIsLoading(false);
+				// const service = MasterService()
+				// const { data } = await service.getMasterData(dataSourceUrl, dataSourceParams);
+				// setOptions(data.map((item: any) => generateOption(item)));
+				// setIsLoading(false);
 			}
 		} catch (error: any) {
 			toast({ status: 'error', description: error.message });
