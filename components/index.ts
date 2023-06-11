@@ -18,7 +18,7 @@ export { default as DateInput } from './forms/DateInput';
 export { default as Form } from './forms/Form';
 export { default as PasswordInput } from './forms/PasswordInput';
 export { default as SelectInput } from './forms/SelectInput';
-export { default as SingleCheckboxInput } from './forms/SingleCheckbox';
+export { default as SingleCheckboxInput } from './forms/SingleCheckboxInput';
 export { default as TextAreaInput } from './forms/TextAreaInput';
 export { default as TextArrayInput } from './forms/TextArrayInput';
 export { default as TextInput } from './forms/TextInput';

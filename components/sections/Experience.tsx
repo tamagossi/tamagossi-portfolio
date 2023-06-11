@@ -53,7 +53,7 @@ const ExperienceBox: FC<Experience> = ({
 
 				{descriptions && (
 					<VStack alignItems="start">
-						{descriptions.map((desc) => {
+						{(descriptions as any).map((desc: any) => {
 							return (
 								<HStack key={desc} spacing={4}>
 									<Box>

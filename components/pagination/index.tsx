@@ -19,7 +19,7 @@ const Pagination: FC<PaginationProps> = ({
 	showPageSizeChanger = true,
 	totalData,
 }): ReactElement => {
-	const { page, setPage, limit, setLimit } = usePagination();
+	const { setPage, limit, setLimit } = usePagination();
 
 	useEffectOnce(() => {
 		setLimit(perPage);
@@ -28,16 +28,16 @@ const Pagination: FC<PaginationProps> = ({
 	return (
 		<HStack>
 			<ReactPaginate
-				previousLabel="← Previous"
-				nextLabel="Next →"
-				pageCount={Math.ceil(totalData / limit)}
-				onPageChange={({ selected }) => setPage(selected + 1)}
-				containerClassName={styles.pagination}
-				pageLinkClassName={styles['pagination-item']}
-				previousLinkClassName={`${styles['pagination-item']} ${styles['arrow-item']}`}
-				nextLinkClassName={`${styles['pagination-item']} ${styles['arrow-item']}`}
 				activeLinkClassName={styles['pagination-active']}
+				containerClassName={styles.pagination}
 				disabledLinkClassName={styles['disabled']}
+				nextLabel="Next →"
+				nextLinkClassName={`${styles['pagination-item']} ${styles['arrow-item']}`}
+				onPageChange={({ selected }) => setPage(selected + 1)}
+				pageCount={Math.ceil(totalData / limit)}
+				pageLinkClassName={styles['pagination-item']}
+				previousLabel="← Previous"
+				previousLinkClassName={`${styles['pagination-item']} ${styles['arrow-item']}`}
 			/>
 
 			{showPageSizeChanger && (

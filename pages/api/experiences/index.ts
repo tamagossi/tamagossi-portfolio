@@ -1,3 +1,4 @@
+import { Experience } from 'interface';
 import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -22,9 +23,7 @@ const experiences = async (req: NextApiRequest, res: NextApiResponse) => {
 				prisma.experience.findMany({
 					skip: (parseInt(page as string) - 1) * parseInt(limit as string),
 					take: parseInt(limit as string),
-					orderBy: {
-						end_date: 'asc',
-					},
+					orderBy: [{ is_current: 'desc' }, { start_date: 'desc' }, { end_date: 'desc' }],
 				}),
 			]);
 
