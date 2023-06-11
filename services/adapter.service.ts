@@ -25,7 +25,7 @@ export default class HTTPAdapterService {
 		return this.client.put(URL, requestBody);
 	}
 
-	public sendDeleteRequest(URL: string, requestBody: Record<string, any>) {
+	public sendDeleteRequest(URL: string, requestBody?: Record<string, any>) {
 		return this.client.delete(URL, requestBody);
 	}
 }

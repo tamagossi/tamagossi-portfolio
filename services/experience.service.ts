@@ -12,6 +12,15 @@ class ExperienceService extends HTTPAdapterService {
 		}
 	}
 
+	public async deleteExperienceById(id: string): Promise<{ data: Experience }> {
+		try {
+			const { data } = await this.sendDeleteRequest(`/api/experiences/${id}`);
+
+			return data;
+		} catch (error: any) {
+			throw new Error(error.message);
+		}
+	}
 	public async getExperienceById(id: string): Promise<{ data: Experience }> {
 		try {
 			const { data } = await this.sendGetRequest(`/api/experiences/${id}`);
