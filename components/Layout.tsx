@@ -67,7 +67,9 @@ const Layout: FC<LayoutProps> = ({ children, backable, isError, title }): ReactE
 			<GridItem colSpan={19} py={7} px={20} h="100vh" overflowY="auto" bg="blackAlpha.900">
 				<VStack w="100%" spacing={10} align="start">
 					<HStack spacing={4}>
-						{backable && <AiOutlineArrowLeft onClick={back} />}
+						{backable && (
+							<AiOutlineArrowLeft onClick={back} style={{ cursor: 'pointer' }} />
+						)}
 
 						<Heading fontSize="2xl">{title}</Heading>
 					</HStack>
