@@ -28,7 +28,7 @@ const experiences = async (req: NextApiRequest, res: NextApiResponse) => {
 			]);
 
 			if (count === 0) {
-				res.status(204).json({ data: {} });
+				res.status(204).json({ data: [] });
 			}
 
 			res.status(200).json({

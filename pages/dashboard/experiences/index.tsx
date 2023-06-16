@@ -120,9 +120,9 @@ const DashboardExperiencePage = () => {
 					{typeof experience === 'undefined' ? null : (
 						<Datatable<Experience>
 							columns={columns}
-							totalData={experience.meta.total_data}
+							totalData={experience?.meta?.total_data || 0}
 							headerCellProps={{ color: 'white' }}
-							data={experience.data}
+							data={experience?.data || []}
 						/>
 					)}
 				</VStack>
