@@ -38,6 +38,7 @@
 		"zustand": "^4.3.1"
 	},
 	"devDependencies": {
+		"prisma": "^4.15.0",
 		"react-icons": "^4.6.0"
 	}
 }
