@@ -1,65 +1,88 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+import { useEffect, useMemo, useState } from 'react';
+
+export default function Page() {
+	const helloText = useMemo(() => 'Hello, World', []);
+	const tamaText = useMemo(() => 'I am Tama', []);
+
+	const [showHello, setShowHello] = useState(true);
+	const [showSecond, setShowSecond] = useState(false);
+	const [showThird, setShowThird] = useState(false);
+	const [typedHello, setTypedHello] = useState('');
+	const [typedSecond, setTypedSecond] = useState('');
+	const [showWave, setShowWave] = useState(false);
+
+	useEffect(() => {
+		let i = 0;
+		const intervalId = setInterval(() => {
+			i += 1;
+			setTypedHello(helloText.slice(0, i));
+			if (i >= helloText.length) {
+				clearInterval(intervalId);
+				setShowWave(true);
+				const pauseTimer = setTimeout(() => {
+					setShowHello(false);
+					setShowSecond(true);
+				}, 2000);
+				return () => clearTimeout(pauseTimer);
+			}
+		}, 80);
+		return () => clearInterval(intervalId);
+	}, [helloText]);
+
+	useEffect(() => {
+		if (!showSecond) return;
+		let i = 0;
+		const intervalId = setInterval(() => {
+			i += 1;
+			setTypedSecond(tamaText.slice(0, i));
+			if (i >= tamaText.length) {
+				clearInterval(intervalId);
+				const t = setTimeout(() => setShowThird(true), 1500);
+				return () => clearTimeout(t);
+			}
+		}, 80);
+		return () => clearInterval(intervalId);
+	}, [showSecond, tamaText]);
+
+	return (
+		<section className="min-h-[100svh] grid place-items-center bg-gradient-to-b from-black via-zinc-950 to-black p-6 text-white">
+			<div className="text-center">
+				{showHello && (
+					<h1
+						aria-live="polite"
+						className="mx-auto max-w-[40ch] text-balance text-4xl font-bold tracking-tight md:text-6xl"
+						data-testid="hero-hello-heading"
+					>
+						<span>{typedHello}</span>
+						{showWave && (
+							<span className="wave-hand fade-in" role="img" aria-label="waving hand">
+								👋
+							</span>
+						)}
+					</h1>
+				)}
+
+				{showSecond && (
+					<p
+						aria-live="polite"
+						className="fade-in mx-auto mt-4 max-w-[50ch] text-balance text-4xl font-bold tracking-tight md:text-6xl"
+						data-testid="hero-subtitle"
+					>
+						{typedSecond}
+					</p>
+				)}
+
+				{showThird && (
+					<p
+						className="fade-up mx-auto mt-2 max-w-[50ch] text-balance text-lg text-zinc-400 md:text-xl"
+						data-testid="hero-role"
+					>
+						a Software Engineer
+					</p>
+				)}
+			</div>
+		</section>
+	);
 }
